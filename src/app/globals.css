@@ -1,26 +1,222 @@
 @import "tailwindcss";
 
+/*
+  Marka: #5f7a6c — krem zemin (#fdf5c9) ile uyumlu soğuk yeşil-gri.
+  Metinler kahverengi değil; yeşile yakın nötr gri.
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Sabit navbar yüksekliği — hero içeriği bunun altından başlar, görsel nav arkasında kalır */
+  --header-h: 4.75rem;
+
+  --cream: #fdf5c9;
+  --cream-deep: color-mix(in srgb, var(--cream) 56%, #e6ddba);
+  --cream-muted: color-mix(in srgb, var(--cream) 62%, #faf7ec);
+  --surface: color-mix(in srgb, var(--cream) 44%, #fffdf6);
+  --brand: #5f7a6c;
+  --sage: var(--brand);
+  --sage-light: #7a9487;
+  --sage-dark: #4d6358;
+  --ink: #2a322f;
+  --ink-muted: #5c6862;
+  --accent: #5f7a6c;
+  --accent-soft: color-mix(in srgb, var(--brand) 22%, var(--cream));
+  --line: color-mix(in srgb, var(--cream) 28%, #dde5e0);
+  --background: var(--cream);
+  --foreground: var(--ink);
 }
 
 @theme inline {
+  --color-cream: var(--cream);
+  --color-cream-deep: var(--cream-deep);
+  --color-cream-muted: var(--cream-muted);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-sage: var(--sage);
+  --color-sage-light: var(--sage-light);
+  --color-sage-dark: var(--sage-dark);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
 }
 
 body {
-  background: var(--background);
+  background: var(--cream);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+}
+
+/* Cam yüzey — kartlar, paneller, şeritler (site geneli saydam) */
+.glass {
+  background-color: color-mix(in srgb, var(--cream) 26%, transparent);
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+}
+
+.glass-strong {
+  background-color: color-mix(in srgb, var(--cream) 38%, transparent);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+}
+
+.glass-band {
+  background-color: color-mix(in srgb, var(--cream) 12%, transparent);
+  backdrop-filter: blur(22px) saturate(1.15);
+  -webkit-backdrop-filter: blur(22px) saturate(1.15);
+}
+
+.glass-input {
+  background-color: color-mix(in srgb, var(--cream-muted) 22%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--brand) 22%, transparent);
+}
+
+.gradient-mesh {
+  background:
+    radial-gradient(
+      ellipse 100% 80% at 90% -10%,
+      color-mix(in srgb, var(--brand) 9%, transparent),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 70% 50% at 0% 100%,
+      color-mix(in srgb, var(--brand) 6%, transparent),
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 90% 60% at 50% -25%,
+      color-mix(in srgb, var(--ink) 4%, transparent),
+      transparent
+    ),
+    linear-gradient(
+      185deg,
+      var(--cream) 0%,
+      var(--cream-muted) 52%,
+      var(--cream-deep) 100%
+    );
+}
+
+.card-soft {
+  box-shadow:
+    0 1px 0 color-mix(in srgb, var(--ink) 4%, transparent),
+    0 14px 40px color-mix(in srgb, var(--brand) 7%, transparent);
+}
+
+/* İnce üst çizgi — bölüm / footer vurgusu */
+.brand-rule {
+  width: 100%;
+  height: 3px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--brand) 50%, transparent),
+    transparent
+  );
+}
+
+/* Kart: hafif kalkış + marka gölgesi */
+.card-lift {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s ease;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 50px color-mix(in srgb, var(--brand) 12%, transparent),
+    0 1px 0 color-mix(in srgb, var(--ink) 5%, transparent);
+}
+
+/* Birincil buton — belirgin gölge, hover kalkış */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.875rem 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--cream-muted);
+  background-color: var(--brand);
+  box-shadow:
+    0 4px 16px color-mix(in srgb, var(--brand) 32%, transparent),
+    0 1px 0 color-mix(in srgb, black 8%, var(--brand));
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s ease,
+    background-color 0.2s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background-color: var(--sage-dark);
+  box-shadow:
+    0 12px 32px color-mix(in srgb, var(--brand) 38%, transparent),
+    0 1px 0 color-mix(in srgb, black 12%, var(--brand));
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* İkincil buton — cam + ince çerçeve */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.875rem 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--brand);
+  background-color: color-mix(in srgb, var(--surface) 92%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brand) 22%, var(--line));
+  backdrop-filter: blur(8px);
+  transition:
+    transform 0.25s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+.btn-secondary:hover {
+  transform: translateY(-1px);
+  background-color: var(--cream-muted);
+  border-color: color-mix(in srgb, var(--brand) 35%, var(--line));
+}
+
+/* Header / küçük CTA */
+.btn-primary-sm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.5rem 1.15rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--cream-muted);
+  background-color: var(--brand);
+  box-shadow: 0 2px 12px color-mix(in srgb, var(--brand) 26%, transparent);
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.btn-primary-sm:hover {
+  transform: translateY(-1px);
+  background-color: var(--sage-dark);
+  box-shadow: 0 4px 18px color-mix(in srgb, var(--brand) 32%, transparent);
 }
