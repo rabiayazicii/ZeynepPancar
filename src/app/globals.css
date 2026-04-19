@@ -196,14 +196,14 @@ body {
     0 1px 0 color-mix(in srgb, var(--ink) 5%, transparent);
 }
 
-/* Birincil buton — belirgin gölge, hover kalkış */
+/* Birincil buton — belirgin gölge, hover kalkış (mobilde biraz daha kompakt) */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  padding: 0.875rem 2rem;
-  font-size: 0.875rem;
+  padding: 0.625rem 1.35rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   line-height: 1.25;
   color: var(--cream-muted);
@@ -215,6 +215,12 @@ body {
     transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.25s ease,
     background-color 0.2s ease;
+}
+@media (min-width: 640px) {
+  .btn-primary {
+    padding: 0.875rem 2rem;
+    font-size: 0.875rem;
+  }
 }
 .btn-primary:hover {
   transform: translateY(-2px);
@@ -233,8 +239,8 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  padding: 0.875rem 2rem;
-  font-size: 0.875rem;
+  padding: 0.625rem 1.35rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   line-height: 1.25;
   color: var(--brand);
@@ -255,6 +261,12 @@ body {
   background-color: var(--cream-muted);
   border-color: color-mix(in srgb, var(--brand) 35%, var(--line));
 }
+@media (min-width: 640px) {
+  .btn-secondary {
+    padding: 0.875rem 2rem;
+    font-size: 0.875rem;
+  }
+}
 
 /* Header / küçük CTA */
 .btn-primary-sm {
@@ -262,8 +274,8 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  padding: 0.5rem 1.15rem;
-  font-size: 0.8125rem;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.6875rem;
   font-weight: 600;
   color: var(--cream-muted);
   background-color: var(--brand);
@@ -277,4 +289,10 @@ body {
   transform: translateY(-1px);
   background-color: var(--sage-dark);
   box-shadow: 0 4px 18px color-mix(in srgb, var(--brand) 32%, transparent);
+}
+@media (min-width: 640px) {
+  .btn-primary-sm {
+    padding: 0.5rem 1.15rem;
+    font-size: 0.8125rem;
+  }
 }

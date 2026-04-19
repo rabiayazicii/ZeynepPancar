@@ -67,7 +67,7 @@ export function PageHero({
       ) : null}
       <h1
         className={cn(
-          "max-w-3xl font-serif text-4xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-[3.15rem] lg:leading-[1.08]",
+          "max-w-3xl font-serif text-3xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-[3.15rem] lg:leading-[1.08]",
           kicker ? "mt-5" : "",
           backdropImageSrc &&
             strongScrim &&
@@ -88,8 +88,8 @@ export function PageHero({
             onClearPhoto &&
               "max-sm:text-cream-muted/92 max-sm:[text-shadow:0_1px_16px_rgba(0,0,0,0.5)]",
             descriptionPlain
-              ? "text-base sm:text-[17px]"
-              : "text-base sm:text-lg",
+              ? "text-[15px] sm:text-[17px]"
+              : "text-[15px] sm:text-base md:text-lg",
           )}
         >
           {description}

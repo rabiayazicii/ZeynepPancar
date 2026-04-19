@@ -55,7 +55,7 @@ export default function BlogIndexPage() {
                     className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/82 via-black/45 to-black/10"
                     aria-hidden
                   />
-                  <div className="relative z-10 flex flex-col p-6 sm:p-8 lg:p-9">
+                  <div className="relative z-10 flex flex-col p-5 sm:p-8 lg:p-9">
                     <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-highlight">
                       <span className="rounded-full border border-highlight/50 bg-black/35 px-2.5 py-0.5 backdrop-blur-sm">
                         {post.category}
@@ -71,7 +71,7 @@ export default function BlogIndexPage() {
                         ~{post.readMinutes} dk
                       </span>
                     </div>
-                    <h2 className="mt-4 font-serif text-xl font-semibold leading-snug tracking-tight text-cream-muted sm:text-2xl sm:leading-snug">
+                    <h2 className="mt-4 font-serif text-lg font-semibold leading-snug tracking-tight text-cream-muted sm:text-2xl sm:leading-snug">
                       <span className="[text-shadow:0_2px_24px_rgba(0,0,0,0.45)]">
                         {post.title}
                       </span>

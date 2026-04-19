@@ -68,7 +68,7 @@ export function Header() {
             priority
           />
           <span className="flex min-w-0 flex-col leading-tight">
-            <span className="font-serif text-lg font-semibold tracking-tight text-ink transition-colors group-hover:text-sage sm:text-xl">
+            <span className="font-serif text-base font-semibold tracking-tight text-ink transition-colors group-hover:text-sage sm:text-xl">
               Zeynep Pancar
             </span>
             <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-sage/90 sm:text-[11px]">
@@ -105,7 +105,7 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
-          <Link href="/iletisim" className="btn-primary-sm text-[11px]">
+          <Link href="/iletisim" className="btn-primary-sm">
             Randevu
           </Link>
           <button
@@ -159,7 +159,7 @@ export function Header() {
                     key={item.href}
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className={`border-b-2 border-transparent px-1 py-3 text-base font-medium transition-colors ${
+                    className={`border-b-2 border-transparent px-1 py-2.5 text-sm font-medium transition-colors ${
                       active
                         ? "border-sage text-sage"
                         : "text-ink-muted hover:text-ink"

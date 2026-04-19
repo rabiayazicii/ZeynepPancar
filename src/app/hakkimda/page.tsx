@@ -68,7 +68,7 @@ export default function AboutPage() {
               <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sage">
                 Hakkımda
               </p>
-              <h1 className="mt-5 border-l-[3px] border-sage pl-4 font-serif text-[2.75rem] font-medium leading-[1.05] tracking-tight text-ink sm:pl-5 sm:text-5xl lg:text-[3.25rem]">
+              <h1 className="mt-5 border-l-[3px] border-sage pl-4 font-serif text-[2.15rem] font-medium leading-[1.06] tracking-tight text-ink sm:pl-5 sm:text-5xl lg:text-[3.25rem]">
                 Zeynep Pancar
               </h1>
               <p className="mt-4 inline-flex flex-wrap gap-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-sage-dark/90">
@@ -79,11 +79,11 @@ export default function AboutPage() {
                   Çocuk · Yetişkin
                 </span>
               </p>
-              <p className="mt-6 text-lg leading-relaxed text-ink-muted sm:text-[1.125rem]">
+              <p className="mt-6 text-[15px] leading-relaxed text-ink-muted sm:text-lg">
                 İletişimin her yaşta hak olduğuna inanıyorum; terapi ise bu hakkı
                 desteklemenin bilimsel ve insani yolu.
               </p>
-              <div className="mt-9 space-y-5 text-[17px] leading-[1.75] text-ink-muted sm:text-lg">
+              <div className="mt-9 space-y-5 text-[15px] leading-[1.72] text-ink-muted sm:text-[17px] md:text-lg">
                 <p className="text-pretty text-ink/90">
                   Dil ve konuşma terapisti olarak çocuklar, ergenler ve yetişkinlerle
                   çalışıyorum. Her danışanın hikâyesi farklı olduğu için önce dinler,
@@ -96,7 +96,7 @@ export default function AboutPage() {
                   iş birliğini önemsiyorum.
                 </p>
               </div>
-              <div className="mt-9 flex flex-wrap gap-4">
+              <div className="mt-9 flex flex-wrap items-center gap-3 sm:gap-4">
                 <ButtonLink
                   href="/iletisim"
                   variant="primary"
@@ -110,7 +110,7 @@ export default function AboutPage() {
                 <Link
                   href="/hizmetler"
                   className={cn(
-                    "group inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-sage-dark",
+                    "group inline-flex items-center gap-2 px-4 py-2 text-[13px] font-semibold text-sage-dark sm:px-5 sm:py-2.5 sm:text-sm",
                     softRoundLink3d,
                   )}
                 >
@@ -148,10 +148,10 @@ export default function AboutPage() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-cream-muted/90">
               Yaklaşım
             </p>
-            <h2 className="mt-4 border-l-[3px] border-cream-muted/55 pl-4 font-serif text-3xl font-medium tracking-tight text-cream-muted sm:pl-5 sm:text-4xl">
+            <h2 className="mt-4 border-l-[3px] border-cream-muted/55 pl-4 font-serif text-2xl font-medium tracking-tight text-cream-muted sm:pl-5 sm:text-4xl">
               Çalışma değerlerim
             </h2>
-            <p className="mt-4 max-w-2xl text-[17px] leading-relaxed text-cream-muted/90 sm:text-lg">
+            <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-cream-muted/90 sm:text-[17px] md:text-lg">
               Terapi ilişkisinde öncelediğim ilkeler: güven, netlik ve iş birliği.
               Aşağıdaki dört başlık, günlük pratiğe nasıl yansıdığını özetler.
             </p>
@@ -163,7 +163,7 @@ export default function AboutPage() {
                   <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-cream-muted/35 bg-cream-muted/12 text-cream-muted">
                     <v.icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
                   </span>
-                  <p className="mt-4 font-serif text-xl font-medium text-cream-muted sm:text-2xl">
+                  <p className="mt-4 font-serif text-lg font-medium text-cream-muted sm:text-2xl">
                     {v.title}
                   </p>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-cream-muted/90 sm:text-[15px]">
@@ -182,10 +182,10 @@ export default function AboutPage() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-sage">
               Ortam
             </p>
-            <h2 className="mt-4 max-w-2xl border-l-[3px] border-sage pl-4 font-serif text-3xl font-medium tracking-tight text-ink sm:pl-5 sm:text-4xl">
+            <h2 className="mt-4 max-w-2xl border-l-[3px] border-sage pl-4 font-serif text-2xl font-medium tracking-tight text-ink sm:pl-5 sm:text-4xl">
               Çalışma ortamından kareler
             </h2>
-            <p className="mt-4 max-w-2xl text-[17px] leading-relaxed text-ink-muted sm:text-lg">
+            <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink-muted sm:text-[17px] md:text-lg">
               Seansların geçtiği alan; sakin, düzenli ve yaşa uygun materyallerle
               desteklenir. Görüntüler, klinik gündelikten kısa bir kesit sunar.
             </p>
@@ -210,7 +210,7 @@ export default function AboutPage() {
               strokeWidth={1.25}
               aria-hidden
             />
-            <h2 className="mx-auto mt-6 max-w-md rounded-xl border border-cream-muted/40 bg-black/14 px-5 py-3 font-serif text-2xl font-medium tracking-tight text-cream-muted shadow-[0_14px_36px_-18px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,251,245,0.1)] sm:mt-7 sm:text-3xl">
+            <h2 className="mx-auto mt-6 max-w-md rounded-xl border border-cream-muted/40 bg-black/14 px-4 py-2.5 font-serif text-xl font-medium tracking-tight text-cream-muted shadow-[0_14px_36px_-18px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,251,245,0.1)] sm:mt-7 sm:px-5 sm:py-3 sm:text-3xl">
               Sorularınız mı var?
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-cream-muted/85 sm:text-[15px]">

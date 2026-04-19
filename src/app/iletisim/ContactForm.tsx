@@ -25,7 +25,7 @@ function Kicker({ children }: { children: React.ReactNode }) {
 }
 
 const fieldClass = cn(
-  "mt-2 w-full rounded-xl border border-sage/24 bg-cream-muted/75 px-4 py-3 text-[15px] text-ink outline-none transition",
+  "mt-2 w-full rounded-xl border border-sage/24 bg-cream-muted/75 px-3.5 py-2.5 text-[14px] text-ink outline-none transition sm:px-4 sm:py-3 sm:text-[15px]",
   "shadow-[inset_0_2px_4px_rgba(18,22,20,0.035)]",
   "placeholder:text-ink-muted/45",
   "focus:border-sage/50 focus:bg-cream-muted/90 focus:shadow-[inset_0_2px_4px_rgba(18,22,20,0.04),0_0_0_3px_rgba(95,122,108,0.12)]",
@@ -38,12 +38,12 @@ const shell3d = cn(
 );
 
 const innerForm3d = cn(
-  "relative overflow-hidden rounded-2xl border border-sage/22 bg-gradient-to-br from-cream-muted/70 via-background/92 to-cream-muted/55 p-6 sm:p-8",
+  "relative overflow-hidden rounded-2xl border border-sage/22 bg-gradient-to-br from-cream-muted/70 via-background/92 to-cream-muted/55 p-5 sm:p-8",
   "shadow-[inset_0_1px_0_rgba(255,253,245,0.85),inset_0_-10px_28px_-14px_rgba(95,122,108,0.08),0_14px_36px_-22px_rgba(18,22,20,0.16)]",
 );
 
 const submitBase = cn(
-  "inline-flex w-full items-center justify-center gap-2 rounded-full border border-sage/40 bg-highlight px-6 py-3.5 text-sm font-semibold text-ink",
+  "inline-flex w-full items-center justify-center gap-2 rounded-full border border-sage/40 bg-highlight px-5 py-2.5 text-[13px] font-semibold text-ink sm:px-6 sm:py-3.5 sm:text-sm",
   "transition hover:border-sage hover:bg-cream-muted",
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage",
 );
@@ -73,7 +73,7 @@ export function ContactForm() {
 
           <aside
             className={cn(
-              "relative border-rule/20 bg-gradient-to-b from-sage/[0.06] via-cream-muted/35 to-cream-muted/55 p-6 sm:p-8",
+              "relative border-rule/20 bg-gradient-to-b from-sage/[0.06] via-cream-muted/35 to-cream-muted/55 p-5 sm:p-8",
               "lg:border-r lg:border-t-0 lg:border-sage/20",
               "order-2 border-t border-sage/18 lg:order-1",
             )}
@@ -84,7 +84,7 @@ export function ContactForm() {
             />
             <div className="relative pl-4 sm:pl-5">
               <Kicker>Bilgiler</Kicker>
-              <h2 className="mt-4 font-serif text-2xl font-medium tracking-tight text-ink sm:text-[1.65rem]">
+              <h2 className="mt-4 font-serif text-xl font-medium tracking-tight text-ink sm:text-[1.65rem]">
                 Hızlı iletişim
               </h2>
               <p className="mt-3 max-w-sm text-sm leading-relaxed text-ink-muted sm:text-[15px]">
@@ -182,14 +182,14 @@ export function ContactForm() {
             </div>
           </aside>
 
-          <div className="order-1 p-6 sm:p-8 lg:p-9 lg:pl-10">
+          <div className="order-1 p-5 sm:p-8 lg:p-9 lg:pl-10">
             <div className={innerForm3d}>
               {sent ? (
                 <div className="flex flex-col items-center py-8 text-center sm:py-10">
                   <span className="flex h-14 w-14 items-center justify-center rounded-full border border-emerald-200/80 bg-cream-muted/90 text-emerald-600 shadow-[0_6px_16px_-6px_rgba(5,150,105,0.3)]">
                     <CheckCircle2 className="h-7 w-7" strokeWidth={1.75} aria-hidden />
                   </span>
-                  <p className="mt-6 max-w-md font-serif text-xl font-medium text-ink sm:text-2xl">
+                  <p className="mt-6 max-w-md font-serif text-lg font-medium text-ink sm:text-2xl">
                     Teşekkürler
                   </p>
                   <p className="mt-3 max-w-md text-sm leading-relaxed text-ink-muted sm:text-[15px]">
@@ -201,7 +201,7 @@ export function ContactForm() {
                 <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
                   <header className="border-b border-sage/15 pb-5">
                     <Kicker>Form</Kicker>
-                    <h2 className="mt-4 font-serif text-2xl font-medium tracking-tight text-ink sm:text-[1.65rem]">
+                    <h2 className="mt-4 font-serif text-xl font-medium tracking-tight text-ink sm:text-[1.65rem]">
                       Bize yazın
                     </h2>
                     <p className="mt-3 text-sm leading-relaxed text-ink-muted sm:text-[15px]">

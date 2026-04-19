@@ -72,7 +72,7 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="mt-12 sm:mt-14">
           {post.content.map((paragraph, i) => (
             <FadeIn key={i} delay={i * 0.05}>
-              <p className="mb-7 text-[17px] leading-[1.8] text-ink-muted last:mb-0">
+              <p className="mb-6 text-[15px] leading-[1.75] text-ink-muted last:mb-0 sm:mb-7 sm:text-[17px] sm:leading-[1.8]">
                 {paragraph}
               </p>
             </FadeIn>

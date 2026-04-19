@@ -127,16 +127,16 @@ export default function HomePage() {
             <p className="inline-flex rounded-full border-2 border-white/45 bg-white/12 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.26em] text-cream-muted backdrop-blur-md">
               Dil ve konuşma terapisi
             </p>
-            <h1 className="mt-5 max-w-[15ch] border-l-4 border-white/55 pl-4 font-serif text-[2.6rem] font-medium leading-[1.05] tracking-tight text-cream-muted [text-shadow:0_1px_3px_rgba(18,22,20,0.35),0_12px_40px_rgba(253,251,245,0.55)] sm:mt-6 sm:pl-5 sm:text-5xl sm:leading-[1.02] lg:text-[3.45rem]">
+            <h1 className="mt-5 max-w-[15ch] border-l-4 border-white/55 pl-4 font-serif text-[2.05rem] font-medium leading-[1.06] tracking-tight text-cream-muted [text-shadow:0_1px_3px_rgba(18,22,20,0.35),0_12px_40px_rgba(253,251,245,0.55)] sm:mt-6 sm:pl-5 sm:text-5xl sm:leading-[1.02] lg:text-[3.45rem]">
               Net iletişim, bilimle desteklenen yol.
             </h1>
-            <p className="mt-7 max-w-lg rounded-r-2xl border-y border-r border-white/35 border-l-0 bg-black/22 py-4 pl-4 pr-5 text-[17px] leading-[1.75] text-cream-muted/92 backdrop-blur-[2px] sm:mt-8 sm:pl-5 sm:pr-6 sm:text-lg">
+            <p className="mt-7 max-w-lg rounded-r-2xl border-y border-r border-white/35 border-l-0 bg-black/22 py-3.5 pl-4 pr-4 text-[15px] leading-[1.72] text-cream-muted/92 backdrop-blur-[2px] sm:mt-8 sm:py-4 sm:pl-5 sm:pr-6 sm:text-lg sm:leading-[1.75]">
               Merhaba, ben{" "}
               <span className="font-semibold text-cream-muted">Zeynep Pancar</span>.
               Çocuktan yetişkine her yaşta dil, konuşma, ses ve yutma alanlarında size
               özel çalışıyorum.
             </p>
-            <div className="mt-10 flex flex-wrap items-center gap-4 sm:gap-5">
+            <div className="mt-9 flex flex-wrap items-center gap-3 sm:mt-10 sm:gap-5">
               <ButtonLink
                 href="/iletisim"
                 variant="primary"
@@ -149,7 +149,7 @@ export default function HomePage() {
               </ButtonLink>
               <Link
                 href="/hizmetler"
-                className="group inline-flex items-center gap-2 text-sm font-semibold text-cream-muted drop-shadow-[0_1px_10px_rgba(18,22,20,0.35)]"
+                className="group inline-flex items-center gap-2 text-[13px] font-semibold text-cream-muted drop-shadow-[0_1px_10px_rgba(18,22,20,0.35)] sm:text-sm"
               >
                 Hizmetlere bak
                 <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
@@ -168,7 +168,7 @@ export default function HomePage() {
                 key={p.title}
                 className="rounded-xl border-2 border-cream-muted/40 bg-black/10 px-4 py-4 sm:px-6 sm:py-5 sm:first:pl-4 sm:last:pr-4"
               >
-                <p className="font-serif text-xl font-medium text-cream-muted sm:text-2xl">
+                <p className="font-serif text-lg font-medium text-cream-muted sm:text-2xl">
                   {p.title}
                 </p>
                 <p className="mt-2 max-w-xs text-sm leading-relaxed text-cream-muted/90">
@@ -184,10 +184,10 @@ export default function HomePage() {
       <section className="border-b border-rule/12 bg-gradient-to-b from-cream via-highlight/18 to-cream-muted/50 py-20 sm:py-28">
         <PageShell width="full">
           <FadeIn>
-            <h2 className="max-w-xl border-l-4 border-sage pl-4 font-serif text-3xl font-medium tracking-tight text-ink sm:pl-5 sm:text-4xl">
+            <h2 className="max-w-xl border-l-4 border-sage pl-4 font-serif text-2xl font-medium tracking-tight text-ink sm:pl-5 sm:text-4xl">
               Alanlar
             </h2>
-            <p className="mt-5 max-w-2xl text-[17px] leading-relaxed text-ink/90">
+            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-ink/90 sm:text-[17px]">
               İlk görüşmede öykü, test ve klinik gözlemle profil netleşir; ardından
               hedeflerinize uygun program önerilir. Her yaş ve ihtiyaç için
               değerlendirme ve tedavi planı birlikte şekillenir; gerektiğinde diğer
@@ -221,7 +221,7 @@ export default function HomePage() {
             <Link
               href="/hizmetler"
               className={cn(
-                "mt-10 inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-sage-dark",
+                "mt-10 inline-flex items-center gap-2 px-4 py-2 text-[13px] font-semibold text-sage-dark sm:px-5 sm:py-2.5 sm:text-sm",
                 softRoundLink3d,
               )}
             >
@@ -237,10 +237,10 @@ export default function HomePage() {
         <PageShell width="full">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-12">
             <FadeIn className="max-w-xl lg:max-w-2xl">
-              <h2 className="border-l-4 border-sage pl-4 font-serif text-3xl font-medium tracking-tight text-ink sm:pl-5 sm:text-4xl">
+              <h2 className="border-l-4 border-sage pl-4 font-serif text-2xl font-medium tracking-tight text-ink sm:pl-5 sm:text-4xl">
                 Nasıl ilerliyoruz?
               </h2>
-              <p className="mt-4 text-[17px] leading-relaxed text-ink/90 sm:text-lg">
+              <p className="mt-4 text-[15px] leading-relaxed text-ink/90 sm:text-[17px] md:text-lg">
                 Dört adımlı bir çerçeveyle ilerleriz: önce beklentileri ve öyküyü
                 netleştiririz, ardından değerlendirme ve planı birlikte kurarız.
                 Seans sıklığı ve ev uygulamaları, günlük hayatınıza uyacak şekilde
@@ -281,7 +281,7 @@ export default function HomePage() {
           <ol className="mt-12 grid gap-4 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4 lg:gap-5">
             {steps.map((row, i) => (
               <FadeIn key={row.n} delay={i * 0.05}>
-                <li className="group relative flex h-full min-h-[11.5rem] flex-col rounded-2xl border border-sage/26 bg-gradient-to-b from-cream-muted/38 via-background/96 to-cream-muted/32 p-6 shadow-[0_18px_48px_-24px_rgba(18,22,20,0.13),inset_0_1px_0_rgba(255,251,240,0.52)] ring-1 ring-sage/10 transition duration-300 hover:-translate-y-1 hover:border-sage/34 hover:shadow-[0_26px_56px_-26px_rgba(95,122,108,0.15),inset_0_1px_0_rgba(255,251,240,0.58)] sm:min-h-[12rem] sm:p-7">
+                <li className="group relative flex h-full min-h-[10.5rem] flex-col rounded-2xl border border-sage/26 bg-gradient-to-b from-cream-muted/38 via-background/96 to-cream-muted/32 p-5 shadow-[0_18px_48px_-24px_rgba(18,22,20,0.13),inset_0_1px_0_rgba(255,251,240,0.52)] ring-1 ring-sage/10 transition duration-300 hover:-translate-y-1 hover:border-sage/34 hover:shadow-[0_26px_56px_-26px_rgba(95,122,108,0.15),inset_0_1px_0_rgba(255,251,240,0.58)] sm:min-h-[12rem] sm:p-7">
                   <div className="flex items-center justify-start gap-3">
                     <span
                       className={cn(
@@ -292,7 +292,7 @@ export default function HomePage() {
                       {row.n}
                     </span>
                   </div>
-                  <h3 className="mt-5 font-serif text-lg font-medium tracking-tight text-ink sm:text-xl">
+                  <h3 className="mt-4 font-serif text-base font-medium tracking-tight text-ink sm:mt-5 sm:text-xl">
                     {row.title}
                   </h3>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-muted">
@@ -324,14 +324,14 @@ export default function HomePage() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-cream-muted">
               Güven
             </p>
-            <h2 className="mt-3 border-b-2 border-white/35 pb-3 font-serif text-3xl font-medium tracking-tight text-cream-muted sm:text-4xl">
+            <h2 className="mt-3 border-b-2 border-white/35 pb-3 font-serif text-2xl font-medium tracking-tight text-cream-muted sm:text-4xl">
               Gizlilik ve güven
             </h2>
-            <p className="mt-5 text-[17px] leading-relaxed text-cream-muted/92 sm:text-lg">
+            <p className="mt-5 text-[15px] leading-relaxed text-cream-muted/92 sm:text-[17px] md:text-lg">
               Paylaştığınız sağlık bilgileri mesleki etik ve yasal çerçevede korunur;
               onam süreçlerinde sorularınız için zaman ayrılır.
             </p>
-            <p className="mt-4 text-[17px] leading-relaxed text-cream-muted/88 sm:text-lg">
+            <p className="mt-4 text-[15px] leading-relaxed text-cream-muted/88 sm:text-[17px] md:text-lg">
               Çocuk çalışmalarında ebeveyn katılımı ve ev aktiviteleri, sürdürülebilir
               sonuçlar için planın parçasıdır.
             </p>
@@ -345,10 +345,10 @@ export default function HomePage() {
         <PageShell width="full">
           <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
             <FadeIn className="max-w-2xl">
-              <h2 className="border-l-4 border-sage pl-4 font-serif text-3xl font-medium tracking-tight text-ink sm:pl-5 sm:text-4xl">
+              <h2 className="border-l-4 border-sage pl-4 font-serif text-2xl font-medium tracking-tight text-ink sm:pl-5 sm:text-4xl">
                 Yazılar
               </h2>
-              <p className="mt-3 max-w-xl text-[17px] leading-relaxed text-ink/90 sm:text-lg">
+              <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-ink/90 sm:text-[17px] md:text-lg">
                 Dil, konuşma, ses ve yutma sağlığına dair kısa rehberler ve sık
                 sorulan konulara yönelik yazılar.
               </p>
@@ -361,7 +361,7 @@ export default function HomePage() {
               <Link
                 href="/blog"
                 className={cn(
-                  "inline-flex shrink-0 items-center gap-2 px-5 py-2.5 text-sm font-semibold text-sage-dark backdrop-blur-sm",
+                  "inline-flex shrink-0 items-center gap-2 px-4 py-2 text-[13px] font-semibold text-sage-dark backdrop-blur-sm sm:px-5 sm:py-2.5 sm:text-sm",
                   softRoundLink3d,
                 )}
               >
@@ -373,7 +373,7 @@ export default function HomePage() {
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {latest.map((post, i) => (
               <FadeIn key={post.slug} delay={i * 0.06}>
-                <article className="group flex h-full flex-col rounded-2xl border border-sage/26 bg-gradient-to-b from-cream-muted/40 via-background/97 to-cream-muted/30 p-6 shadow-[0_16px_44px_-22px_rgba(18,22,20,0.12),inset_0_1px_0_rgba(255,251,240,0.5)] ring-1 ring-sage/10 transition duration-300 hover:-translate-y-1 hover:border-sage/32 hover:ring-sage/18 hover:shadow-[0_26px_52px_-26px_rgba(95,122,108,0.16),inset_0_1px_0_rgba(255,251,240,0.58)] sm:p-7">
+                <article className="group flex h-full flex-col rounded-2xl border border-sage/26 bg-gradient-to-b from-cream-muted/40 via-background/97 to-cream-muted/30 p-5 shadow-[0_16px_44px_-22px_rgba(18,22,20,0.12),inset_0_1px_0_rgba(255,251,240,0.5)] ring-1 ring-sage/10 transition duration-300 hover:-translate-y-1 hover:border-sage/32 hover:ring-sage/18 hover:shadow-[0_26px_52px_-26px_rgba(95,122,108,0.16),inset_0_1px_0_rgba(255,251,240,0.58)] sm:p-7">
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-sage">
                     <span className="rounded-full border border-emerald-200/45 bg-gradient-to-r from-emerald-50/95 to-cream-muted/70 px-2.5 py-0.5 text-sage-dark shadow-sm">
                       {post.category}
@@ -390,7 +390,7 @@ export default function HomePage() {
                       {post.readMinutes} dk
                     </span>
                   </div>
-                  <h3 className="mt-4 font-serif text-lg font-medium leading-snug tracking-tight text-ink sm:text-xl">
+                  <h3 className="mt-4 font-serif text-base font-medium leading-snug tracking-tight text-ink sm:text-xl">
                     <Link
                       href={`/blog/${post.slug}`}
                       className="transition group-hover:text-sage"
@@ -419,7 +419,7 @@ export default function HomePage() {
       <section className="border-t border-sage/20 bg-sage py-16 text-cream-muted sm:py-20">
         <PageShell width="content" className="text-center">
           <FadeIn>
-            <h2 className="mx-auto mt-0 max-w-md rounded-xl border border-cream-muted/42 bg-black/14 px-5 py-3 font-serif text-2xl font-medium tracking-tight text-cream-muted shadow-[0_14px_36px_-16px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,251,245,0.12)] sm:text-3xl">
+            <h2 className="mx-auto mt-0 max-w-md rounded-xl border border-cream-muted/42 bg-black/14 px-4 py-2.5 font-serif text-xl font-medium tracking-tight text-cream-muted shadow-[0_14px_36px_-16px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,251,245,0.12)] sm:px-5 sm:py-3 sm:text-3xl">
               Bir sonraki adımı konuşalım
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-cream-muted/85 sm:text-[15px]">

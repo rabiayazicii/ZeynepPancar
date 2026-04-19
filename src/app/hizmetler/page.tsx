@@ -95,9 +95,9 @@ export default function ServicesPage() {
               <FadeIn key={s.id} delay={index * 0.04}>
                 <article
                   id={s.id}
-                  className="scroll-mt-32 rounded-[1.75rem] p-8 sm:p-10 lg:p-11"
+                  className="scroll-mt-32 rounded-[1.75rem] p-6 sm:p-10 lg:p-11"
                 >
-                  <h2 className="font-serif text-2xl font-semibold tracking-tight text-ink sm:text-[1.65rem]">
+                  <h2 className="font-serif text-xl font-semibold tracking-tight text-ink sm:text-[1.65rem]">
                     {s.title}
                   </h2>
                   <p className="mt-4 text-[15px] leading-relaxed text-ink-muted sm:text-base">
