@@ -1,10 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
 
 const SLIDE_INTERVAL_MS = 6000;
+/** Yatay kaydırma ile slayt değişimi — px; dikey kaydırmadan ayırt etmek için */
+const SWIPE_MIN_DX = 50;
+const SWIPE_MAX_VERTICAL_RATIO = 1.25;
 
 export type HomeHeroBackdropSlide = {
   id: string;
@@ -18,8 +21,37 @@ type Props = {
 };
 
 export function HomeHeroBackdrop({ slides, children }: Props) {
-
   const [index, setIndex] = useState(0);
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    if (e.touches.length !== 1) return;
+    const t = e.touches[0];
+    touchStartRef.current = { x: t.clientX, y: t.clientY };
+  }, []);
+
+  const clearTouchStart = useCallback(() => {
+    touchStartRef.current = null;
+  }, []);
+
+  const handleTouchEnd = useCallback(
+    (e: React.TouchEvent) => {
+      const start = touchStartRef.current;
+      touchStartRef.current = null;
+      if (slides.length < 2 || !start || e.changedTouches.length !== 1) return;
+      const end = e.changedTouches[0];
+      const dx = end.clientX - start.x;
+      const dy = end.clientY - start.y;
+      if (Math.abs(dx) < SWIPE_MIN_DX) return;
+      if (Math.abs(dy) * SWIPE_MAX_VERTICAL_RATIO > Math.abs(dx)) return;
+      if (dx < 0) {
+        setIndex((n) => (n + 1) % slides.length);
+      } else {
+        setIndex((n) => (n - 1 + slides.length) % slides.length);
+      }
+    },
+    [slides.length],
+  );
 
   useEffect(() => {
     const id = window.setInterval(() => {
@@ -29,7 +61,12 @@ export function HomeHeroBackdrop({ slides, children }: Props) {
   }, [slides.length]);
 
   return (
-    <header className="relative isolate min-h-[calc(100svh-var(--header-h)+min(6vh,3.5rem))] overflow-hidden border-b border-rule/15">
+    <header
+      className="relative isolate min-h-[calc(100svh-var(--header-h)+min(6vh,3.5rem))] overflow-hidden border-b border-rule/15"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      onTouchCancel={clearTouchStart}
+    >
       {/* Arka plan: tam ekran fotoğraflar, çapraz geçiş */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         {slides.map((slide, i) => (
