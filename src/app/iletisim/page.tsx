@@ -17,6 +17,7 @@ export default function ContactPage() {
         title="Randevu ve sorular"
         description="Formu doldurabilir veya doğrudan arayabilirsiniz. Form demo amaçlıdır; canlıya almak için e-posta servisi veya API bağlanabilir."
         backdropImageSrc={aboutImageSrc(CONTACT_PAGE_IMAGE)}
+        backdropClear
       />
 
       <ContactForm />

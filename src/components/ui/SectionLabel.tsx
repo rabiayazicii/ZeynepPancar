@@ -16,19 +16,19 @@ export function SectionLabel({ children, className, center }: Props) {
           className,
         )}
       >
-        <span className="h-px w-7 shrink-0 bg-sage/40" aria-hidden />
-        <span className="text-xs font-semibold uppercase tracking-[0.22em] text-sage">
+        <span className="h-px w-7 shrink-0 bg-rule/72" aria-hidden />
+        <span className="text-xs font-semibold uppercase tracking-[0.22em] text-gold">
           {children}
         </span>
-        <span className="h-px w-7 shrink-0 bg-sage/40" aria-hidden />
+        <span className="h-px w-7 shrink-0 bg-rule/72" aria-hidden />
       </div>
     );
   }
 
   return (
     <div className={cn("flex items-center gap-3", className)}>
-      <span className="h-px w-8 shrink-0 bg-sage/50" aria-hidden />
-      <span className="text-xs font-semibold uppercase tracking-[0.22em] text-sage">
+      <span className="h-px w-8 shrink-0 bg-rule/78" aria-hidden />
+      <span className="text-xs font-semibold uppercase tracking-[0.22em] text-gold">
         {children}
       </span>
     </div>

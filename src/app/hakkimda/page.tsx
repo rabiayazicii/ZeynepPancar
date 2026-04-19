@@ -1,15 +1,22 @@
 import type { Metadata } from "next";
-import { BookMarked, Eye, Handshake, Heart, Sparkles } from "lucide-react";
+import Link from "next/link";
 import {
-  IconBadge,
-  type IconAccent,
-} from "@/components/decorative/IconBadge";
+  ArrowRight,
+  BookMarked,
+  BookOpen,
+  Eye,
+  Handshake,
+  Heart,
+  type LucideIcon,
+} from "lucide-react";
 import { AboutHeroPortraitGallery } from "@/components/about/AboutHeroPortraitGallery";
+import { ClinicPhotoGrid } from "@/components/about/ClinicPhotoGrid";
 import { EducationCertificatesBlock } from "@/components/about/EducationCertificatesBlock";
 import { FadeIn } from "@/components/FadeIn";
-import { PageHero } from "@/components/layout/PageHero";
 import { PageShell } from "@/components/layout/PageShell";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { highlightCta3d, softRoundLink3d } from "@/lib/highlight-cta-3d";
+import { cn } from "@/lib/cn";
 
 export const metadata: Metadata = {
   title: "Hakkımda",
@@ -17,138 +24,214 @@ export const metadata: Metadata = {
     "Zeynep Pancar — dil ve konuşma terapisti. Eğitim, yaklaşım ve mesleki değerler.",
 };
 
+const values: { title: string; body: string; icon: LucideIcon }[] = [
+  {
+    title: "Saygı ve onur",
+    body: "Her bireyin kendi hızında ilerleme hakkına saygı duyarım.",
+    icon: Heart,
+  },
+  {
+    title: "Şeffaflık",
+    body: "Hedefler, seans sıklığı ve beklentiler açıkça konuşulur.",
+    icon: Eye,
+  },
+  {
+    title: "Kanıt",
+    body: "Yöntem seçiminde güvenilir kaynaklara ve klinik deneyime dayanırım.",
+    icon: BookMarked,
+  },
+  {
+    title: "İş birliği",
+    body: "Aile ve diğer uzmanlarla koordinasyon, sürdürülebilir başarıyı artırır.",
+    icon: Handshake,
+  },
+];
+
 export default function AboutPage() {
   return (
-    <main className="pb-24 lg:pb-32">
-      <PageHero
-        kicker="Hakkımda"
-        title="Zeynep Pancar"
-        description="İletişimin her yaşta hak olduğuna inanıyorum; terapi ise bu hakkı desteklemenin bilimsel ve insani yolu."
-        descriptionPlain
-        shellClassName="!pt-[calc(var(--header-h)+2rem)] !pb-12 sm:!pt-[calc(var(--header-h)+2.5rem)] sm:!pb-14 lg:!pt-[calc(var(--header-h)+3rem)] lg:!pb-16"
-        aside={<AboutHeroPortraitGallery />}
-      >
-        <div className="mt-6 max-w-2xl sm:mt-8">
-          <div className="space-y-6 border-l-[3px] border-sage/35 pl-5 text-[0.97rem] leading-[1.82] tracking-[0.01em] text-ink-muted sm:pl-7 sm:text-[17px] sm:leading-[1.78]">
-            <p className="text-pretty text-ink/90">
-              Dil ve konuşma terapisti olarak çocuklar, ergenler ve yetişkinlerle
-              çalışıyorum. Her danışanın hikâyesi farklı olduğu için önce dinler,
-              sonra birlikte hedefler belirlerim. Tedavi planlarında güncel
-              araştırmalara dayalı yöntemleri; günlük yaşamınıza uygun, uygulanabilir
-              önerilerle birleştiriyorum.
-            </p>
-            <p className="text-pretty">
-              Mesleki gelişimi sürdürmek için düzenli eğitimlere katılıyor; gerektiğinde
-              psikolog, özel eğitimci, kulak burun boğaz ve nöroloji gibi disiplinlerle
-              iş birliğini önemsiyorum. Böylece sizi bütünsel bir bakış açısıyla
-              destekleyebiliyorum.
-            </p>
-          </div>
-        </div>
-      </PageHero>
-
-      <PageShell width="full" className="mt-12 sm:mt-16 lg:mt-20">
-        <div className="mx-auto max-w-5xl space-y-14 sm:space-y-16 lg:space-y-20">
-          <FadeIn delay={0.05}>
-            <EducationCertificatesBlock />
-          </FadeIn>
-
-          <FadeIn delay={0.12}>
-            <section className="relative">
-              <div className="mb-2 inline-flex items-center gap-2">
-                <span className="h-px w-8 bg-sage/35" aria-hidden />
-                <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-sage/90">
-                  Yaklaşım
-                </span>
-              </div>
-              <h2 className="font-serif text-2xl font-semibold tracking-tight text-ink sm:text-[1.75rem]">
-                Çalışma değerlerim
-              </h2>
-              <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-ink-muted sm:text-base">
-                Terapi ilişkisinde öncelediğim ilkeler; güven, netlik ve iş birliği
-                üzerine kuruludur.
+    <main className="overflow-x-clip">
+      <section className="relative overflow-hidden bg-gradient-to-br from-cream-muted/55 via-background to-highlight/15">
+        <div
+          className="pointer-events-none absolute -right-20 top-16 h-64 w-64 rounded-full bg-highlight/30 blur-3xl sm:h-80 sm:w-80 lg:top-24"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute -left-16 bottom-0 h-48 w-48 rounded-full bg-sage/10 blur-3xl"
+          aria-hidden
+        />
+        <PageShell
+          width="full"
+          className="relative grid min-w-0 gap-10 pb-12 pt-[calc(var(--header-h)+2.25rem)] sm:gap-12 lg:grid-cols-[1fr_minmax(0,0.95fr)] lg:items-start lg:gap-14 lg:pb-16 lg:pt-[calc(var(--header-h)+3rem)]"
+        >
+          <div className="min-w-0 max-w-xl lg:pt-2">
+            <FadeIn>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sage">
+                Hakkımda
               </p>
-              <div className="mt-10 grid gap-4 sm:grid-cols-2 sm:gap-5">
-                {(
-                  [
-                    {
-                      t: "Saygı ve onur",
-                      d: "Her bireyin kendi hızında ilerleme hakkına saygı duyarım.",
-                      icon: Heart,
-                      accent: "rose" as IconAccent,
-                    },
-                    {
-                      t: "Şeffaflık",
-                      d: "Hedefler, seans sıklığı ve beklentiler açıkça konuşulur.",
-                      icon: Eye,
-                      accent: "ocean" as IconAccent,
-                    },
-                    {
-                      t: "Kanıt",
-                      d: "Yöntem seçiminde güvenilir kaynaklara ve klinik deneyime dayanırım.",
-                      icon: BookMarked,
-                      accent: "emerald" as IconAccent,
-                    },
-                    {
-                      t: "İş birliği",
-                      d: "Aile ve diğer uzmanlarla koordinasyon, sürdürülebilir başarıyı artırır.",
-                      icon: Handshake,
-                      accent: "amber" as IconAccent,
-                    },
-                  ] as const
-                ).map((item) => (
-                  <div
-                    key={item.t}
-                    className="card-lift group flex gap-4 rounded-2xl border border-line/25 bg-gradient-to-br from-white/25 to-transparent p-5 shadow-sm ring-1 ring-sage/10 transition hover:border-sage/25 hover:shadow-md hover:shadow-sage/10 sm:p-6"
-                  >
-                    <IconBadge
-                      icon={item.icon}
-                      accent={item.accent}
-                      size="sm"
-                      className="shrink-0 transition-transform duration-300 group-hover:scale-[1.03]"
-                    />
-                    <div className="min-w-0">
-                      <p className="font-semibold text-ink">{item.t}</p>
-                      <p className="mt-2 text-sm leading-relaxed text-ink-muted sm:text-[15px]">
-                        {item.d}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+              <h1 className="mt-5 border-l-[3px] border-sage pl-4 font-serif text-[2.75rem] font-medium leading-[1.05] tracking-tight text-ink sm:pl-5 sm:text-5xl lg:text-[3.25rem]">
+                Zeynep Pancar
+              </h1>
+              <p className="mt-4 inline-flex flex-wrap gap-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-sage-dark/90">
+                <span className="rounded-full border border-sage/35 bg-cream-muted/80 px-3 py-1">
+                  Dil ve konuşma terapisi
+                </span>
+                <span className="rounded-full border border-sage/35 bg-cream-muted/70 px-3 py-1">
+                  Çocuk · Yetişkin
+                </span>
+              </p>
+              <p className="mt-6 text-lg leading-relaxed text-ink-muted sm:text-[1.125rem]">
+                İletişimin her yaşta hak olduğuna inanıyorum; terapi ise bu hakkı
+                desteklemenin bilimsel ve insani yolu.
+              </p>
+              <div className="mt-9 space-y-5 text-[17px] leading-[1.75] text-ink-muted sm:text-lg">
+                <p className="text-pretty text-ink/90">
+                  Dil ve konuşma terapisti olarak çocuklar, ergenler ve yetişkinlerle
+                  çalışıyorum. Her danışanın hikâyesi farklı olduğu için önce dinler,
+                  sonra birlikte hedefler belirlerim.
+                </p>
+                <p className="text-pretty">
+                  Tedavi planlarında güncel araştırmalara dayalı yöntemleri; günlük
+                  yaşamınıza uygun önerilerle birleştiriyorum. Mesleki gelişimi
+                  sürdürmek için eğitimlere katılıyor; gerektiğinde diğer disiplinlerle
+                  iş birliğini önemsiyorum.
+                </p>
               </div>
-            </section>
+              <div className="mt-9 flex flex-wrap gap-4">
+                <ButtonLink
+                  href="/iletisim"
+                  variant="primary"
+                  className={cn(
+                    "!bg-highlight !text-ink hover:!bg-cream-muted",
+                    highlightCta3d,
+                  )}
+                >
+                  İletişim
+                </ButtonLink>
+                <Link
+                  href="/hizmetler"
+                  className={cn(
+                    "group inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-sage-dark",
+                    softRoundLink3d,
+                  )}
+                >
+                  Hizmetler
+                  <ArrowRight
+                    className="h-4 w-4 transition group-hover:translate-x-0.5"
+                    aria-hidden
+                  />
+                </Link>
+              </div>
+            </FadeIn>
+          </div>
+          <FadeIn
+            delay={0.1}
+            className="relative flex min-w-0 w-full justify-center lg:pt-2"
+          >
+            <div
+              className="pointer-events-none absolute inset-x-0 -top-4 bottom-8 -z-10 max-w-full rounded-[2rem] bg-gradient-to-b from-highlight/35 to-transparent blur-2xl sm:inset-x-2 lg:inset-x-0"
+              aria-hidden
+            />
+            <AboutHeroPortraitGallery />
           </FadeIn>
 
-          <FadeIn delay={0.2}>
-            <section className="relative pb-2">
-              <div className="relative overflow-hidden rounded-[1.75rem] border border-sage/20 glass-strong px-6 py-10 text-center text-ink shadow-[0_20px_50px_-18px_rgba(95,122,108,0.16)] sm:px-10 sm:py-12">
-                <div
-                  className="pointer-events-none absolute -left-6 top-1/2 h-28 w-28 -translate-y-1/2 rounded-full bg-sage/12 blur-3xl"
-                  aria-hidden
-                />
-                <div
-                  className="pointer-events-none absolute -right-2 bottom-0 h-20 w-20 text-sage/18"
-                  aria-hidden
-                >
-                  <Sparkles className="h-full w-full" strokeWidth={1} />
-                </div>
-                <h2 className="relative font-serif text-xl font-semibold tracking-tight sm:text-2xl">
-                  Sorularınız veya yönlendirme ihtiyacınız mı var?
-                </h2>
-                <p className="relative mx-auto mt-3 max-w-xl text-sm leading-relaxed text-ink-muted sm:text-[15px]">
-                  Hizmetler veya süreç hakkında netleştirmek istediğiniz bir nokta varsa
-                  iletişim sayfasından yazabilir veya arayabilirsiniz.
-                </p>
-                <div className="relative mt-7">
-                  <ButtonLink href="/iletisim" variant="primary" className="px-8 sm:px-10">
-                    İletişime geç
-                  </ButtonLink>
-                </div>
-              </div>
-            </section>
+          <div className="col-span-full min-w-0 border-t border-sage/20 pt-8 sm:pt-10 lg:pt-11">
+            <FadeIn delay={0.06}>
+              <EducationCertificatesBlock compact />
+            </FadeIn>
+          </div>
+        </PageShell>
+      </section>
+
+      <section className="border-y border-sage-dark/35 bg-sage py-14 text-cream-muted sm:py-16 lg:py-20">
+        <PageShell width="full" className="min-w-0">
+          <FadeIn delay={0.06}>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-cream-muted/90">
+              Yaklaşım
+            </p>
+            <h2 className="mt-4 border-l-[3px] border-cream-muted/55 pl-4 font-serif text-3xl font-medium tracking-tight text-cream-muted sm:pl-5 sm:text-4xl">
+              Çalışma değerlerim
+            </h2>
+            <p className="mt-4 max-w-2xl text-[17px] leading-relaxed text-cream-muted/90 sm:text-lg">
+              Terapi ilişkisinde öncelediğim ilkeler: güven, netlik ve iş birliği.
+              Aşağıdaki dört başlık, günlük pratiğe nasıl yansıdığını özetler.
+            </p>
           </FadeIn>
-        </div>
-      </PageShell>
+          <ul className="mt-10 grid gap-5 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4 lg:gap-5">
+            {values.map((v, i) => (
+              <FadeIn key={v.title} delay={0.08 + i * 0.04}>
+                <li className="flex h-full flex-col rounded-xl border border-cream-muted/30 bg-black/12 px-4 py-5 shadow-[0_12px_32px_-16px_rgba(0,0,0,0.22),inset_0_1px_0_rgba(255,251,245,0.12)] ring-1 ring-cream-muted/10 transition duration-300 hover:-translate-y-0.5 hover:border-cream-muted/45 hover:bg-black/[0.16] sm:px-5 sm:py-6">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-cream-muted/35 bg-cream-muted/12 text-cream-muted">
+                    <v.icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+                  </span>
+                  <p className="mt-4 font-serif text-xl font-medium text-cream-muted sm:text-2xl">
+                    {v.title}
+                  </p>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-cream-muted/90 sm:text-[15px]">
+                    {v.body}
+                  </p>
+                </li>
+              </FadeIn>
+            ))}
+          </ul>
+        </PageShell>
+      </section>
+
+      <section className="overflow-x-clip border-b border-rule/12 bg-gradient-to-b from-cream-muted/40 via-background to-cream-muted/25 py-14 sm:py-16 lg:py-20">
+        <PageShell width="full" className="min-w-0">
+          <FadeIn>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-sage">
+              Ortam
+            </p>
+            <h2 className="mt-4 max-w-2xl border-l-[3px] border-sage pl-4 font-serif text-3xl font-medium tracking-tight text-ink sm:pl-5 sm:text-4xl">
+              Çalışma ortamından kareler
+            </h2>
+            <p className="mt-4 max-w-2xl text-[17px] leading-relaxed text-ink-muted sm:text-lg">
+              Seansların geçtiği alan; sakin, düzenli ve yaşa uygun materyallerle
+              desteklenir. Görüntüler, klinik gündelikten kısa bir kesit sunar.
+            </p>
+          </FadeIn>
+          <FadeIn
+            delay={0.08}
+            className="mt-10 w-full min-w-0 max-w-full sm:mt-12"
+          >
+            <ClinicPhotoGrid
+              size="large"
+              className="justify-items-stretch sm:grid-cols-2 lg:grid-cols-2"
+            />
+          </FadeIn>
+        </PageShell>
+      </section>
+
+      <section className="border-t border-sage-dark/40 bg-sage-dark py-16 text-cream-muted sm:py-20">
+        <PageShell width="content" className="text-center">
+          <FadeIn>
+            <BookOpen
+              className="mx-auto h-9 w-9 text-cream-muted/90"
+              strokeWidth={1.25}
+              aria-hidden
+            />
+            <h2 className="mx-auto mt-6 max-w-md rounded-xl border border-cream-muted/40 bg-black/14 px-5 py-3 font-serif text-2xl font-medium tracking-tight text-cream-muted shadow-[0_14px_36px_-18px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,251,245,0.1)] sm:mt-7 sm:text-3xl">
+              Sorularınız mı var?
+            </h2>
+            <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-cream-muted/85 sm:text-[15px]">
+              Hizmetler veya süreç hakkında netleştirmek istediğiniz bir nokta varsa
+              yazabilir veya arayabilirsiniz.
+            </p>
+            <div className="mt-10">
+              <ButtonLink
+                href="/iletisim"
+                variant="primary"
+                className={cn(
+                  "!bg-highlight !text-ink hover:!bg-cream-muted",
+                  highlightCta3d,
+                )}
+              >
+                İletişime geç
+              </ButtonLink>
+            </div>
+          </FadeIn>
+        </PageShell>
+      </section>
     </main>
   );
 }

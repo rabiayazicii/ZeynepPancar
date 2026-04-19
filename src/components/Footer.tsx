@@ -8,7 +8,7 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="brand-rule" />
       </div>
-      <div className="border-t border-line/30 glass-band">
+      <div className="border-t border-rule/30 glass-band">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3">
           <div>
             <Link
@@ -76,7 +76,7 @@ export function Footer() {
             </p>
           </div>
         </div>
-        <div className="border-t border-line/25 py-6 text-center text-xs text-ink-muted/75">
+        <div className="border-t border-rule/22 py-6 text-center text-xs text-ink-muted/75">
           © {new Date().getFullYear()} Zeynep Pancar. Tüm hakları saklıdır.
         </div>
       </div>

@@ -57,7 +57,7 @@ export default async function BlogPostPage({ params }: Props) {
             variant="gallery"
             className="w-full"
           >
-            <div className="relative aspect-[21/9] min-h-[8rem] w-full bg-cream-muted/40 sm:min-h-[10rem]">
+            <div className="relative aspect-video w-full bg-cream-muted/40 sm:aspect-[21/9] sm:min-h-[10rem]">
               <Image
                 src={aboutImageSrc(coverFile)}
                 alt={post.title}
@@ -80,14 +80,14 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
 
         <FadeIn delay={0.15}>
-          <div className="mt-14 rounded-2xl border border-line/30 glass p-6 text-sm leading-relaxed text-ink-muted sm:p-7">
+          <div className="mt-14 rounded-2xl border border-rule/28 glass p-6 text-sm leading-relaxed text-ink-muted sm:p-7">
             <strong className="text-ink">Not:</strong> Bu içerik genel bilgilendirme
             amaçlıdır; kişisel değerlendirme veya tedavi yerine geçmez.
           </div>
         </FadeIn>
 
         <FadeIn delay={0.2}>
-          <div className="mt-14 flex flex-wrap gap-4 border-t border-line/80 pt-10">
+          <div className="mt-14 flex flex-wrap gap-4 border-t border-rule/38 pt-10">
             <Link href="/iletisim" className="btn-primary px-6 py-3 text-sm">
               Soru sorun
             </Link>

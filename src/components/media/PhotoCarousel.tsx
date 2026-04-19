@@ -16,6 +16,13 @@ const imageAspectClass: Record<FrameAspect, string> = {
   wide: "aspect-[21/9]",
 };
 
+/** Dar ekranda kare slaytlar çok yüksek kalmasın diye 16:9; sm+ kare. */
+function slideInnerAspectClass(aspect?: FrameAspect): string {
+  const a = aspect ?? "video";
+  if (a === "square") return "aspect-video sm:aspect-square";
+  return imageAspectClass[a];
+}
+
 export type CarouselSlide = {
   id: string;
   title: string;
@@ -80,8 +87,8 @@ export function PhotoCarousel({ slides, className, autoplayMs = 0 }: Props) {
                 {s.imageFile ? (
                   <div
                     className={cn(
-                      "relative w-full bg-cream-muted/40",
-                      imageAspectClass[s.aspect ?? "video"],
+                      "relative w-full bg-gradient-to-br from-highlight/30 to-cream-muted/55",
+                      slideInnerAspectClass(s.aspect),
                     )}
                   >
                     <Image

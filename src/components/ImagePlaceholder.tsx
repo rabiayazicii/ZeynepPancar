@@ -26,7 +26,7 @@ export function ImagePlaceholder({
   const hintText = hint ?? "Fotoğraf veya illüstrasyon eklenecek";
   return (
     <div
-      className={`group relative flex flex-col items-center justify-center overflow-hidden bg-cream-muted/40 text-center transition duration-300 ${frameless ? "rounded-none border-0" : `rounded-2xl border-2 border-dashed border-line/90 hover:border-sage/35 hover:shadow-[0_12px_40px_-12px_rgba(95,122,108,0.2)]`} ${aspectClass[aspect]} ${className}`}
+      className={`group relative flex flex-col items-center justify-center overflow-hidden bg-cream-muted/40 text-center transition duration-300 ${frameless ? "rounded-none border-0" : `rounded-2xl border-2 border-dashed border-rule/42 hover:border-sage/35 hover:shadow-[0_12px_40px_-12px_rgba(95,122,108,0.2)]`} ${aspectClass[aspect]} ${className}`}
     >
       <div
         className="pointer-events-none absolute inset-0 bg-gradient-to-br from-sage/[0.12] via-cream-muted/30 to-cream-deep/50"

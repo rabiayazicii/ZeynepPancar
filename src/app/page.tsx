@@ -1,411 +1,412 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
+  ArrowRight,
   Baby,
-  BookOpen,
-  ClipboardList,
-  HeartHandshake,
-  MessageCircle,
+  Clock,
   Mic,
-  Newspaper,
-  Sparkles,
   Soup,
-  Target,
   UserCircle,
-  RefreshCw,
   type LucideIcon,
 } from "lucide-react";
-import { DotPattern } from "@/components/decorative/DotPattern";
-import {
-  IconBadge,
-  type IconAccent,
-} from "@/components/decorative/IconBadge";
-import { WaveDivider } from "@/components/decorative/WaveDivider";
 import { FadeIn } from "@/components/FadeIn";
-import { PhotoCarousel } from "@/components/media/PhotoCarousel";
-import type { CarouselSlide } from "@/components/media/PhotoCarousel";
-import { PhotoFrame } from "@/components/media/PhotoFrame";
+import { HomeHeroBackdrop } from "@/components/home/HomeHeroBackdrop";
 import { PageShell } from "@/components/layout/PageShell";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { SectionLabel } from "@/components/ui/SectionLabel";
 import { blogPosts } from "@/lib/blog";
+import { highlightCta3d, softRoundLink3d } from "@/lib/highlight-cta-3d";
+import { cn } from "@/lib/cn";
 import {
   HOME_TRUST_SECTION_IMAGE,
   aboutImageSrc,
   homeHeroCarouselSlides,
 } from "@/lib/about-images";
 
-const trustItems: {
-  title: string;
-  text: string;
-  icon: LucideIcon;
-  accent: IconAccent;
-}[] = [
+const pillars: { title: string; text: string }[] = [
   {
-    title: "Kanıta dayalı yöntemler",
-    text: "Güncel literatür ve klinik rehberlerle uyumlu değerlendirme ve tedavi planları.",
-    icon: BookOpen,
-    accent: "emerald",
+    title: "Kanıta dayalı",
+    text: "Güncel literatür ve klinik rehberlerle uyumlu planlama.",
   },
   {
-    title: "Bütüncül bakış",
-    text: "İletişim, yutma ve ses sağlığını yaşam kalitesi ve bireysel hedeflerle birlikte ele alıyorum.",
-    icon: HeartHandshake,
-    accent: "ocean",
+    title: "Bütüncül",
+    text: "Dil, ses, yutma ve yaşam kalitesi birlikte ele alınır.",
   },
   {
-    title: "Şeffaf süreç",
-    text: "Her adımda beklentileri netleştirir, ilerlemeyi birlikte takip ederiz.",
-    icon: Sparkles,
-    accent: "amber",
+    title: "Şeffaf",
+    text: "Hedefler ve ilerleme birlikte takip edilir.",
   },
 ];
 
-const servicePreview: {
-  title: string;
-  desc: string;
-  icon: LucideIcon;
-  accent: IconAccent;
-}[] = [
+const services: { title: string; desc: string; icon: LucideIcon }[] = [
   {
     title: "Çocuk dil ve konuşma",
-    desc: "Gecikmiş dil, artikülasyon, pragmatik dil ve okul öncesi iletişim becerileri.",
+    desc: "Gecikmiş dil, artikülasyon, pragmatik dil ve okul öncesi iletişim.",
     icon: Baby,
-    accent: "coral",
   },
   {
     title: "Yetişkin konuşması",
-    desc: "Afazi, motor konuşma bozuklukları ve ses üretimi üzerine rehabilitasyon.",
+    desc: "Afazi, motor konuşma ve ses üretimi üzerine rehabilitasyon.",
     icon: UserCircle,
-    accent: "violet",
   },
   {
     title: "Akıcılık ve ses",
-    desc: "Kekemelik, ses kısıklığı ve mesleki ses kullanımına yönelik terapi.",
+    desc: "Kekemelik, ses kısıklığı ve mesleki ses kullanımı.",
     icon: Mic,
-    accent: "sage",
   },
   {
     title: "Yutma ve beslenme",
-    desc: "Güvenli yutma ve oral motor işlev için değerlendirme ve stratejiler.",
+    desc: "Güvenli yutma ve oral motor işlev için stratejiler.",
     icon: Soup,
-    accent: "rose",
   },
 ];
 
-const homeGallerySlides: CarouselSlide[] = homeHeroCarouselSlides.map((s) => ({
+const steps: { n: string; title: string; text: string }[] = [
+  {
+    n: "01",
+    title: "Ön görüşme",
+    text: "Beklentiler, öykü ve belgelerin paylaşımı.",
+  },
+  {
+    n: "02",
+    title: "Değerlendirme",
+    text: "Test, gözlem ve gerekiyorsa iş birliği.",
+  },
+  {
+    n: "03",
+    title: "Plan",
+    text: "Ölçülebilir hedefler ve seans sıklığı.",
+  },
+  {
+    n: "04",
+    title: "Takip",
+    text: "Ev ödevleri ve ara değerlendirmeler.",
+  },
+];
+
+const heroBackdropSlides = homeHeroCarouselSlides.map((s) => ({
   id: s.id,
-  title: s.title,
-  caption: s.caption,
-  aspect: "square",
-  imageFile: s.file,
-  priority: s.id === "slide-1",
+  src: aboutImageSrc(s.file),
+  label: s.caption ?? s.title,
 }));
+
+const heroPrimarySoft =
+  "!border !border-white/45 !bg-gradient-to-br !from-highlight/85 !via-highlight !to-cream-muted/50 !text-ink !shadow-[0_0_0_1px_rgba(255,255,255,0.2)_inset] hover:!from-cream-muted/95 hover:!via-highlight/90 hover:!to-highlight/75 hover:!border-white/55";
+
+const pastelIconBox = (i: number) =>
+  [
+    "border border-sky-200/50 bg-gradient-to-br from-sky-50/80 to-sky-100/45 text-sky-700/88 shadow-[0_3px_10px_-5px_rgba(14,116,144,0.18)]",
+    "border border-violet-200/50 bg-gradient-to-br from-violet-50/80 to-violet-100/45 text-violet-700/88 shadow-[0_3px_10px_-5px_rgba(109,40,217,0.14)]",
+    "border border-emerald-200/50 bg-gradient-to-br from-emerald-50/80 to-emerald-100/45 text-emerald-800/88 shadow-[0_3px_10px_-5px_rgba(5,150,105,0.15)]",
+    "border border-amber-200/50 bg-gradient-to-br from-amber-50/80 to-amber-100/45 text-amber-900/82 shadow-[0_3px_10px_-5px_rgba(217,119,6,0.14)]",
+  ][i % 4] as string;
+
+/** Nasıl ilerliyoruz — 01…04 rozetleri */
+const stepNumberBadge = (i: number) =>
+  [
+    "border border-sky-300/55 bg-gradient-to-br from-sky-100/95 to-sky-200/45 text-sky-950 shadow-[0_2px_10px_-4px_rgba(14,116,144,0.25)]",
+    "border border-violet-300/55 bg-gradient-to-br from-violet-100/95 to-violet-200/45 text-violet-950 shadow-[0_2px_10px_-4px_rgba(109,40,217,0.2)]",
+    "border border-emerald-300/55 bg-gradient-to-br from-emerald-100/95 to-emerald-200/42 text-emerald-950 shadow-[0_2px_10px_-4px_rgba(5,150,105,0.2)]",
+    "border border-amber-300/55 bg-gradient-to-br from-amber-100/95 to-amber-200/40 text-amber-950 shadow-[0_2px_10px_-4px_rgba(217,119,6,0.2)]",
+  ][i % 4] as string;
+
+const noteBulletPastel = [
+  "bg-sky-400/55 shadow-[0_0_0_3px_rgba(125,211,252,0.2)]",
+  "bg-violet-400/50 shadow-[0_0_0_3px_rgba(196,181,253,0.22)]",
+  "bg-emerald-400/45 shadow-[0_0_0_3px_rgba(110,231,183,0.2)]",
+] as const;
 
 export default function HomePage() {
   const latest = blogPosts.slice(0, 3);
 
   return (
     <>
-      <section className="gradient-mesh relative overflow-hidden">
-        <div className="pointer-events-none absolute -right-32 top-20 h-[420px] w-[420px] rounded-full bg-sage/[0.06] blur-3xl" />
-        <div className="pointer-events-none absolute -left-24 bottom-10 h-[320px] w-[320px] rounded-full bg-sage/[0.05] blur-3xl" />
-        <PageShell
-          width="full"
-          className="relative grid items-center gap-10 pb-14 pt-[calc(var(--header-h)+2rem)] sm:pb-16 sm:pt-[calc(var(--header-h)+2.5rem)] lg:grid-cols-[0.95fr_1.25fr] lg:gap-12 lg:pb-20 lg:pt-[calc(var(--header-h)+3rem)]"
-        >
+      {/* ——— Hero: tam ekran arka plan fotoğrafları (otomatik) + metin ——— */}
+      <HomeHeroBackdrop slides={heroBackdropSlides}>
+        <PageShell width="full" className="max-w-4xl lg:max-w-3xl">
           <FadeIn>
-            <SectionLabel>Profesyonel dil ve konuşma terapisi</SectionLabel>
-            <h1 className="mt-6 max-w-xl text-balance font-serif text-4xl font-semibold leading-[1.12] tracking-tight text-ink sm:text-5xl lg:text-[3.35rem]">
-              İletişimi güçlendiren, bilimle desteklenen bir terapi deneyimi
-            </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-muted">
-              Merhaba, ben Zeynep Pancar. Çocuklardan yetişkinlere her yaşta; dil,
-              konuşma, ses ve yutma alanlarında bireysel ihtiyaçlarınıza göre
-              çalışıyorum. Hedefiniz net iletişim, güvenli yutma veya akıcı konuşma
-              olsun — birlikte ulaşılabilir adımlar planlıyoruz.
+            <p className="inline-flex rounded-full border-2 border-white/45 bg-white/12 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.26em] text-cream-muted backdrop-blur-md">
+              Dil ve konuşma terapisi
             </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <ButtonLink href="/iletisim" variant="primary">
+            <h1 className="mt-5 max-w-[15ch] border-l-4 border-white/55 pl-4 font-serif text-[2.6rem] font-medium leading-[1.05] tracking-tight text-cream-muted [text-shadow:0_1px_3px_rgba(18,22,20,0.35),0_12px_40px_rgba(253,251,245,0.55)] sm:mt-6 sm:pl-5 sm:text-5xl sm:leading-[1.02] lg:text-[3.45rem]">
+              Net iletişim, bilimle desteklenen yol.
+            </h1>
+            <p className="mt-7 max-w-lg rounded-r-2xl border-y border-r border-white/35 border-l-0 bg-black/22 py-4 pl-4 pr-5 text-[17px] leading-[1.75] text-cream-muted/92 backdrop-blur-[2px] sm:mt-8 sm:pl-5 sm:pr-6 sm:text-lg">
+              Merhaba, ben{" "}
+              <span className="font-semibold text-cream-muted">Zeynep Pancar</span>.
+              Çocuktan yetişkine her yaşta dil, konuşma, ses ve yutma alanlarında size
+              özel çalışıyorum.
+            </p>
+            <div className="mt-10 flex flex-wrap items-center gap-4 sm:gap-5">
+              <ButtonLink
+                href="/iletisim"
+                variant="primary"
+                className={cn(
+                  "!bg-highlight !text-ink hover:!bg-cream-muted",
+                  highlightCta3d,
+                )}
+              >
                 Randevu talep et
               </ButtonLink>
-              <ButtonLink href="/hizmetler" variant="secondary">
-                Hizmetleri incele
-              </ButtonLink>
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.12}>
-            <PhotoCarousel
-              slides={homeGallerySlides}
-              autoplayMs={6500}
-              className="card-soft mx-auto w-full shadow-xl lg:scale-[1.03]"
-            />
-          </FadeIn>
-        </PageShell>
-      </section>
-
-      <WaveDivider />
-
-      <section className="relative overflow-hidden border-b border-line/25 glass-band py-20 sm:py-24">
-        <DotPattern className="opacity-[0.25]" />
-        <PageShell width="full" className="relative z-10">
-          <FadeIn>
-            <SectionLabel>Neden burada</SectionLabel>
-            <h2 className="mt-5 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              Neden bu çalışma?
-            </h2>
-            <p className="mt-4 max-w-2xl text-ink-muted">
-              Terapi ilişkisinin temelinde güven ve ortak anlayış yatar. Süreci
-              şeffaf, ölçülebilir ve size özel kurguluyorum.
-            </p>
-          </FadeIn>
-          <div className="mt-12 grid gap-8 sm:grid-cols-3">
-            {trustItems.map((item, i) => (
-              <FadeIn key={item.title} delay={i * 0.08}>
-                <div className="card-lift relative h-full overflow-hidden rounded-2xl border border-line/30 glass p-6 card-soft">
-                  <div className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-sage/10 blur-2xl" />
-                  <IconBadge
-                    icon={item.icon}
-                    accent={item.accent}
-                    className="relative"
-                  />
-                  <h3 className="relative mt-4 font-semibold text-ink">{item.title}</h3>
-                  <p className="relative mt-2 text-sm leading-relaxed text-ink-muted">
-                    {item.text}
-                  </p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </PageShell>
-      </section>
-
-      <section className="py-20 sm:py-28">
-        <PageShell width="full">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-            <FadeIn>
-              <SectionLabel>Uzmanlık</SectionLabel>
-              <h2 className="mt-5 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-                Uzmanlık alanları
-              </h2>
-              <p className="mt-4 text-ink-muted leading-relaxed">
-                Dil ve konuşma terapisi; konuşma sesinin üretimi, dilin anlaşılması
-                ve kullanımı, akıcılık, ses kalitesi ve yutma işlevini kapsar. İlk
-                görüşmede detaylı öykü, standart testler ve klinik gözlem ile
-                profiliniz netleştirilir; ardından hedeflerinize uygun bir program
-                önerilir.
-              </p>
-              <ul className="mt-8 space-y-3 text-sm text-ink-muted">
-                <li className="flex gap-3">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sage/40" />
-                  Gelişimsel ve edinilmiş dil-konuşma bozuklukları
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sage/40" />
-                  Motor konuşma, apraksi ve yapısal farklılıklar
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sage/40" />
-                  Ses ve solunum destekli konuşma, ses hijyeni
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sage/40" />
-                  Orofarengeal disfaji ve güvenli beslenme stratejileri
-                </li>
-              </ul>
               <Link
                 href="/hizmetler"
-                className="mt-8 inline-flex text-sm font-semibold text-sage underline-offset-4 hover:underline"
+                className="group inline-flex items-center gap-2 text-sm font-semibold text-cream-muted drop-shadow-[0_1px_10px_rgba(18,22,20,0.35)]"
               >
-                Tüm hizmet detayları →
+                Hizmetlere bak
+                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
               </Link>
-            </FadeIn>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {servicePreview.map((s, i) => (
-                <FadeIn key={s.title} delay={i * 0.06}>
-                  <div className="card-lift flex gap-4 rounded-2xl glass p-5 shadow-sm ring-1 ring-line/30">
-                    <IconBadge
-                      icon={s.icon}
-                      accent={s.accent}
-                      size="sm"
-                      className="shrink-0"
-                    />
-                    <div className="min-w-0">
-                      <h3 className="font-semibold text-ink">{s.title}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-                        {s.desc}
-          </p>
-        </div>
-                  </div>
-                </FadeIn>
-              ))}
             </div>
-          </div>
-        </PageShell>
-      </section>
-
-      <section className="relative overflow-hidden glass-band py-20 sm:py-24">
-        <DotPattern className="opacity-[0.2]" />
-        <PageShell width="full" className="relative z-10">
-          <FadeIn>
-            <SectionLabel center>Süreç</SectionLabel>
-            <h2 className="mt-5 text-center font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              Terapi süreci nasıl işler?
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-center text-ink-muted">
-              Dört adımda özetlenen yapı, hem sizin hem de benim için net bir yol
-              haritası sunar.
-            </p>
           </FadeIn>
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {(
-              [
-                {
-                  step: "01",
-                  t: "Ön görüşme",
-                  d: "Beklentiler, öykü ve mevcut belgelerin paylaşımı.",
-                  icon: MessageCircle,
-                  accent: "emerald" as IconAccent,
-                },
-                {
-                  step: "02",
-                  t: "Değerlendirme",
-                  d: "Test, gözlem ve gerekiyorsa iş birliği (aile, eğitimci, hekim).",
-                  icon: ClipboardList,
-                  accent: "ocean" as IconAccent,
-                },
-                {
-                  step: "03",
-                  t: "Plan",
-                  d: "Ölçülebilir hedefler ve seans sıklığı birlikte belirlenir.",
-                  icon: Target,
-                  accent: "coral" as IconAccent,
-                },
-                {
-                  step: "04",
-                  t: "Takip",
-                  d: "Ev ödevleri ve ara değerlendirmelerle ilerleme izlenir.",
-                  icon: RefreshCw,
-                  accent: "violet" as IconAccent,
-                },
-              ] as const
-            ).map((row, i) => (
-              <FadeIn key={row.step} delay={i * 0.07}>
-                <div className="card-lift relative rounded-2xl border border-line/30 glass p-6">
-                  <div className="flex items-start justify-between gap-2">
-                    <IconBadge
-                      icon={row.icon}
-                      accent={row.accent}
-                      size="sm"
-                    />
-                    <span className="font-serif text-2xl font-light tabular-nums text-sage/30">
-                      {row.step}
-                    </span>
-                  </div>
-                  <h3 className="mt-4 font-semibold text-ink">{row.t}</h3>
-                  <p className="mt-2 text-sm text-ink-muted">{row.d}</p>
-                </div>
-              </FadeIn>
+        </PageShell>
+      </HomeHeroBackdrop>
+
+      {/* ——— Üç ilke: siyah yok — yeşil ton — ince beyaz üst/alt çizgi */}
+      <section className="border-t border-b border-white/30 bg-sage py-11 text-cream-muted sm:py-14">
+        <PageShell width="full">
+          <div className="grid gap-10 sm:grid-cols-3 sm:gap-8 sm:divide-x sm:divide-cream-muted/30">
+            {pillars.map((p) => (
+              <div
+                key={p.title}
+                className="rounded-xl border-2 border-cream-muted/40 bg-black/10 px-4 py-4 sm:px-6 sm:py-5 sm:first:pl-4 sm:last:pr-4"
+              >
+                <p className="font-serif text-xl font-medium text-cream-muted sm:text-2xl">
+                  {p.title}
+                </p>
+                <p className="mt-2 max-w-xs text-sm leading-relaxed text-cream-muted/90">
+                  {p.text}
+                </p>
+              </div>
             ))}
           </div>
         </PageShell>
       </section>
 
-      <section className="py-20 sm:py-28">
-        <PageShell
-          width="full"
-          className="grid items-center gap-10 lg:grid-cols-[1.3fr_0.9fr] lg:gap-14"
-        >
+      {/* ——— Uzmanlık: sıcak krem / sarı vurgu (süreçten ayrı ton) ——— */}
+      <section className="border-b border-rule/12 bg-gradient-to-b from-cream via-highlight/18 to-cream-muted/50 py-20 sm:py-28">
+        <PageShell width="full">
           <FadeIn>
-            <PhotoFrame
-              title="Terapi ortamı"
-              caption="Seans ve materyallere dair bir kare"
-              aspect="square"
-              variant="gallery"
-              className="w-full"
-            >
-              <div className="relative aspect-[4/3] min-h-[17rem] w-full bg-cream-muted/40 sm:min-h-[21rem]">
-                <Image
-                  src={aboutImageSrc(HOME_TRUST_SECTION_IMAGE)}
-                  alt="Terapi ortamı"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 58vw"
-                  className="object-cover"
-                />
-              </div>
-            </PhotoFrame>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <h2 className="font-serif text-3xl font-semibold text-ink sm:text-4xl">
-              Güven ve gizlilik
+            <h2 className="max-w-xl border-l-4 border-sage pl-4 font-serif text-3xl font-medium tracking-tight text-ink sm:pl-5 sm:text-4xl">
+              Alanlar
             </h2>
-            <p className="mt-4 leading-relaxed text-ink-muted">
-              Paylaştığınız tüm sağlık bilgileri mesleki etik kurallar ve yasal
-              çerçeve doğrultusunda korunur. Onam ve bilgilendirilmiş rıza
-              süreçlerinde sorularınızı yanıtlamak için zaman ayırıyorum.
+            <p className="mt-5 max-w-2xl text-[17px] leading-relaxed text-ink/90">
+              İlk görüşmede öykü, test ve klinik gözlemle profil netleşir; ardından
+              hedeflerinize uygun program önerilir. Her yaş ve ihtiyaç için
+              değerlendirme ve tedavi planı birlikte şekillenir; gerektiğinde diğer
+              uzmanlarla koordinasyon plana dahil edilir.
             </p>
-            <p className="mt-4 leading-relaxed text-ink-muted">
-              Çocuk çalışmalarında ebeveyn katılımı, genel olarak daha sürdürülebilir
-              sonuçlarla ilişkilidir; bu nedenle ev aktiviteleri ve geri bildirim
-              döngüsü planın parçasıdır.
-            </p>
+          </FadeIn>
+          <ul className="mt-12 grid gap-4 sm:mt-14 sm:grid-cols-2 lg:gap-0 lg:divide-x lg:divide-sage/22 lg:overflow-hidden lg:rounded-2xl lg:border lg:border-sage/26 lg:bg-gradient-to-b lg:from-cream-muted/42 lg:via-background/96 lg:to-cream-muted/36 lg:shadow-[0_22px_56px_-28px_rgba(18,22,20,0.14),inset_0_1px_0_rgba(255,251,240,0.48)] lg:ring-1 lg:ring-sage/10">
+            {services.map((s, si) => (
+              <li
+                key={s.title}
+                className="flex gap-4 rounded-xl border border-sage/24 bg-gradient-to-b from-cream-muted/45 to-background/95 p-6 shadow-[0_16px_40px_-20px_rgba(18,22,20,0.11),inset_0_1px_0_rgba(255,251,240,0.55)] transition duration-300 hover:-translate-y-0.5 hover:border-sage/32 lg:rounded-none lg:border-0 lg:bg-background/82 lg:p-8 lg:shadow-none lg:[background-image:none] lg:hover:translate-y-0 lg:odd:border-r lg:odd:border-sage/22"
+              >
+                <span
+                  className={cn(
+                    "mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl",
+                    pastelIconBox(si),
+                  )}
+                >
+                  <s.icon className="h-5 w-5 opacity-90" strokeWidth={1.75} aria-hidden />
+                </span>
+                <div>
+                  <p className="font-medium text-ink">{s.title}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                    {s.desc}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <FadeIn delay={0.06}>
+            <Link
+              href="/hizmetler"
+              className={cn(
+                "mt-10 inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-sage-dark",
+                softRoundLink3d,
+              )}
+            >
+              Tüm hizmet detayları
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </FadeIn>
         </PageShell>
       </section>
 
-      <section className="relative overflow-hidden border-t border-line/25 glass-band py-20 sm:py-24">
-        <DotPattern className="opacity-[0.18]" />
-        <PageShell width="full" className="relative z-10">
-          <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-            <FadeIn>
-              <SectionLabel>Blog</SectionLabel>
-              <h2 className="mt-5 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-                Blog
+      {/* ——— Süreç: açık sarımsı zemin (grimsi yeşil yok) ——— */}
+      <section className="border-t-2 border-sage/25 bg-gradient-to-b from-highlight/22 via-cream-muted/40 to-highlight/12 py-20 sm:py-28">
+        <PageShell width="full">
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-12">
+            <FadeIn className="max-w-xl lg:max-w-2xl">
+              <h2 className="border-l-4 border-sage pl-4 font-serif text-3xl font-medium tracking-tight text-ink sm:pl-5 sm:text-4xl">
+                Nasıl ilerliyoruz?
               </h2>
-              <p className="mt-2 max-w-xl text-ink-muted">
-                Dil, konuşma ve yutma sağlığı üzerine düzenli içerikler.
+              <p className="mt-4 text-[17px] leading-relaxed text-ink/90 sm:text-lg">
+                Dört adımlı bir çerçeveyle ilerleriz: önce beklentileri ve öyküyü
+                netleştiririz, ardından değerlendirme ve planı birlikte kurarız.
+                Seans sıklığı ve ev uygulamaları, günlük hayatınıza uyacak şekilde
+                ayarlanır.
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-ink-muted sm:text-[15px]">
+                Her aşamada onam ve gizlilik konuşulur; ilerleme birlikte
+                değerlendirilir.
+              </p>
+            </FadeIn>
+            <FadeIn
+              delay={0.05}
+              className="w-full shrink-0 rounded-2xl border border-sage/24 bg-gradient-to-br from-cream-muted/48 to-background/95 p-5 shadow-[0_18px_44px_-24px_rgba(18,22,20,0.12),inset_0_1px_0_rgba(255,251,240,0.45)] ring-1 ring-sage/10 sm:p-6 lg:max-w-sm"
+            >
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-sage">
+                Pratik notlar
+              </p>
+              <ul className="mt-4 space-y-3 text-sm leading-relaxed text-ink-muted">
+                {[
+                  "İlk görüşmede belgelerinizi yanınızda bulundurmanız süreci hızlandırır.",
+                  "Ev ödevleri kısa ve uygulanabilir tutulur; takipte birlikte gözden geçirilir.",
+                  "Gerekirse yönlendirme ve multidisipliner iş birliği plana eklenir.",
+                ].map((line, bi) => (
+                  <li key={line} className="flex gap-2.5">
+                    <span
+                      className={cn(
+                        "mt-1.5 h-2 w-2 shrink-0 rounded-full",
+                        noteBulletPastel[bi % noteBulletPastel.length],
+                      )}
+                      aria-hidden
+                    />
+                    {line}
+                  </li>
+                ))}
+              </ul>
+            </FadeIn>
+          </div>
+          <ol className="mt-12 grid gap-4 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4 lg:gap-5">
+            {steps.map((row, i) => (
+              <FadeIn key={row.n} delay={i * 0.05}>
+                <li className="group relative flex h-full min-h-[11.5rem] flex-col rounded-2xl border border-sage/26 bg-gradient-to-b from-cream-muted/38 via-background/96 to-cream-muted/32 p-6 shadow-[0_18px_48px_-24px_rgba(18,22,20,0.13),inset_0_1px_0_rgba(255,251,240,0.52)] ring-1 ring-sage/10 transition duration-300 hover:-translate-y-1 hover:border-sage/34 hover:shadow-[0_26px_56px_-26px_rgba(95,122,108,0.15),inset_0_1px_0_rgba(255,251,240,0.58)] sm:min-h-[12rem] sm:p-7">
+                  <div className="flex items-center justify-start gap-3">
+                    <span
+                      className={cn(
+                        "rounded-full px-2.5 py-0.5 font-mono text-[11px] font-semibold tabular-nums",
+                        stepNumberBadge(i),
+                      )}
+                    >
+                      {row.n}
+                    </span>
+                  </div>
+                  <h3 className="mt-5 font-serif text-lg font-medium tracking-tight text-ink sm:text-xl">
+                    {row.title}
+                  </h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-muted">
+                    {row.text}
+                  </p>
+                </li>
+              </FadeIn>
+            ))}
+          </ol>
+        </PageShell>
+      </section>
+
+      {/* ——— Gizlilik: tam genişlik görsel — overlay yok, fotoğraf kendi rengi ——— */}
+      <section className="relative isolate min-h-[20rem] overflow-hidden sm:min-h-[22rem] lg:min-h-[24rem]">
+        <Image
+          src={aboutImageSrc(HOME_TRUST_SECTION_IMAGE)}
+          alt="Terapi ortamı"
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+          priority={false}
+        />
+        <PageShell
+          width="full"
+          className="relative z-10 flex min-h-[20rem] flex-col justify-end py-12 sm:min-h-[22rem] sm:justify-center sm:py-14 lg:min-h-[24rem] lg:max-w-2xl lg:py-16"
+        >
+          <FadeIn>
+            <div className="rounded-2xl border border-white/40 bg-black/28 p-5 shadow-[0_22px_50px_-20px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-md sm:p-6">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-cream-muted">
+              Güven
+            </p>
+            <h2 className="mt-3 border-b-2 border-white/35 pb-3 font-serif text-3xl font-medium tracking-tight text-cream-muted sm:text-4xl">
+              Gizlilik ve güven
+            </h2>
+            <p className="mt-5 text-[17px] leading-relaxed text-cream-muted/92 sm:text-lg">
+              Paylaştığınız sağlık bilgileri mesleki etik ve yasal çerçevede korunur;
+              onam süreçlerinde sorularınız için zaman ayrılır.
+            </p>
+            <p className="mt-4 text-[17px] leading-relaxed text-cream-muted/88 sm:text-lg">
+              Çocuk çalışmalarında ebeveyn katılımı ve ev aktiviteleri, sürdürülebilir
+              sonuçlar için planın parçasıdır.
+            </p>
+            </div>
+          </FadeIn>
+        </PageShell>
+      </section>
+
+      {/* ——— Blog: kart ızgarası ——— */}
+      <section className="border-t border-rule/10 bg-gradient-to-b from-cream-muted/35 via-background/80 to-cream-muted/20 py-20 sm:py-28">
+        <PageShell width="full">
+          <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
+            <FadeIn className="max-w-2xl">
+              <h2 className="border-l-4 border-sage pl-4 font-serif text-3xl font-medium tracking-tight text-ink sm:pl-5 sm:text-4xl">
+                Yazılar
+              </h2>
+              <p className="mt-3 max-w-xl text-[17px] leading-relaxed text-ink/90 sm:text-lg">
+                Dil, konuşma, ses ve yutma sağlığına dair kısa rehberler ve sık
+                sorulan konulara yönelik yazılar.
+              </p>
+              <p className="mt-2 max-w-xl text-sm leading-relaxed text-ink-muted sm:text-[15px]">
+                Her yazıda pratik özet ve güvenilir kaynaklara uyumlu bir çerçeve
+                bulabilirsiniz.
               </p>
             </FadeIn>
             <FadeIn>
-              <ButtonLink
+              <Link
                 href="/blog"
-                variant="secondary"
-                className="!px-6 !py-2.5 text-sm"
+                className={cn(
+                  "inline-flex shrink-0 items-center gap-2 px-5 py-2.5 text-sm font-semibold text-sage-dark backdrop-blur-sm",
+                  softRoundLink3d,
+                )}
               >
                 Tüm yazılar
-              </ButtonLink>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </FadeIn>
           </div>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
             {latest.map((post, i) => (
               <FadeIn key={post.slug} delay={i * 0.06}>
-                <article className="card-lift relative flex h-full flex-col overflow-hidden rounded-2xl border border-line/30 glass p-6 transition hover:border-sage/25 hover:shadow-[0_12px_40px_-12px_rgba(95,122,108,0.2)]">
-                  <div className="pointer-events-none absolute -right-4 top-0 h-20 w-20 text-sage/10">
-                    <Newspaper className="h-full w-full" strokeWidth={1} aria-hidden />
+                <article className="group flex h-full flex-col rounded-2xl border border-sage/26 bg-gradient-to-b from-cream-muted/40 via-background/97 to-cream-muted/30 p-6 shadow-[0_16px_44px_-22px_rgba(18,22,20,0.12),inset_0_1px_0_rgba(255,251,240,0.5)] ring-1 ring-sage/10 transition duration-300 hover:-translate-y-1 hover:border-sage/32 hover:ring-sage/18 hover:shadow-[0_26px_52px_-26px_rgba(95,122,108,0.16),inset_0_1px_0_rgba(255,251,240,0.58)] sm:p-7">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-sage">
+                    <span className="rounded-full border border-emerald-200/45 bg-gradient-to-r from-emerald-50/95 to-cream-muted/70 px-2.5 py-0.5 text-sage-dark shadow-sm">
+                      {post.category}
+                    </span>
+                    <time dateTime={post.date}>
+                      {new Date(post.date).toLocaleDateString("tr-TR", {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric",
+                      })}
+                    </time>
+                    <span className="inline-flex items-center gap-1 normal-case font-medium tracking-normal text-ink-muted">
+                      <Clock className="h-3.5 w-3.5" aria-hidden />
+                      {post.readMinutes} dk
+                    </span>
                   </div>
-                  <time
-                    dateTime={post.date}
-                    className="relative text-xs font-medium uppercase tracking-wider text-sage"
-                  >
-                    {new Date(post.date).toLocaleDateString("tr-TR", {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                    })}
-                  </time>
-                  <h3 className="mt-3 font-serif text-lg font-semibold leading-snug text-ink">
-                    <Link href={`/blog/${post.slug}`} className="hover:text-sage">
+                  <h3 className="mt-4 font-serif text-lg font-medium leading-snug tracking-tight text-ink sm:text-xl">
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="transition group-hover:text-sage"
+                    >
                       {post.title}
                     </Link>
                   </h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-muted">
+                  <p className="mt-3 line-clamp-4 flex-1 text-sm leading-relaxed text-ink-muted">
                     {post.excerpt}
                   </p>
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="mt-4 text-sm font-semibold text-sage/90"
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sage"
                   >
-                    Devamını oku →
+                    Devamını oku
+                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
                   </Link>
                 </article>
               </FadeIn>
@@ -414,28 +415,26 @@ export default function HomePage() {
         </PageShell>
       </section>
 
-      <section className="pb-24 pt-6 sm:pb-28">
-        <PageShell width="full">
+      {/* ——— CTA: yeşil bant ——— */}
+      <section className="border-t border-sage/20 bg-sage py-16 text-cream-muted sm:py-20">
+        <PageShell width="content" className="text-center">
           <FadeIn>
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-sage/20 glass-strong px-8 py-14 text-center text-ink shadow-[0_24px_60px_-20px_rgba(95,122,108,0.18)] sm:px-12">
-              <div className="pointer-events-none absolute -left-8 top-1/2 h-32 w-32 -translate-y-1/2 rounded-full bg-sage/15 blur-3xl" />
-              <div className="pointer-events-none absolute -right-4 bottom-0 h-24 w-24 text-sage/20">
-                <Sparkles className="h-full w-full" strokeWidth={1} aria-hidden />
-              </div>
-              <h2 className="relative font-serif text-2xl font-semibold tracking-tight sm:text-3xl">
-                Bir sonraki adımı birlikte planlayalım
-              </h2>
-              <p className="relative mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-ink-muted">
-                Sorularınız veya yönlendirme ihtiyacınız varsa iletişim formu veya
-                telefon üzerinden ulaşabilirsiniz. Size en uygun görüşme türünü
-                (yüz yüze / çevrim içi) birlikte seçeriz.
-              </p>
-              <div className="relative mt-9">
-                <ButtonLink href="/iletisim" variant="primary" className="px-10">
-                  İletişime geç
-                </ButtonLink>
-        </div>
-    </div>
+            <h2 className="mx-auto mt-0 max-w-md rounded-xl border border-cream-muted/42 bg-black/14 px-5 py-3 font-serif text-2xl font-medium tracking-tight text-cream-muted shadow-[0_14px_36px_-16px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,251,245,0.12)] sm:text-3xl">
+              Bir sonraki adımı konuşalım
+            </h2>
+            <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-cream-muted/85 sm:text-[15px]">
+              Sorularınız veya yönlendirme için iletişim formu veya telefon. Yüz yüze
+              veya çevrim içi görüşme türünü birlikte seçeriz.
+            </p>
+            <div className="mt-10">
+              <ButtonLink
+                href="/iletisim"
+                variant="primary"
+                className={cn(heroPrimarySoft, highlightCta3d)}
+              >
+                İletişime geç
+              </ButtonLink>
+            </div>
           </FadeIn>
         </PageShell>
       </section>

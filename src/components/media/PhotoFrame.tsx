@@ -17,6 +17,8 @@ type Props = {
   className?: string;
   /** `next/image` veya özel içerik — yoksa placeholder */
   children?: ReactNode;
+  /** gallery: çerçeve altındaki yazı (isim vb.) gösterilmesin */
+  showFigcaption?: boolean;
 };
 
 /**
@@ -30,6 +32,7 @@ export function PhotoFrame({
   variant = "gallery",
   className,
   children,
+  showFigcaption = true,
 }: Props) {
   const inner =
     children ?? (
@@ -45,7 +48,7 @@ export function PhotoFrame({
   if (variant === "polaroid") {
     return (
       <figure className={cn("mx-auto w-full max-w-md", className)}>
-        <div className="rounded-sm bg-white p-2 pb-3 shadow-[0_12px_40px_-8px_rgba(42,50,47,0.18)] ring-1 ring-black/[0.06] sm:p-3 sm:pb-4">
+        <div className="rounded-sm bg-white p-2 pb-3 shadow-[0_12px_40px_-8px_rgba(42,50,47,0.18)] ring-1 ring-black/[0.12] sm:p-3 sm:pb-4">
           <div className="overflow-hidden rounded-[2px] bg-cream-muted/30">
             {inner}
           </div>
@@ -62,22 +65,26 @@ export function PhotoFrame({
   }
 
   return (
-    <figure className={cn("w-full", className)}>
+    <figure className={cn("w-full min-w-0 max-w-full overflow-hidden", className)}>
       <div
         className={cn(
-          "overflow-hidden rounded-[1.15rem] bg-gradient-to-br from-white/88 to-cream-muted/55 p-[2px] shadow-[0_20px_50px_-15px_rgba(95,122,108,0.22)] ring-1 ring-white/55",
-          "ring-offset-2 ring-offset-cream/0",
+          "overflow-hidden rounded-[1.15rem] bg-gradient-to-br from-highlight/50 via-cream/45 to-cream-muted/65 p-[2px] shadow-[0_20px_50px_-15px_rgba(95,122,108,0.22)] ring-1 ring-highlight/40",
         )}
       >
         <div className="overflow-hidden rounded-[0.95rem] ring-1 ring-sage/15">
           {inner}
         </div>
       </div>
-      {(caption || title) && (
+      {showFigcaption && (caption || title || hint) ? (
         <figcaption className="mt-2 max-w-full px-1 text-center text-[11px] leading-snug text-ink-muted/85 sm:mt-3 sm:px-0 sm:text-xs sm:text-[13px]">
-          {caption ?? title}
+          <span className="block font-medium text-ink/90">{caption ?? title}</span>
+          {hint ? (
+            <span className="mt-1 block text-[10px] font-semibold uppercase tracking-[0.18em] text-sage sm:text-[11px]">
+              {hint}
+            </span>
+          ) : null}
         </figcaption>
-      )}
+      ) : null}
     </figure>
   );
 }

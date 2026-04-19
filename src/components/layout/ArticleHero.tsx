@@ -21,7 +21,7 @@ export function ArticleHero({
   readMinutes,
 }: Props) {
   return (
-    <header className="relative overflow-hidden border-b border-line/25 glass-band">
+    <header className="relative overflow-hidden border-b border-rule/28 glass-band">
       <div
         className="pointer-events-none absolute right-0 top-0 h-64 w-64 rounded-full bg-sage/[0.06] blur-3xl"
         aria-hidden

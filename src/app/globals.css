@@ -1,27 +1,53 @@
 @import "tailwindcss";
 
 /*
-  Marka: #5f7a6c — krem zemin (#fdf5c9) ile uyumlu soğuk yeşil-gri.
-  Metinler kahverengi değil; yeşile yakın nötr gri.
+  Sade tema:
+  - Zemin: nötr sıcak beyaz (tam sarı değil)
+  - Vurgu sarısı: #fffac3 (buton/şerit/hero panel gibi yerlerde)
+  - Yeşil: --brand ailesi
+  - Çerçeve / ayırıcı: border-rule (neredeyse siyah) — sarı arttıkça solmasın;
+    yumuşak nötr çizgi için --line (Tailwind: line) hâlâ tanımlı.
 */
 :root {
   /* Sabit navbar yüksekliği — hero içeriği bunun altından başlar, görsel nav arkasında kalır */
   --header-h: 4.75rem;
 
-  --cream: #fdf5c9;
-  --cream-deep: color-mix(in srgb, var(--cream) 56%, #e6ddba);
-  --cream-muted: color-mix(in srgb, var(--cream) 62%, #faf7ec);
-  --surface: color-mix(in srgb, var(--cream) 44%, #fffdf6);
+  /* İstediğin vurgu sarısı — önce tanımlanır, aşağıdaki karışımlar buna bağlanır */
+  --highlight: #fffac3;
+
+  /* Krem + canlı sarı sıcaklık */
+  --cream: color-mix(in srgb, var(--highlight) 38%, #fdfbf5);
+  --cream-deep: color-mix(in srgb, var(--cream) 58%, #e0d8c4);
+  --cream-muted: color-mix(in srgb, var(--highlight) 34%, #fffef6);
+  --surface: color-mix(in srgb, var(--highlight) 28%, #fffefb);
   --brand: #5f7a6c;
   --sage: var(--brand);
   --sage-light: #7a9487;
   --sage-dark: #4d6358;
-  --ink: #2a322f;
-  --ink-muted: #5c6862;
+  /* Başlık / gövde: hafif sarı sıcaklık (tam sarı değil, okunaklı) */
+  --ink: color-mix(
+    in srgb,
+    color-mix(in srgb, #2a322f 88%, var(--highlight) 12%) 90%,
+    var(--sage-dark) 10%
+  );
+  --ink-muted: color-mix(
+    in srgb,
+    color-mix(in srgb, #5c6862 78%, var(--highlight) 22%) 88%,
+    var(--sage) 12%
+  );
+  /* Küçük etiketler — yeşil + sarı karışımı */
+  --gold: color-mix(in srgb, var(--sage-dark) 68%, var(--highlight) 32%);
+  /* Kırtasiye çizgisi — neredeyse siyah; çerçevelerde net okunur */
+  --rule: #121614;
   --accent: #5f7a6c;
-  --accent-soft: color-mix(in srgb, var(--brand) 22%, var(--cream));
-  --line: color-mix(in srgb, var(--cream) 28%, #dde5e0);
-  --background: var(--cream);
+  --accent-soft: color-mix(in srgb, var(--brand) 22%, var(--highlight));
+  --line: color-mix(
+    in srgb,
+    #d8e0db 76%,
+    color-mix(in srgb, var(--cream) 65%, var(--highlight) 35%) 24%
+  );
+  /* Genel zemin: krem ağırlıklı; sarı daha belirgin */
+  --background: color-mix(in srgb, var(--surface) 28%, var(--cream));
   --foreground: var(--ink);
 }
 
@@ -29,6 +55,9 @@
   --color-cream: var(--cream);
   --color-cream-deep: var(--cream-deep);
   --color-cream-muted: var(--cream-muted);
+  --color-highlight: var(--highlight);
+  --color-gold: var(--gold);
+  --color-rule: var(--rule);
   --color-ink: var(--ink);
   --color-ink-muted: var(--ink-muted);
   --color-sage: var(--sage);
@@ -50,42 +79,67 @@ html {
 }
 
 body {
-  background: var(--cream);
+  background: var(--background);
   color: var(--foreground);
   font-family: var(--font-dm-sans), system-ui, sans-serif;
 }
 
 /* Cam yüzey — kartlar, paneller, şeritler (site geneli saydam) */
 .glass {
-  background-color: color-mix(in srgb, var(--cream) 26%, transparent);
-  backdrop-filter: blur(18px) saturate(1.2);
-  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  background-color: color-mix(
+    in srgb,
+    color-mix(in srgb, var(--highlight) 34%, transparent) 54%,
+    color-mix(in srgb, var(--cream) 38%, transparent) 46%
+  );
+  backdrop-filter: blur(12px) saturate(1.08);
+  -webkit-backdrop-filter: blur(12px) saturate(1.08);
 }
 
 .glass-strong {
-  background-color: color-mix(in srgb, var(--cream) 38%, transparent);
-  backdrop-filter: blur(20px) saturate(1.2);
-  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  background-color: color-mix(
+    in srgb,
+    color-mix(in srgb, var(--highlight) 42%, transparent) 56%,
+    color-mix(in srgb, var(--cream) 44%, transparent) 44%
+  );
+  backdrop-filter: blur(14px) saturate(1.08);
+  -webkit-backdrop-filter: blur(14px) saturate(1.08);
 }
 
 .glass-band {
-  background-color: color-mix(in srgb, var(--cream) 12%, transparent);
-  backdrop-filter: blur(22px) saturate(1.15);
-  -webkit-backdrop-filter: blur(22px) saturate(1.15);
+  background-color: color-mix(
+    in srgb,
+    color-mix(in srgb, var(--highlight) 30%, transparent) 50%,
+    color-mix(in srgb, var(--cream) 28%, transparent) 50%
+  );
+  backdrop-filter: blur(12px) saturate(1.05);
+  -webkit-backdrop-filter: blur(12px) saturate(1.05);
 }
 
 .glass-input {
-  background-color: color-mix(in srgb, var(--cream-muted) 22%, transparent);
+  background-color: color-mix(
+    in srgb,
+    color-mix(in srgb, var(--highlight) 24%, transparent) 40%,
+    color-mix(in srgb, var(--cream-muted) 32%, transparent) 60%
+  );
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--brand) 22%, transparent);
+  background: color-mix(
+    in srgb,
+    color-mix(in srgb, var(--highlight) 48%, var(--brand) 52%) 44%,
+    transparent
+  );
 }
 
 .gradient-mesh {
   background:
+    radial-gradient(
+      ellipse 70% 55% at 8% 12%,
+      color-mix(in srgb, var(--highlight) 22%, transparent),
+      transparent 58%
+    ),
     radial-gradient(
       ellipse 100% 80% at 90% -10%,
       color-mix(in srgb, var(--brand) 9%, transparent),
@@ -184,7 +238,11 @@ body {
   font-weight: 600;
   line-height: 1.25;
   color: var(--brand);
-  background-color: color-mix(in srgb, var(--surface) 92%, transparent);
+  background-color: color-mix(
+    in srgb,
+    color-mix(in srgb, var(--highlight) 18%, transparent) 35%,
+    color-mix(in srgb, var(--surface) 88%, transparent) 65%
+  );
   border: 1px solid color-mix(in srgb, var(--brand) 22%, var(--line));
   backdrop-filter: blur(8px);
   transition:

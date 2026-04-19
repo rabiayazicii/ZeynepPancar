@@ -1,23 +1,20 @@
 import type { NextConfig } from "next";
+import { fileURLToPath } from "node:url";
 
-/**
- * GitHub Pages için örnek build (repo kökünde yayın):
- *   BASE_PATH=/ZeynepPancar STATIC_EXPORT=true npm run build
- * Çıktı: `out/` klasörünü Pages köküne koyun.
- *
- * Yerel geliştirme: env vermeden `npm run dev` — basePath ve export kapalı.
- */
-const staticExport = process.env.STATIC_EXPORT === "true";
-const basePath = process.env.BASE_PATH?.replace(/\/$/, "") ?? "";
+const projectRoot = fileURLToPath(new URL(".", import.meta.url));
 
 const nextConfig: NextConfig = {
-  ...(staticExport && { output: "export" as const }),
-  ...(basePath ? { basePath } : {}),
-  /** GitHub Pages’te klasör yönlendirmesi için sık kullanılır */
-  ...(staticExport && { trailingSlash: true }),
+  turbopack: {
+    root: projectRoot,
+  },
   images: {
-    /** `output: "export"` ile `next/image` için gerekli */
-    unoptimized: staticExport,
+    /** Tarayıcıya AVIF/WebP ile daha küçük dosya */
+    formats: ["image/avif", "image/webp"],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [32, 48, 64, 96, 128, 256, 384],
+    /** Üretilen varyantların CDN/tarayıcı önbelleği (saniye) */
+    minimumCacheTTL: 60 * 60 * 24 * 30,
+    qualities: [75, 80],
   },
 };
 

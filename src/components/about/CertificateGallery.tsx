@@ -1,18 +1,47 @@
+"use client";
+
 import Image from "next/image";
 import { ExternalLink, FileText } from "lucide-react";
+import { motion } from "framer-motion";
 import { certificateUrl, certificates } from "@/lib/certificates";
 import { cn } from "@/lib/cn";
 
 type Props = {
   className?: string;
+  /** Akordeon açıkken kartların sırayla görünmesi için */
+  expanded?: boolean;
+};
+
+const listVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.055,
+      delayChildren: 0.06,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.34,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  },
 };
 
 /** Kare ızgara — sertifika önizlemeleri */
-export function CertificateGrid({ className }: Props) {
+export function CertificateGrid({ className, expanded = true }: Props) {
   return (
-    <ul
+    <motion.ul
+      initial="hidden"
+      animate={expanded ? "visible" : "hidden"}
+      variants={listVariants}
       className={cn(
-        "grid grid-cols-3 gap-2.5 sm:grid-cols-4 sm:gap-3 lg:grid-cols-4",
+        "grid w-full min-w-0 max-w-full grid-cols-3 gap-2.5 sm:grid-cols-4 sm:gap-3 lg:grid-cols-4",
         className,
       )}
     >
@@ -21,7 +50,11 @@ export function CertificateGrid({ className }: Props) {
         const isPdf = c.kind === "pdf";
 
         return (
-          <li key={c.id} className="flex flex-col gap-1.5">
+          <motion.li
+            key={c.id}
+            variants={itemVariants}
+            className="flex min-w-0 flex-col gap-1.5"
+          >
             <a
               href={href}
               target="_blank"
@@ -57,10 +90,9 @@ export function CertificateGrid({ className }: Props) {
             <p className="line-clamp-2 text-center text-[10px] font-medium leading-snug text-ink-muted sm:text-[11px]">
               {c.title}
             </p>
-          </li>
+          </motion.li>
         );
       })}
-    </ul>
+    </motion.ul>
   );
 }
-

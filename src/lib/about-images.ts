@@ -34,7 +34,12 @@ export const homeHeroCarouselSlides = [
     title: "Materyaller",
     caption: "Yaşa uygun araç ve etkinlikler",
   },
-] as const;
+] satisfies ReadonlyArray<{
+  id: string;
+  file: string;
+  title: string;
+  caption: string;
+}>;
 
 /** Ana sayfa — “Güven ve gizlilik” bölümü */
 export const HOME_TRUST_SECTION_IMAGE = "IMG_6890.jpeg";
@@ -43,7 +48,7 @@ export const HOME_TRUST_SECTION_IMAGE = "IMG_6890.jpeg";
 export const SERVICES_SIDEBAR_IMAGE = "IMG_6887.jpeg";
 
 /** Hizmetler — hero başlık bandı arkası (saydam dekor) */
-export const SERVICES_HERO_BACKDROP_IMAGE = "therapy.jpg";
+export const SERVICES_HERO_BACKDROP_IMAGE = "3d-rendering-pen-ai-generated.jpg";
 
 /** Blog — hero başlık bandı arkası */
 export const BLOG_PAGE_HERO_IMAGE = "blog.jpg";

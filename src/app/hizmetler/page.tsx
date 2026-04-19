@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ClinicPhotoGrid } from "@/components/about/ClinicPhotoGrid";
 import { FadeIn } from "@/components/FadeIn";
-import { PageHero } from "@/components/layout/PageHero";
 import { PageShell } from "@/components/layout/PageShell";
+import { ServicesScrollHero } from "@/components/layout/ServicesScrollHero";
 import { SERVICES_HERO_BACKDROP_IMAGE, aboutImageSrc } from "@/lib/about-images";
 
 export const metadata: Metadata = {
@@ -81,12 +81,11 @@ const services = [
 export default function ServicesPage() {
   return (
     <main className="pb-24 lg:pb-32">
-      <PageHero
-        kicker="Hizmetler"
-        title="Uzmanlık alanları ve süreç"
-        description="Aşağıdaki başlıklar dil ve konuşma terapisinin yaygın alanlarını özetler. Size özel program ilk değerlendirme sonrasında netleşir; metinleri kendi klinik içeriğinizle güncelleyebilirsiniz."
+      <ServicesScrollHero
         backdropImageSrc={aboutImageSrc(SERVICES_HERO_BACKDROP_IMAGE)}
-        backdropStrongTextScrim
+        pageTitle="Hizmetler"
+        headline="Uzmanlık alanları ve süreç"
+        description="Aşağıdaki başlıklar dil ve konuşma terapisinin yaygın alanlarını özetler. Size özel program ilk değerlendirme sonrasında netleşir; metinleri kendi klinik içeriğinizle güncelleyebilirsiniz."
       />
 
       <PageShell width="full" className="mt-14 sm:mt-20 lg:mt-24">

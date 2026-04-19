@@ -1,9 +1,10 @@
 "use client";
 
+import { FadeIn } from "@/components/FadeIn";
 import { CONTACT_MAP_EMBED_SRC } from "@/lib/contact-map";
 import { cn } from "@/lib/cn";
 
-/** Sayfa altı — ortalanmış, yuvarlatılmış harita (tam genişlik değil) */
+/** Sayfa altı — harita; kabuk ile hizalı başlık ve geniş kart */
 export function ContactMapEmbed() {
   if (!CONTACT_MAP_EMBED_SRC.trim()) {
     return null;
@@ -11,45 +12,50 @@ export function ContactMapEmbed() {
 
   return (
     <section
-      className="mt-16 w-full sm:mt-20 lg:mt-24"
+      className="mt-14 w-full sm:mt-16 lg:mt-20"
       aria-labelledby="contact-map-heading"
     >
-      <div className="mx-auto max-w-6xl text-center">
-        <div className="mb-2 inline-flex items-center justify-center gap-2">
-          <span className="h-px w-8 bg-sage/35" aria-hidden />
-          <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-sage/90">
-            Konum
+      <FadeIn delay={0.06}>
+        <div className="flex items-start gap-3 sm:gap-4">
+          <span
+            className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-sky-200/55 bg-gradient-to-br from-sky-50/70 to-sky-100/50 text-lg leading-none shadow-[0_3px_10px_-5px_rgba(14,116,144,0.2)] sm:h-12 sm:w-12 sm:text-xl"
+            aria-hidden
+          >
+            <span className="opacity-90 drop-shadow-sm">🗺️</span>
           </span>
-          <span className="h-px w-8 bg-sage/35" aria-hidden />
+          <div className="min-w-0 flex-1">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-sage">
+              Konum
+            </p>
+            <h2
+              id="contact-map-heading"
+              className="mt-2 font-serif text-2xl font-medium tracking-tight text-ink sm:text-3xl"
+            >
+              Haritada bizi bulun
+            </h2>
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink-muted sm:text-[15px]">
+              Yol tarifi veya yakın çevre için haritayı kullanabilirsiniz.
+            </p>
+          </div>
         </div>
-        <h2
-          id="contact-map-heading"
-          className="font-serif text-xl font-semibold tracking-tight text-ink sm:text-2xl"
-        >
-          Haritada bizi bulun
-        </h2>
-        <p className="mx-auto mt-2 max-w-lg text-sm leading-relaxed text-ink-muted sm:text-[15px]">
-          Yol tarifi veya yakın çevre için haritayı kullanabilirsiniz.
-        </p>
-      </div>
 
-      <div
-        className={cn(
-          "relative mx-auto mt-8 w-full max-w-6xl overflow-hidden rounded-2xl",
-          "border-2 border-sage/25 bg-cream-muted/30 shadow-[0_16px_48px_-16px_rgba(95,122,108,0.22)]",
-          "ring-1 ring-sage/15",
-          "h-[12rem] sm:h-[13rem] lg:h-[14rem]",
-        )}
-      >
-        <iframe
-          title="Klinik konumu haritası"
-          src={CONTACT_MAP_EMBED_SRC.trim()}
-          className="absolute inset-0 h-full w-full border-0"
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          allowFullScreen
-        />
-      </div>
+        <div
+          className={cn(
+            "relative mt-8 w-full overflow-hidden rounded-2xl border border-sage/26 bg-cream-muted/40",
+            "shadow-[0_18px_48px_-26px_rgba(18,22,20,0.28),0_8px_20px_-12px_rgba(95,122,108,0.12),inset_0_1px_0_rgba(255,255,255,0.9)]",
+            "h-[14rem] sm:h-[16rem] lg:h-[18rem]",
+          )}
+        >
+          <iframe
+            title="Klinik konumu haritası"
+            src={CONTACT_MAP_EMBED_SRC.trim()}
+            className="absolute inset-0 h-full w-full border-0"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+        </div>
+      </FadeIn>
     </section>
   );
 }

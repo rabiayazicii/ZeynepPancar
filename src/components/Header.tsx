@@ -50,7 +50,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed left-0 right-0 top-0 z-50 border-b border-line/25 bg-cream shadow-[0_1px_0_rgba(42,50,47,0.05)] transition-transform duration-300 ease-out will-change-transform ${
+      className={`fixed left-0 right-0 top-0 z-50 border-b border-rule/28 bg-cream shadow-[0_1px_0_rgba(18,22,20,0.14)] transition-transform duration-300 ease-out will-change-transform ${
         navHidden ? "-translate-y-full pointer-events-none" : "translate-y-0"
       }`}
     >
@@ -110,7 +110,7 @@ export function Header() {
           </Link>
           <button
             type="button"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-line/35 glass text-ink"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-rule/32 glass text-ink"
             aria-expanded={open}
             aria-label="Menüyü aç"
             onClick={() => setOpen((v) => !v)}
@@ -149,7 +149,7 @@ export function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="overflow-hidden border-t border-line/30 glass-strong md:hidden"
+            className="overflow-hidden border-t border-rule/28 glass-strong md:hidden"
           >
             <nav className="flex flex-col gap-1 px-4 py-4">
               {nav.map((item) => {
