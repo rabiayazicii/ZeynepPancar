@@ -130,20 +130,23 @@ export default function HomePage() {
           )}
         >
           <div className="max-sm:mr-auto max-sm:max-w-[min(100%,20rem)] max-sm:text-left sm:max-w-none">
-            <FadeIn>
-            <p className="inline-flex rounded-full border-2 border-white/45 bg-white/12 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-cream-muted backdrop-blur-md sm:px-3 sm:py-1.5 sm:text-[11px] sm:tracking-[0.26em]">
+            <FadeIn
+              initial={{ opacity: 0, y: 12 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            >
+            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-cream-muted/85 sm:text-[11px]">
               Dil ve konuşma terapisi
             </p>
-            <h1 className="mt-4 max-w-[14ch] border-l-[3px] border-white/55 pl-3 font-serif text-[1.7rem] font-medium leading-[1.08] tracking-tight text-cream-muted [text-shadow:0_1px_3px_rgba(18,22,20,0.35),0_12px_40px_rgba(253,251,245,0.55)] sm:mt-6 sm:max-w-[15ch] sm:border-l-4 sm:pl-5 sm:text-5xl sm:leading-[1.02] lg:text-[3.45rem]">
+            <h1 className="mt-3 max-w-[16ch] font-serif text-[1.7rem] font-medium leading-[1.1] tracking-tight text-cream-muted [text-shadow:0_2px_24px_rgba(0,0,0,0.55)] sm:mt-5 sm:max-w-[15ch] sm:text-5xl sm:leading-[1.02] lg:max-w-[18ch] lg:text-[3.45rem]">
               Net iletişim, bilimle desteklenen yol.
             </h1>
-            <p className="mt-5 max-w-lg rounded-r-2xl border-y border-r border-white/35 border-l-0 bg-black/22 py-3 pl-3 pr-3 text-[13px] leading-[1.68] text-cream-muted/92 backdrop-blur-[2px] sm:mt-8 sm:max-w-lg sm:py-4 sm:pl-5 sm:pr-6 sm:text-lg sm:leading-[1.75]">
+            <p className="mt-4 max-w-lg text-[13px] leading-relaxed text-cream-muted/95 [text-shadow:0_1px_14px_rgba(0,0,0,0.5)] sm:mt-6 sm:max-w-xl sm:text-lg sm:leading-relaxed">
               Merhaba, ben{" "}
               <span className="font-semibold text-cream-muted">Zeynep Pancar</span>.
               Çocuktan yetişkine her yaşta dil, konuşma, ses ve yutma alanlarında size
               özel çalışıyorum.
             </p>
-            <div className="mt-7 flex flex-wrap items-center gap-2.5 sm:mt-10 sm:gap-5">
+            <div className="mt-8 flex flex-wrap items-center gap-3 sm:mt-10 sm:gap-5">
               <ButtonLink
                 href="/iletisim"
                 variant="primary"
@@ -156,7 +159,7 @@ export default function HomePage() {
               </ButtonLink>
               <Link
                 href="/hizmetler"
-                className="group inline-flex items-center gap-2 text-[13px] font-semibold text-cream-muted drop-shadow-[0_1px_10px_rgba(18,22,20,0.35)] sm:text-sm"
+                className="group inline-flex items-center gap-2 text-[13px] font-semibold text-cream-muted/95 [text-shadow:0_1px_12px_rgba(0,0,0,0.45)] sm:text-sm"
               >
                 Hizmetlere bak
                 <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
