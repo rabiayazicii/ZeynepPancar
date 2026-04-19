@@ -327,8 +327,7 @@ export default function HomePage() {
           width="full"
           className="relative z-10 flex min-h-[20rem] flex-col justify-end py-12 sm:min-h-[22rem] sm:justify-center sm:py-14 lg:min-h-[24rem] lg:max-w-2xl lg:py-16"
         >
-          <FadeIn>
-            <div className="rounded-2xl border border-white/40 bg-black/28 p-5 shadow-[0_22px_50px_-20px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-md sm:p-6">
+          <div className="rounded-2xl border border-white/40 bg-black/28 p-5 shadow-[0_22px_50px_-20px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-md sm:p-6">
             <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-cream-muted">
               Güven
             </p>
@@ -343,8 +342,7 @@ export default function HomePage() {
               Çocuk çalışmalarında ebeveyn katılımı ve ev aktiviteleri, sürdürülebilir
               sonuçlar için planın parçasıdır.
             </p>
-            </div>
-          </FadeIn>
+          </div>
         </PageShell>
       </section>
 

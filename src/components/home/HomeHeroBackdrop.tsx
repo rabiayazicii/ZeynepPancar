@@ -62,7 +62,7 @@ export function HomeHeroBackdrop({ slides, children }: Props) {
 
   return (
     <header
-      className="relative isolate min-h-[calc(100svh-var(--header-h)+min(6vh,3.5rem))] overflow-hidden border-b border-rule/15"
+      className="relative isolate min-h-[100svh] overflow-hidden border-b border-rule/15"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
       onTouchCancel={clearTouchStart}
@@ -91,7 +91,7 @@ export function HomeHeroBackdrop({ slides, children }: Props) {
       </div>
 
       {/* İçerik — fotoğraf üzerinde koyu scrim yok; metin okunabilirliği sayfa içi panellerle */}
-      <div className="relative z-[3] flex min-h-[calc(100svh-var(--header-h)+min(6vh,3.5rem))] w-full flex-col justify-end pb-[6.25rem] pt-[calc(var(--header-h)+1rem)] max-sm:items-start sm:justify-center sm:pb-20 sm:pt-[calc(var(--header-h)+2rem)] sm:items-stretch">
+      <div className="relative z-[3] flex min-h-[100svh] w-full flex-col justify-end pb-[6.25rem] pt-[calc(var(--header-h)+1rem)] max-sm:items-start sm:justify-center sm:pb-20 sm:pt-[calc(var(--header-h)+2rem)] sm:items-stretch">
         {children}
       </div>
 
