@@ -41,7 +41,7 @@ export function ArticleHero({
           <div className="mt-8">
             <SectionLabel>{category}</SectionLabel>
           </div>
-          <h1 className="mt-5 text-balance font-serif text-2xl font-semibold leading-[1.18] tracking-tight text-ink sm:text-4xl md:text-[2.65rem]">
+          <h1 className="mt-5 text-balance font-serif text-lg font-semibold leading-[1.22] tracking-tight text-ink sm:text-4xl md:text-[2.65rem]">
             {title}
           </h1>
           <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-ink-muted">

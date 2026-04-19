@@ -148,7 +148,7 @@ export default function AboutPage() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-cream-muted/90">
               Yaklaşım
             </p>
-            <h2 className="mt-4 border-l-[3px] border-cream-muted/55 pl-4 font-serif text-2xl font-medium tracking-tight text-cream-muted sm:pl-5 sm:text-4xl">
+            <h2 className="mt-4 border-l-[3px] border-cream-muted/55 pl-4 font-serif text-xl font-medium tracking-tight text-cream-muted sm:pl-5 sm:text-4xl">
               Çalışma değerlerim
             </h2>
             <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-cream-muted/90 sm:text-[17px] md:text-lg">
@@ -182,7 +182,7 @@ export default function AboutPage() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-sage">
               Ortam
             </p>
-            <h2 className="mt-4 max-w-2xl border-l-[3px] border-sage pl-4 font-serif text-2xl font-medium tracking-tight text-ink sm:pl-5 sm:text-4xl">
+            <h2 className="mt-4 max-w-2xl border-l-[3px] border-sage pl-4 font-serif text-xl font-medium tracking-tight text-ink sm:pl-5 sm:text-4xl">
               Çalışma ortamından kareler
             </h2>
             <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink-muted sm:text-[17px] md:text-lg">

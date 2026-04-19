@@ -54,13 +54,13 @@ export function HomeHeroBackdrop({ slides, children }: Props) {
       </div>
 
       {/* İçerik — fotoğraf üzerinde koyu scrim yok; metin okunabilirliği sayfa içi panellerle */}
-      <div className="relative z-[3] flex min-h-[calc(100svh-var(--header-h)+min(6vh,3.5rem))] flex-col justify-end pb-14 pt-[calc(var(--header-h)+1.5rem)] sm:justify-center sm:pb-20 sm:pt-[calc(var(--header-h)+2rem)]">
+      <div className="relative z-[3] flex min-h-[calc(100svh-var(--header-h)+min(6vh,3.5rem))] w-full flex-col justify-end pb-[6.25rem] pt-[calc(var(--header-h)+1rem)] max-sm:items-start sm:justify-center sm:pb-20 sm:pt-[calc(var(--header-h)+2rem)] sm:items-stretch">
         {children}
       </div>
 
-      {/* Slayt göstergesi */}
+      {/* Slayt göstergesi — mobilde sol alta, masaüstünde ortada */}
       <div
-        className="absolute bottom-5 left-1/2 z-[3] flex -translate-x-1/2 gap-2 sm:bottom-8"
+        className="absolute bottom-4 left-3 z-[3] flex translate-x-0 gap-2 sm:bottom-8 sm:left-1/2 sm:-translate-x-1/2"
         role="tablist"
         aria-label="Hero görselleri"
       >

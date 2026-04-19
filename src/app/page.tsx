@@ -122,21 +122,28 @@ export default function HomePage() {
     <>
       {/* ——— Hero: tam ekran arka plan fotoğrafları (otomatik) + metin ——— */}
       <HomeHeroBackdrop slides={heroBackdropSlides}>
-        <PageShell width="full" className="max-w-4xl lg:max-w-3xl">
-          <FadeIn>
-            <p className="inline-flex rounded-full border-2 border-white/45 bg-white/12 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.26em] text-cream-muted backdrop-blur-md">
+        <PageShell
+          width="full"
+          className={cn(
+            "max-w-4xl lg:max-w-3xl",
+            "max-sm:mx-0 max-sm:max-w-none max-sm:px-3 max-sm:pr-2",
+          )}
+        >
+          <div className="max-sm:mr-auto max-sm:max-w-[min(100%,20rem)] max-sm:text-left sm:max-w-none">
+            <FadeIn>
+            <p className="inline-flex rounded-full border-2 border-white/45 bg-white/12 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-cream-muted backdrop-blur-md sm:px-3 sm:py-1.5 sm:text-[11px] sm:tracking-[0.26em]">
               Dil ve konuşma terapisi
             </p>
-            <h1 className="mt-5 max-w-[15ch] border-l-4 border-white/55 pl-4 font-serif text-[2.05rem] font-medium leading-[1.06] tracking-tight text-cream-muted [text-shadow:0_1px_3px_rgba(18,22,20,0.35),0_12px_40px_rgba(253,251,245,0.55)] sm:mt-6 sm:pl-5 sm:text-5xl sm:leading-[1.02] lg:text-[3.45rem]">
+            <h1 className="mt-4 max-w-[14ch] border-l-[3px] border-white/55 pl-3 font-serif text-[1.7rem] font-medium leading-[1.08] tracking-tight text-cream-muted [text-shadow:0_1px_3px_rgba(18,22,20,0.35),0_12px_40px_rgba(253,251,245,0.55)] sm:mt-6 sm:max-w-[15ch] sm:border-l-4 sm:pl-5 sm:text-5xl sm:leading-[1.02] lg:text-[3.45rem]">
               Net iletişim, bilimle desteklenen yol.
             </h1>
-            <p className="mt-7 max-w-lg rounded-r-2xl border-y border-r border-white/35 border-l-0 bg-black/22 py-3.5 pl-4 pr-4 text-[15px] leading-[1.72] text-cream-muted/92 backdrop-blur-[2px] sm:mt-8 sm:py-4 sm:pl-5 sm:pr-6 sm:text-lg sm:leading-[1.75]">
+            <p className="mt-5 max-w-lg rounded-r-2xl border-y border-r border-white/35 border-l-0 bg-black/22 py-3 pl-3 pr-3 text-[13px] leading-[1.68] text-cream-muted/92 backdrop-blur-[2px] sm:mt-8 sm:max-w-lg sm:py-4 sm:pl-5 sm:pr-6 sm:text-lg sm:leading-[1.75]">
               Merhaba, ben{" "}
               <span className="font-semibold text-cream-muted">Zeynep Pancar</span>.
               Çocuktan yetişkine her yaşta dil, konuşma, ses ve yutma alanlarında size
               özel çalışıyorum.
             </p>
-            <div className="mt-9 flex flex-wrap items-center gap-3 sm:mt-10 sm:gap-5">
+            <div className="mt-7 flex flex-wrap items-center gap-2.5 sm:mt-10 sm:gap-5">
               <ButtonLink
                 href="/iletisim"
                 variant="primary"
@@ -156,6 +163,7 @@ export default function HomePage() {
               </Link>
             </div>
           </FadeIn>
+          </div>
         </PageShell>
       </HomeHeroBackdrop>
 
@@ -168,7 +176,7 @@ export default function HomePage() {
                 key={p.title}
                 className="rounded-xl border-2 border-cream-muted/40 bg-black/10 px-4 py-4 sm:px-6 sm:py-5 sm:first:pl-4 sm:last:pr-4"
               >
-                <p className="font-serif text-lg font-medium text-cream-muted sm:text-2xl">
+                <p className="font-serif text-base font-medium text-cream-muted sm:text-2xl">
                   {p.title}
                 </p>
                 <p className="mt-2 max-w-xs text-sm leading-relaxed text-cream-muted/90">
@@ -184,7 +192,7 @@ export default function HomePage() {
       <section className="border-b border-rule/12 bg-gradient-to-b from-cream via-highlight/18 to-cream-muted/50 py-20 sm:py-28">
         <PageShell width="full">
           <FadeIn>
-            <h2 className="max-w-xl border-l-4 border-sage pl-4 font-serif text-2xl font-medium tracking-tight text-ink sm:pl-5 sm:text-4xl">
+            <h2 className="max-w-xl border-l-4 border-sage pl-4 font-serif text-xl font-medium tracking-tight text-ink sm:pl-5 sm:text-4xl">
               Alanlar
             </h2>
             <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-ink/90 sm:text-[17px]">
@@ -198,7 +206,7 @@ export default function HomePage() {
             {services.map((s, si) => (
               <li
                 key={s.title}
-                className="flex gap-4 rounded-xl border border-sage/24 bg-gradient-to-b from-cream-muted/45 to-background/95 p-6 shadow-[0_16px_40px_-20px_rgba(18,22,20,0.11),inset_0_1px_0_rgba(255,251,240,0.55)] transition duration-300 hover:-translate-y-0.5 hover:border-sage/32 lg:rounded-none lg:border-0 lg:bg-background/82 lg:p-8 lg:shadow-none lg:[background-image:none] lg:hover:translate-y-0 lg:odd:border-r lg:odd:border-sage/22"
+                className="flex gap-4 rounded-xl border border-sage/24 bg-gradient-to-b from-cream-muted/45 to-background/95 p-5 shadow-[0_16px_40px_-20px_rgba(18,22,20,0.11),inset_0_1px_0_rgba(255,251,240,0.55)] transition duration-300 hover:-translate-y-0.5 hover:border-sage/32 sm:p-6 lg:rounded-none lg:border-0 lg:bg-background/82 lg:p-8 lg:shadow-none lg:[background-image:none] lg:hover:translate-y-0 lg:odd:border-r lg:odd:border-sage/22"
               >
                 <span
                   className={cn(
@@ -237,7 +245,7 @@ export default function HomePage() {
         <PageShell width="full">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-12">
             <FadeIn className="max-w-xl lg:max-w-2xl">
-              <h2 className="border-l-4 border-sage pl-4 font-serif text-2xl font-medium tracking-tight text-ink sm:pl-5 sm:text-4xl">
+              <h2 className="border-l-4 border-sage pl-4 font-serif text-xl font-medium tracking-tight text-ink sm:pl-5 sm:text-4xl">
                 Nasıl ilerliyoruz?
               </h2>
               <p className="mt-4 text-[15px] leading-relaxed text-ink/90 sm:text-[17px] md:text-lg">
@@ -324,7 +332,7 @@ export default function HomePage() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-cream-muted">
               Güven
             </p>
-            <h2 className="mt-3 border-b-2 border-white/35 pb-3 font-serif text-2xl font-medium tracking-tight text-cream-muted sm:text-4xl">
+            <h2 className="mt-3 border-b-2 border-white/35 pb-3 font-serif text-xl font-medium tracking-tight text-cream-muted sm:text-4xl">
               Gizlilik ve güven
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-cream-muted/92 sm:text-[17px] md:text-lg">
@@ -345,7 +353,7 @@ export default function HomePage() {
         <PageShell width="full">
           <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
             <FadeIn className="max-w-2xl">
-              <h2 className="border-l-4 border-sage pl-4 font-serif text-2xl font-medium tracking-tight text-ink sm:pl-5 sm:text-4xl">
+              <h2 className="border-l-4 border-sage pl-4 font-serif text-xl font-medium tracking-tight text-ink sm:pl-5 sm:text-4xl">
                 Yazılar
               </h2>
               <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-ink/90 sm:text-[17px] md:text-lg">

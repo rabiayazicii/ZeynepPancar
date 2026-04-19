@@ -38,7 +38,7 @@ const shell3d = cn(
 );
 
 const innerForm3d = cn(
-  "relative overflow-hidden rounded-2xl border border-sage/22 bg-gradient-to-br from-cream-muted/70 via-background/92 to-cream-muted/55 p-5 sm:p-8",
+  "relative overflow-hidden rounded-2xl border border-sage/22 bg-gradient-to-br from-cream-muted/70 via-background/92 to-cream-muted/55 p-3.5 sm:p-8",
   "shadow-[inset_0_1px_0_rgba(255,253,245,0.85),inset_0_-10px_28px_-14px_rgba(95,122,108,0.08),0_14px_36px_-22px_rgba(18,22,20,0.16)]",
 );
 
@@ -57,7 +57,10 @@ export function ContactForm() {
   }
 
   return (
-    <PageShell width="full" className="mt-14 sm:mt-20 lg:mt-24">
+    <PageShell
+      width="full"
+      className="mt-14 max-sm:px-2.5 sm:mt-20 lg:mt-24"
+    >
       <FadeIn>
         <div
           className={cn(
@@ -182,7 +185,7 @@ export function ContactForm() {
             </div>
           </aside>
 
-          <div className="order-1 p-5 sm:p-8 lg:p-9 lg:pl-10">
+          <div className="order-1 p-3.5 sm:p-8 lg:p-9 lg:pl-10">
             <div className={innerForm3d}>
               {sent ? (
                 <div className="flex flex-col items-center py-8 text-center sm:py-10">

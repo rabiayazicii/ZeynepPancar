@@ -67,7 +67,7 @@ export function PageHero({
       ) : null}
       <h1
         className={cn(
-          "max-w-3xl font-serif text-3xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-[3.15rem] lg:leading-[1.08]",
+          "max-w-3xl font-serif text-[1.5625rem] font-semibold leading-[1.14] tracking-tight text-ink sm:text-5xl sm:leading-tight lg:text-[3.15rem] lg:leading-[1.08]",
           kicker ? "mt-5" : "",
           backdropImageSrc &&
             strongScrim &&

@@ -71,7 +71,7 @@ export function ServicesScrollHero({
               >
                 {pageTitle}
               </SectionLabel>
-              <h1 className="mt-5 max-w-3xl font-serif text-3xl font-semibold tracking-tight text-ink max-sm:text-cream-muted max-sm:[text-shadow:0_2px_26px_rgba(0,0,0,0.55)] sm:text-5xl lg:text-[3.15rem] lg:leading-[1.08]">
+              <h1 className="mt-5 max-w-3xl font-serif text-[1.5625rem] font-semibold leading-[1.14] tracking-tight text-ink max-sm:text-cream-muted max-sm:[text-shadow:0_2px_26px_rgba(0,0,0,0.55)] sm:text-5xl sm:leading-tight lg:text-[3.15rem] lg:leading-[1.08]">
                 {headline}
               </h1>
               <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-ink-muted max-sm:text-cream-muted/92 max-sm:[text-shadow:0_1px_16px_rgba(0,0,0,0.5)] sm:text-lg">
