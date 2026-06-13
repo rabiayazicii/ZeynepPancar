@@ -7,4 +7,4 @@
  * Aşağıdaki varsayılan yalnızca örnektir; kendi adresinizle değiştirin.
  */
 export const CONTACT_MAP_EMBED_SRC =
-  "https://www.openstreetmap.org/export/embed.html?bbox=28.95%2C41.0%2C29.15%2C41.08&layer=map";
+  "https://www.openstreetmap.org/export/embed.html?bbox=30.36%2C40.74%2C30.44%2C40.80&layer=map";

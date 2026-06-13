@@ -7,6 +7,10 @@ import {
   Mic,
   Soup,
   UserCircle,
+  ShieldCheck,
+  Activity,
+  Eye,
+  Lock,
   type LucideIcon,
 } from "lucide-react";
 import { FadeIn } from "@/components/FadeIn";
@@ -22,18 +26,21 @@ import {
   homeHeroCarouselSlides,
 } from "@/lib/about-images";
 
-const pillars: { title: string; text: string }[] = [
+const pillars: { title: string; text: string; icon: LucideIcon }[] = [
   {
     title: "Kanıta dayalı",
-    text: "Güncel literatür ve klinik rehberlerle uyumlu planlama.",
+    text: "Güncel literatür ve klinik rehberlerle uyumlu değerlendirme ve planlama.",
+    icon: ShieldCheck,
   },
   {
     title: "Bütüncül",
-    text: "Dil, ses, yutma ve yaşam kalitesi birlikte ele alınır.",
+    text: "Dil, konuşma, yutma, ses ve fiziksel gelişim bir bütün olarak ele alınır.",
+    icon: Activity,
   },
   {
     title: "Şeffaf",
-    text: "Hedefler ve ilerleme birlikte takip edilir.",
+    text: "Terapi hedefleri, seans sıklığı ve gelişim süreçleri birlikte takip edilir.",
+    icon: Eye,
   },
 ];
 
@@ -169,19 +176,22 @@ export default function HomePage() {
         </PageShell>
       </HomeHeroBackdrop>
 
-      {/* ——— Üç ilke: siyah yok — yeşil ton — ince beyaz üst/alt çizgi */}
-      <section className="border-t border-b border-white/30 bg-sage py-11 text-cream-muted sm:py-14">
+      {/* ——— Üç ilke: modern, ikonlu cam kartlar ——— */}
+      <section className="border-t border-b border-sage/20 bg-gradient-to-r from-sage-dark via-sage to-sage-dark py-12 text-cream-muted sm:py-16">
         <PageShell width="full">
-          <div className="grid gap-10 sm:grid-cols-3 sm:gap-8 sm:divide-x sm:divide-cream-muted/30">
+          <div className="grid gap-6 sm:grid-cols-3 sm:gap-8">
             {pillars.map((p) => (
               <div
                 key={p.title}
-                className="rounded-xl border-2 border-cream-muted/40 bg-black/10 px-4 py-4 sm:px-6 sm:py-5 sm:first:pl-4 sm:last:pr-4"
+                className="group relative flex flex-col items-center text-center rounded-2xl border border-cream-muted/30 bg-white/10 p-6 shadow-md backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:bg-white/15 hover:border-cream-muted/50"
               >
-                <p className="font-serif text-base font-medium text-cream-muted sm:text-2xl">
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-cream-muted/15 text-cream-muted border border-cream-muted/20 shadow-inner group-hover:scale-105 transition-transform duration-300">
+                  <p.icon className="h-6 w-6" strokeWidth={1.75} aria-hidden />
+                </span>
+                <h3 className="mt-4 font-serif text-lg font-bold text-cream-muted sm:text-xl">
                   {p.title}
-                </p>
-                <p className="mt-2 max-w-xs text-sm leading-relaxed text-cream-muted/90">
+                </h3>
+                <p className="mt-2 max-w-xs text-xs sm:text-sm leading-relaxed text-cream-muted/85">
                   {p.text}
                 </p>
               </div>
@@ -329,11 +339,12 @@ export default function HomePage() {
           width="full"
           className="relative z-10 flex min-h-[20rem] flex-col justify-end py-12 sm:min-h-[22rem] sm:justify-center sm:py-14 lg:min-h-[24rem] lg:max-w-2xl lg:py-16"
         >
-          <div className="rounded-2xl border border-white/40 bg-black/28 p-5 shadow-[0_22px_50px_-20px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-md sm:p-6">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-cream-muted">
+          <div className="rounded-2xl border border-white/25 bg-black/45 p-6 shadow-[0_24px_60px_-16px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-md sm:p-8">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-cream-muted/95 flex items-center gap-1.5 justify-start">
+              <Lock className="h-3.5 w-3.5 opacity-80" />
               Güven
             </p>
-            <h2 className="mt-3 border-b-2 border-white/35 pb-3 font-serif text-xl font-medium tracking-tight text-cream-muted sm:text-4xl">
+            <h2 className="mt-3 border-b border-white/15 pb-3 font-serif text-xl font-bold tracking-tight text-cream-muted sm:text-4xl">
               Gizlilik ve güven
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-cream-muted/92 sm:text-[17px] md:text-lg">

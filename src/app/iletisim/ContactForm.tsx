@@ -10,7 +10,7 @@ import { ContactMapEmbed } from "./ContactMapEmbed";
 
 const PHONE_DISPLAY = "+90 532 100 20 24";
 const PHONE_HREF = "tel:+905321002024";
-const EMAIL_DISPLAY = "merhaba@zeyneppancar.ornek";
+const EMAIL_DISPLAY = "iletisim@zeyneppancar.com";
 const EMAIL_HREF = `mailto:${EMAIL_DISPLAY}`;
 
 function Kicker({ children }: { children: React.ReactNode }) {
@@ -154,9 +154,9 @@ export function ContactForm() {
                       Adres
                     </p>
                     <p className="mt-2 text-pretty text-[15px] leading-relaxed text-ink-muted">
-                      Örnek Mah. Terapi Sok. No: 7 Kat: 2
+                      Adapazarı / Sakarya
                       <br />
-                      Şişli / İstanbul
+                      Türkiye
                     </p>
                   </div>
                 </li>

@@ -134,13 +134,46 @@ export default function AboutPage() {
           </div>
           <FadeIn
             delay={0.1}
-            className="relative flex min-w-0 w-full justify-center lg:pt-2"
+            className="relative flex min-w-0 w-full flex-col items-center lg:items-stretch lg:pt-2"
           >
-            <div
-              className="pointer-events-none absolute inset-x-0 -top-4 bottom-8 -z-10 max-w-full rounded-[2rem] bg-gradient-to-b from-highlight/35 to-transparent blur-2xl sm:inset-x-2 lg:inset-x-0"
-              aria-hidden
-            />
-            <AboutHeroPortraitGallery />
+            <div className="relative w-full flex justify-center">
+              <div
+                className="pointer-events-none absolute inset-x-0 -top-4 bottom-8 -z-10 max-w-full rounded-[2rem] bg-gradient-to-b from-highlight/35 to-transparent blur-2xl sm:inset-x-2 lg:inset-x-0"
+                aria-hidden
+              />
+              <AboutHeroPortraitGallery />
+            </div>
+
+            {/* Eğitim Kronolojisi / Timeline */}
+            <div className="mt-8 mx-auto w-full max-w-[min(100%,20rem)] sm:max-w-[min(100%,24rem)] lg:max-w-[min(100%,28rem)] xl:max-w-[min(100%,32rem)] rounded-2xl border border-sage/18 bg-gradient-to-b from-cream-muted/70 via-background/95 to-cream-muted/50 p-5 sm:p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+              <h3 className="font-serif text-sm font-bold text-ink flex items-center gap-2">
+                <BookOpen className="h-4 w-4 text-sage" />
+                Eğitim Kronolojisi
+              </h3>
+              <div className="mt-5 space-y-4">
+                {/* Yüksek Lisans */}
+                <div className="relative pl-5 border-l-2 border-sage/24 pb-4">
+                  <span className="absolute -left-[5px] top-1.5 h-2 w-2 rounded-full bg-sage shadow-[0_0_0_3px_rgba(95,122,108,0.15)]" />
+                  <span className="text-[9px] font-bold uppercase tracking-wider text-sage">Hâlen Devam Ediyor</span>
+                  <h4 className="text-xs font-bold text-ink mt-0.5">Yüksek Lisans Eğitimi</h4>
+                  <p className="text-[11px] leading-relaxed text-ink-muted mt-0.5">Üsküdar Üniversitesi — Dil ve Konuşma Terapisi</p>
+                </div>
+                {/* DKT Lisans */}
+                <div className="relative pl-5 border-l-2 border-sage/24 pb-4">
+                  <span className="absolute -left-[5px] top-1.5 h-2 w-2 rounded-full bg-sage" />
+                  <span className="text-[9px] font-bold uppercase tracking-wider text-sage">2024 Mezuniyeti</span>
+                  <h4 className="text-xs font-bold text-ink mt-0.5">Dil ve Konuşma Terapisi Lisans Programı</h4>
+                  <p className="text-[11px] leading-relaxed text-ink-muted mt-0.5">İstinye Üniversitesi (Çift Ana Dal, <strong>Yüksek Onur Öğrencisi</strong> unvanı ile mezuniyet)</p>
+                </div>
+                {/* FTR Lisans */}
+                <div className="relative pl-5 border-l-2 border-sage/24 last:pb-0">
+                  <span className="absolute -left-[5px] top-1.5 h-2 w-2 rounded-full bg-sage" />
+                  <span className="text-[9px] font-bold uppercase tracking-wider text-sage">2023 Mezuniyeti</span>
+                  <h4 className="text-xs font-bold text-ink mt-0.5">Fizyoterapi ve Rehabilitasyon Lisans Programı</h4>
+                  <p className="text-[11px] leading-relaxed text-ink-muted mt-0.5">İstinye Üniversitesi</p>
+                </div>
+              </div>
+            </div>
           </FadeIn>
 
           <div className="col-span-full min-w-0 border-t border-sage/20 pt-8 sm:pt-10 lg:pt-11">
