@@ -26,14 +26,13 @@ export function Footer() {
                 <span className="font-serif text-base font-semibold tracking-tight text-ink group-hover:text-sage sm:text-lg">
                   Zeynep Pancar
                 </span>
-                <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-sage/90 sm:text-[11px]">
-                  Dil ve Konuşma Terapisti
+                <span className="text-[9px] font-semibold uppercase tracking-[0.16em] text-sage-dark/95 sm:text-[10px]">
+                  DKT & Fizyoterapist
                 </span>
               </span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-ink-muted">
-              Her yaşta iletişim becerilerini desteklemek için bilimsel yöntemler ve
-              sıcak bir terapi ortamı sunuyorum.
+              Bütüncül yaklaşım ve bilimsel yöntemlerle, her yaşta dil, konuşma, yutma ve hareket gelişimini destekliyorum.
             </p>
           </div>
           <div>

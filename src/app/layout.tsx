@@ -19,18 +19,23 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   title: {
-    default: "Zeynep Pancar | Dil ve Konuşma Terapisti",
+    default: "Zeynep Pancar | Dil ve Konuşma Terapisti & Fizyoterapist",
     template: "%s | Zeynep Pancar",
   },
   description:
-    "Dil ve konuşma terapisi, yutma, ses ve akıcılık alanlarında bireysel değerlendirme ve tedavi. Güvenilir, kanıta dayalı yaklaşım.",
+    "Dil ve konuşma terapisi ile fizyoterapi/rehabilitasyon alanlarında bütüncül, bilimsel ve kanıta dayalı değerlendirme ve tedavi planları.",
   keywords: [
     "dil ve konuşma terapisti",
+    "fizyoterapist",
+    "çift ana dal dkt",
+    "sakarya dil terapisi",
+    "sakarya fizyoterapist",
     "logopedi",
     "kekemelik",
     "çocuk dili",
     "yutma terapisi",
     "ses terapisi",
+    "fizyoterapi ve rehabilitasyon",
   ],
   icons: {
     icon: [{ url: SITE_LOGO_SRC, type: "image/png" }],

@@ -71,30 +71,39 @@ export default function AboutPage() {
               <h1 className="mt-5 border-l-[3px] border-sage pl-4 font-serif text-[2.15rem] font-medium leading-[1.06] tracking-tight text-ink sm:pl-5 sm:text-5xl lg:text-[3.25rem]">
                 Zeynep Pancar
               </h1>
-              <p className="mt-4 inline-flex flex-wrap gap-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-sage-dark/90">
-                <span className="rounded-full border border-sage/35 bg-cream-muted/80 px-3 py-1">
-                  Dil ve konuşma terapisi
+              <p className="mt-4 inline-flex flex-wrap gap-2 text-[10px] font-semibold uppercase tracking-[0.14em]">
+                <span className="rounded-full border border-sage/35 bg-cream-muted/90 px-3 py-1 text-sage-dark shadow-sm">
+                  Dil ve Konuşma Terapisti
                 </span>
-                <span className="rounded-full border border-sage/35 bg-cream-muted/70 px-3 py-1">
-                  Çocuk · Yetişkin
+                <span className="rounded-full border border-sage/35 bg-cream-muted/90 px-3 py-1 text-sage-dark shadow-sm">
+                  Fizyoterapist
+                </span>
+                <span className="rounded-full border border-emerald-300/40 bg-emerald-50/80 px-3 py-1 text-emerald-800 shadow-sm">
+                  Yüksek Onur Öğrencisi Mezunu
                 </span>
               </p>
-              <p className="mt-6 text-[15px] leading-relaxed text-ink-muted sm:text-lg">
-                İletişimin her yaşta hak olduğuna inanıyorum; terapi ise bu hakkı
-                desteklemenin bilimsel ve insani yolu.
+              <p className="mt-6 text-[15px] leading-relaxed text-ink-muted sm:text-lg font-medium">
+                İletişimin ve hareketin her yaşta hak olduğuna inanıyorum; terapi ise bu hakları desteklemenin bilimsel, bütüncül ve insani yoludur.
               </p>
-              <div className="mt-9 space-y-5 text-[15px] leading-[1.72] text-ink-muted sm:text-[17px] md:text-lg">
-                <p className="text-pretty text-ink/90">
-                  Dil ve konuşma terapisti olarak çocuklar, ergenler ve yetişkinlerle
-                  çalışıyorum. Her danışanın hikâyesi farklı olduğu için önce dinler,
-                  sonra birlikte hedefler belirlerim.
+              <div className="mt-9 space-y-6 text-[15px] leading-[1.75] text-ink-muted sm:text-[16px] md:text-[17px]">
+                <p className="text-pretty text-ink/95">
+                  Dil ve Konuşma Terapisti ve Fizyoterapist Zeynep Pancar, lisans eğitimini 2023 yılında İstinye Üniversitesi Fizyoterapi ve Rehabilitasyon bölümünde tamamlamıştır. 2024 yılında ise Dil ve Konuşma Terapisi lisans programından çift ana dal yaparak <strong>“Yüksek Onur Öğrencisi”</strong> unvanıyla mezun olmuştur. Hâlen Üsküdar Üniversitesi’nde yüksek lisans eğitimine devam etmektedir.
                 </p>
                 <p className="text-pretty">
-                  Tedavi planlarında güncel araştırmalara dayalı yöntemleri; günlük
-                  yaşamınıza uygun önerilerle birleştiriyorum. Mesleki gelişimi
-                  sürdürmek için eğitimlere katılıyor; gerektiğinde diğer disiplinlerle
-                  iş birliğini önemsiyorum.
+                  Eğitim süreci boyunca hem fizyoterapi hem de dil ve konuşma terapisi alanlarında; çeşitli özel eğitim ve rehabilitasyon merkezleri, klinikler ve hastanelerde aktif olarak gözlem ve uygulama stajları gerçekleştirmiştir. Bu süreçte farklı yaş grupları ve çeşitli ihtiyaçlara sahip bireylerle çalışma deneyimi kazanmıştır.
                 </p>
+                <p className="text-pretty">
+                  Mesleki gelişimine önem veren Zeynep Pancar, birçok kongre, seminer ve eğitim programına katılarak güncel ve bilimsel yaklaşımları yakından takip etmektedir.
+                </p>
+                <p className="text-pretty">
+                  Sakarya’da terapi ve danışmanlık hizmeti sunan Zeynep Pancar; danışanlarının bireysel ihtiyaçlarına uygun, bütüncül ve bilimsel temelli terapi planları oluşturmaktadır. Hem yüz yüze hem de online terapi seçenekleriyle hizmet vermekte; süreçlerinde empatik, anlaşılır ve çözüm odaklı bir yaklaşım benimsemektedir.
+                </p>
+                
+                <div className="mt-8 rounded-2xl border border-sage/20 bg-cream/40 p-4.5 text-center shadow-inner sm:p-5">
+                  <p className="text-pretty font-semibold text-ink sm:text-[15px] flex items-center justify-center gap-1.5">
+                    Detaylı bilgi almak veya randevu oluşturmak için iletişime geçebilirsiniz. 📩
+                  </p>
+                </div>
               </div>
               <div className="mt-9 flex flex-wrap items-center gap-3 sm:gap-4">
                 <ButtonLink

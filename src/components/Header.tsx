@@ -71,8 +71,8 @@ export function Header() {
             <span className="font-serif text-base font-semibold tracking-tight text-ink transition-colors group-hover:text-sage sm:text-xl">
               Zeynep Pancar
             </span>
-            <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-sage/90 sm:text-[11px]">
-              Dil ve Konuşma Terapisti
+            <span className="text-[9px] font-semibold uppercase tracking-[0.16em] text-sage-dark/95 sm:text-[10px]">
+              DKT & Fizyoterapist
             </span>
           </span>
         </Link>

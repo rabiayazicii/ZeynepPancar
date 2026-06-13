@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AlertCircle } from "lucide-react";
 import { ClinicPhotoGrid } from "@/components/about/ClinicPhotoGrid";
 import { FadeIn } from "@/components/FadeIn";
 import { PageShell } from "@/components/layout/PageShell";
@@ -111,6 +112,30 @@ export default function ServicesPage() {
                       </li>
                     ))}
                   </ul>
+
+                  {s.id === "cocuk" && (
+                    <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                      <div className="rounded-2xl border border-sky-200/60 bg-sky-50/45 p-5 shadow-sm">
+                        <div className="flex items-center gap-2 text-sky-900 font-semibold text-sm">
+                          <AlertCircle className="h-4 w-4 text-sky-700 shrink-0" />
+                          <span>Artikülasyon Bozukluğu</span>
+                        </div>
+                        <p className="mt-2 text-xs leading-relaxed text-ink-muted">
+                          Bireylerin sesleri doğru bir şekilde üretme aşamasında zorlandıkları durumlardır. Eğer çocuğunuz bazı sesleri doğru üretmiyorsa ya da başkalarına (özellikle yabancılara) ne söylediğini anlatmakta zorlanıyorsa, çocuğunuzun daha anlaşılır ve doğru konuşması için Dil ve Konuşma Terapistinden destek alabilirsiniz.
+                        </p>
+                      </div>
+
+                      <div className="rounded-2xl border border-orange-200/65 bg-orange-50/40 p-5 shadow-sm">
+                        <div className="flex items-center gap-2 text-orange-950 font-semibold text-sm">
+                          <AlertCircle className="h-4 w-4 text-orange-700 shrink-0" />
+                          <span>Gecikmiş Konuşma & Kreş Gerçeği</span>
+                        </div>
+                        <p className="mt-2 text-xs leading-relaxed text-ink-muted">
+                          Konuşma gecikmesi olan çocuğu oyun grubu, kreş veya anaokulu <strong>konuşturmaz</strong>. Çocuk bir Dil ve Konuşma Terapistinden destek almıyorsa, bu durum onun akranlarıyla arasındaki iletişimi olumsuz etkileyecektir. Kendini anlatamayan çocuk yalnızlaşır ve hırçınlaşır. Bunun çözümü, Dil ve Konuşma Terapistine başvurmaktır.
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </article>
               </FadeIn>
             ))}

@@ -135,7 +135,7 @@ export default function HomePage() {
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
             >
             <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-cream-muted/85 sm:text-[11px]">
-              Dil ve konuşma terapisi
+              Dil ve Konuşma Terapisi & Fizyoterapi
             </p>
             <h1 className="mt-3 max-w-[16ch] font-serif text-[1.7rem] font-medium leading-[1.1] tracking-tight text-cream-muted [text-shadow:0_2px_24px_rgba(0,0,0,0.55)] sm:mt-5 sm:max-w-[15ch] sm:text-5xl sm:leading-[1.02] lg:max-w-[18ch] lg:text-[3.45rem]">
               Net iletişim, bilimle desteklenen yol.
@@ -143,8 +143,7 @@ export default function HomePage() {
             <p className="mt-4 max-w-lg text-[13px] leading-relaxed text-cream-muted/95 [text-shadow:0_1px_14px_rgba(0,0,0,0.5)] sm:mt-6 sm:max-w-xl sm:text-lg sm:leading-relaxed">
               Merhaba, ben{" "}
               <span className="font-semibold text-cream-muted">Zeynep Pancar</span>.
-              Çocuktan yetişkine her yaşta dil, konuşma, ses ve yutma alanlarında size
-              özel çalışıyorum.
+              Dil ve Konuşma Terapisti ve Fizyoterapist olarak, çocuktan yetişkine her yaşta bütüncül, bilimsel temelli ve size özel çözümler sunuyorum.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3 sm:mt-10 sm:gap-5">
               <ButtonLink
