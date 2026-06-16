@@ -55,7 +55,6 @@ export function CertificateGrid({ className, expanded = true }: Props) {
     >
       {certificates.map((c) => {
         const href = certificateUrl(c.fileName);
-        const isPdf = c.kind === "pdf";
 
         return (
           <motion.li
@@ -63,45 +62,45 @@ export function CertificateGrid({ className, expanded = true }: Props) {
             variants={itemVariants}
             className="flex min-w-0"
           >
-            <div className="flex w-full flex-col justify-between rounded-2xl border border-sage/18 bg-gradient-to-b from-cream-muted/70 via-background/95 to-cream-muted/50 p-5 shadow-[0_8px_30px_rgb(0,0,0,0.02)] transition duration-300 hover:-translate-y-1 hover:border-sage/35 hover:shadow-[0_20px_50px_rgba(95,122,108,0.12)]">
+            <div className="group/card flex w-full flex-col justify-between rounded-[1.75rem] border border-sage/12 bg-surface/70 p-6 shadow-[0_8px_32px_rgba(95,122,108,0.03)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-surface/90 hover:border-sage/25 hover:shadow-[0_20px_50px_rgba(95,122,108,0.08)]">
               <div>
                 <div className="flex items-center justify-between gap-2">
                   <span className={cn(
-                    "rounded-full px-2.5 py-0.5 text-[10px] font-semibold tracking-[0.06em] uppercase",
-                    categoryColors[c.category] ?? "bg-sage/10 text-sage-dark border border-sage/20"
+                    "rounded-full px-2.5 py-0.5 text-[9px] font-semibold tracking-[0.08em] uppercase",
+                    categoryColors[c.category] ?? "bg-sage-light/8 text-sage-dark border border-sage/15"
                   )}>
                     {c.category}
                   </span>
-                  <span className="flex items-center gap-1 text-[10px] font-semibold text-ink-muted">
-                    <FileText className="h-3 w-3" />
-                    {c.kind.toUpperCase()}
+                  <span className="inline-flex items-center gap-1 text-[9px] font-mono tracking-wider uppercase text-ink-muted/80">
+                    <FileText className="h-3 w-3 text-sage/60" />
+                    {c.kind}
                   </span>
                 </div>
                 
-                <h4 className="mt-3.5 font-serif text-[15px] font-bold leading-snug text-ink sm:text-base">
+                <h4 className="mt-4 font-serif text-[15.5px] font-bold leading-snug text-ink sm:text-base group-hover/card:text-sage-dark transition-colors duration-300">
                   {c.title}
                 </h4>
                 
-                <div className="mt-1.5 flex items-center gap-1.5 text-xs font-semibold text-sage-dark">
-                  <Award className="h-3.5 w-3.5 shrink-0 opacity-80" />
+                <div className="mt-2 flex items-center gap-1.5 text-xs font-semibold text-sage-dark">
+                  <Award className="h-4 w-4 shrink-0 text-sage/70" strokeWidth={1.5} />
                   <span>{c.issuer}</span>
                 </div>
                 
-                <p className="mt-3 text-xs leading-relaxed text-ink-muted">
+                <p className="mt-3.5 text-xs leading-relaxed text-ink-muted/95">
                   {c.description}
                 </p>
               </div>
 
-              <div className="mt-5 border-t border-sage/12 pt-3">
+              <div className="mt-6 border-t border-sage/10 pt-4">
                 <a
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex w-full items-center justify-center gap-2 rounded-xl border border-sage/24 bg-white/60 px-4 py-2.5 text-xs font-semibold text-sage-dark shadow-[0_2px_8px_rgba(95,122,108,0.04)] transition hover:bg-sage hover:text-cream-muted hover:border-sage"
+                  className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-xl border border-sage/18 bg-surface/80 px-4 py-2.5 text-xs font-bold text-sage-dark shadow-sm transition-all duration-300 hover:bg-sage hover:text-white hover:border-sage"
                 >
-                  <Eye className="h-3.5 w-3.5 transition group-hover:scale-110" />
+                  <Eye className="h-3.5 w-3.5 transition group-hover/btn:scale-110" />
                   Belgeyi Görüntüle
-                  <ExternalLink className="h-3 w-3 opacity-60 group-hover:translate-x-0.5" />
+                  <ExternalLink className="h-3 w-3 opacity-60 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                 </a>
               </div>
             </div>

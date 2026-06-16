@@ -267,7 +267,7 @@ export default function ServicesPage() {
                         </p>
                         
                         <ol className="mt-4 grid gap-3 sm:grid-cols-2">
-                          <li className="flex items-start gap-2.5 rounded-xl border border-rule/6 bg-white/40 p-3 shadow-inner">
+                          <li className="flex items-start gap-2.5 rounded-xl border border-rule/6 bg-surface/40 p-3 shadow-inner">
                             <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sky-100 text-sky-800 text-[11px] font-bold">1</span>
                             <div className="min-w-0">
                               <p className="text-xs font-semibold text-ink flex items-center gap-1">
@@ -278,7 +278,7 @@ export default function ServicesPage() {
                             </div>
                           </li>
 
-                          <li className="flex items-start gap-2.5 rounded-xl border border-rule/6 bg-white/40 p-3 shadow-inner">
+                          <li className="flex items-start gap-2.5 rounded-xl border border-rule/6 bg-surface/40 p-3 shadow-inner">
                             <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-violet-100 text-violet-850 text-[11px] font-bold">2</span>
                             <div className="min-w-0">
                               <p className="text-xs font-semibold text-ink flex items-center gap-1">
@@ -289,7 +289,7 @@ export default function ServicesPage() {
                             </div>
                           </li>
 
-                          <li className="flex items-start gap-2.5 rounded-xl border border-rule/6 bg-white/40 p-3 shadow-inner">
+                          <li className="flex items-start gap-2.5 rounded-xl border border-rule/6 bg-surface/40 p-3 shadow-inner">
                             <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-orange-100 text-orange-850 text-[11px] font-bold">3</span>
                             <div className="min-w-0">
                               <p className="text-xs font-semibold text-ink flex items-center gap-1">
@@ -300,7 +300,7 @@ export default function ServicesPage() {
                             </div>
                           </li>
 
-                          <li className="flex items-start gap-2.5 rounded-xl border border-rule/6 bg-white/40 p-3 shadow-inner">
+                          <li className="flex items-start gap-2.5 rounded-xl border border-rule/6 bg-surface/40 p-3 shadow-inner">
                             <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-rose-100 text-rose-850 text-[11px] font-bold">4</span>
                             <div className="min-w-0">
                               <p className="text-xs font-semibold text-ink flex items-center gap-1">
@@ -311,7 +311,7 @@ export default function ServicesPage() {
                             </div>
                           </li>
 
-                          <li className="flex items-start gap-2.5 rounded-xl border border-rule/6 bg-white/40 p-3 shadow-inner sm:col-span-2">
+                          <li className="flex items-start gap-2.5 rounded-xl border border-rule/6 bg-surface/40 p-3 shadow-inner sm:col-span-2">
                             <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-100 text-amber-900 text-[11px] font-bold">5</span>
                             <div className="min-w-0">
                               <p className="text-xs font-semibold text-ink flex items-center gap-1">

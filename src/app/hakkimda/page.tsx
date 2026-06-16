@@ -50,13 +50,14 @@ const values: { title: string; body: string; icon: LucideIcon }[] = [
 export default function AboutPage() {
   return (
     <main className="overflow-x-clip">
-      <section className="relative overflow-hidden bg-gradient-to-br from-cream-muted/55 via-background to-highlight/15">
+      <section className="relative overflow-hidden bg-gradient-to-br from-cream-muted/40 via-background to-highlight/10">
+        {/* Background decorative elements */}
         <div
-          className="pointer-events-none absolute -right-20 top-16 h-64 w-64 rounded-full bg-highlight/30 blur-3xl sm:h-80 sm:w-80 lg:top-24"
+          className="pointer-events-none absolute -right-20 top-16 h-64 w-64 rounded-full bg-highlight/25 blur-3xl sm:h-80 sm:w-80 lg:top-24"
           aria-hidden
         />
         <div
-          className="pointer-events-none absolute -left-16 bottom-0 h-48 w-48 rounded-full bg-sage/10 blur-3xl"
+          className="pointer-events-none absolute -left-16 bottom-0 h-48 w-48 rounded-full bg-sage/8 blur-3xl"
           aria-hidden
         />
         <PageShell
@@ -68,26 +69,19 @@ export default function AboutPage() {
               <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sage">
                 Hakkımda
               </p>
-              <h1 className="mt-5 border-l-[3px] border-sage pl-4 font-serif text-[2.15rem] font-medium leading-[1.06] tracking-tight text-ink sm:pl-5 sm:text-5xl lg:text-[3.25rem]">
+              <h1 className="mt-5 border-l-[3.5px] border-sage pl-4 font-serif text-[2.15rem] font-medium leading-[1.06] tracking-tight text-ink sm:pl-5 sm:text-5xl lg:text-[3.25rem]">
                 Zeynep Pancar
               </h1>
-              <p className="mt-4 inline-flex flex-wrap gap-2 text-[10px] font-semibold uppercase tracking-[0.14em]">
-                <span className="rounded-full border border-sage/35 bg-cream-muted/90 px-3 py-1 text-sage-dark shadow-sm">
-                  Dil ve Konuşma Terapisti
-                </span>
-                <span className="rounded-full border border-sage/35 bg-cream-muted/90 px-3 py-1 text-sage-dark shadow-sm">
-                  Fizyoterapist
-                </span>
-                <span className="rounded-full border border-emerald-300/40 bg-emerald-50/80 px-3 py-1 text-emerald-800 shadow-sm">
-                  Yüksek Onur Öğrencisi Mezunu
-                </span>
-              </p>
-              <p className="mt-6 text-[15px] leading-relaxed text-ink-muted sm:text-lg font-medium">
-                İletişimin ve hareketin her yaşta hak olduğuna inanıyorum; terapi ise bu hakları desteklemenin bilimsel, bütüncül ve insani yoludur.
-              </p>
-              <div className="mt-9 space-y-6 text-[15px] leading-[1.75] text-ink-muted sm:text-[16px] md:text-[17px]">
+
+              <div className="mt-8 border-l-2 border-sage/35 pl-4 sm:pl-5">
+                <p className="font-serif italic text-lg sm:text-[1.3rem] leading-relaxed text-ink/90">
+                  “İletişimin ve hareketin her yaşta hak olduğuna inanıyorum; terapi ise bu hakları desteklemenin bilimsel, bütüncül ve insani yoludur.”
+                </p>
+              </div>
+
+              <div className="mt-8 space-y-6 text-[15px] leading-[1.78] text-ink-muted sm:text-[16px] md:text-[17px]">
                 <p className="text-pretty text-ink/95">
-                  Dil ve Konuşma Terapisti ve Fizyoterapist Zeynep Pancar, lisans eğitimini 2023 yılında İstinye Üniversitesi Fizyoterapi ve Rehabilitasyon bölümünde tamamlamıştır. 2024 yılında ise Dil ve Konuşma Terapisi lisans programından çift ana dal yaparak <strong>“Yüksek Onur Öğrencisi”</strong> unvanıyla mezun olmuştur. Hâlen Üsküdar Üniversitesi’nde yüksek lisans eğitimine devam etmektedir.
+                  Dil ve Konuşma Terapisti ve Fizyoterapist Zeynep Pancar, lisans eğitimini 2023 yılında İstinye Üniversitesi Fizyoterapi ve Rehabilitasyon bölümünde tamamlamıştır. 2024 yılında ise Dil ve Konuşma Terapisi lisans programından çift ana dal yaparak <strong className="text-ink font-semibold">“Yüksek Onur Öğrencisi”</strong> unvanıyla mezun olmuştur. Hâlen Üsküdar Üniversitesi’nde yüksek lisans eğitimine devam etmektedir.
                 </p>
                 <p className="text-pretty">
                   Eğitim süreci boyunca hem fizyoterapi hem de dil ve konuşma terapisi alanlarında; çeşitli özel eğitim ve rehabilitasyon merkezleri, klinikler ve hastanelerde aktif olarak gözlem ve uygulama stajları gerçekleştirmiştir. Bu süreçte farklı yaş grupları ve çeşitli ihtiyaçlara sahip bireylerle çalışma deneyimi kazanmıştır.
@@ -99,36 +93,37 @@ export default function AboutPage() {
                   Sakarya’da terapi ve danışmanlık hizmeti sunan Zeynep Pancar; danışanlarının bireysel ihtiyaçlarına uygun, bütüncül ve bilimsel temelli terapi planları oluşturmaktadır. Hem yüz yüze hem de online terapi seçenekleriyle hizmet vermekte; süreçlerinde empatik, anlaşılır ve çözüm odaklı bir yaklaşım benimsemektedir.
                 </p>
                 
-                <div className="mt-8 rounded-2xl border border-sage/20 bg-cream/40 p-4.5 text-center shadow-inner sm:p-5">
-                  <p className="text-pretty font-semibold text-ink sm:text-[15px] flex items-center justify-center gap-1.5">
-                    Detaylı bilgi almak veya randevu oluşturmak için iletişime geçebilirsiniz. 📩
-                  </p>
+                {/* Modernized interactive card */}
+                <div className="mt-10 rounded-[1.5rem] border border-sage/12 bg-gradient-to-r from-surface/80 to-cream-muted/30 p-6 shadow-[0_12px_40px_rgba(95,122,108,0.05)] backdrop-blur-sm flex flex-col sm:flex-row items-center gap-5 sm:justify-between text-left">
+                  <div className="flex items-center gap-3.5">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-sage-light/10 text-sage border border-sage/15">
+                      <BookOpen className="h-5.5 w-5.5" strokeWidth={1.25} />
+                    </span>
+                    <div>
+                      <h4 className="font-serif text-[15px] font-bold text-ink">Bireysel Terapi ve Danışmanlık</h4>
+                      <p className="text-[11px] text-ink-muted mt-0.5">Yüz yüze veya online seçeneklerle bilgi alın.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 shrink-0">
+                    <ButtonLink
+                      href="/iletisim"
+                      variant="primary"
+                      className={cn(
+                        "!bg-highlight !text-ink hover:!bg-cream-muted text-xs py-2.5 px-4.5 rounded-xl shadow-sm hover:scale-[1.02] transition-transform duration-300",
+                        highlightCta3d,
+                      )}
+                    >
+                      Randevu Al
+                    </ButtonLink>
+                    <Link
+                      href="/hizmetler"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-sage-dark hover:text-sage transition-colors px-2 py-2"
+                    >
+                      Hizmetler
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                  </div>
                 </div>
-              </div>
-              <div className="mt-9 flex flex-wrap items-center gap-3 sm:gap-4">
-                <ButtonLink
-                  href="/iletisim"
-                  variant="primary"
-                  className={cn(
-                    "!bg-highlight !text-ink hover:!bg-cream-muted",
-                    highlightCta3d,
-                  )}
-                >
-                  İletişim
-                </ButtonLink>
-                <Link
-                  href="/hizmetler"
-                  className={cn(
-                    "group inline-flex items-center gap-2 px-4 py-2 text-[13px] font-semibold text-sage-dark sm:px-5 sm:py-2.5 sm:text-sm",
-                    softRoundLink3d,
-                  )}
-                >
-                  Hizmetler
-                  <ArrowRight
-                    className="h-4 w-4 transition group-hover:translate-x-0.5"
-                    aria-hidden
-                  />
-                </Link>
               </div>
             </FadeIn>
           </div>
@@ -145,31 +140,31 @@ export default function AboutPage() {
             </div>
 
             {/* Eğitim Kronolojisi / Timeline */}
-            <div className="mt-8 mx-auto w-full max-w-[min(100%,20rem)] sm:max-w-[min(100%,24rem)] lg:max-w-[min(100%,28rem)] xl:max-w-[min(100%,32rem)] rounded-2xl border border-sage/18 bg-gradient-to-b from-cream-muted/70 via-background/95 to-cream-muted/50 p-5 sm:p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+            <div className="mt-8 mx-auto w-full max-w-[min(100%,20rem)] sm:max-w-[min(100%,24rem)] lg:max-w-[min(100%,28rem)] xl:max-w-[min(100%,32rem)] rounded-3xl border border-sage/15 bg-gradient-to-b from-surface via-cream-muted/95 to-surface/90 p-6 sm:p-7 shadow-[0_12px_40px_rgba(95,122,108,0.04)]">
               <h3 className="font-serif text-sm font-bold text-ink flex items-center gap-2">
-                <BookOpen className="h-4 w-4 text-sage" />
+                <BookOpen className="h-4.5 w-4.5 text-sage" />
                 Eğitim Kronolojisi
               </h3>
-              <div className="mt-5 space-y-4">
+              <div className="mt-6 space-y-5">
                 {/* Yüksek Lisans */}
-                <div className="relative pl-5 border-l-2 border-sage/24 pb-4">
-                  <span className="absolute -left-[5px] top-1.5 h-2 w-2 rounded-full bg-sage shadow-[0_0_0_3px_rgba(95,122,108,0.15)]" />
-                  <span className="text-[9px] font-bold uppercase tracking-wider text-sage">Hâlen Devam Ediyor</span>
-                  <h4 className="text-xs font-bold text-ink mt-0.5">Yüksek Lisans Eğitimi</h4>
+                <div className="relative pl-6 border-l-2 border-sage/20 pb-5">
+                  <span className="absolute -left-[6px] top-1.5 h-2.5 w-2.5 rounded-full border border-sage bg-surface shadow-[0_0_0_4px_rgba(95,122,108,0.1)] animate-pulse" />
+                  <span className="text-[9px] font-extrabold uppercase tracking-wider text-sage">Hâlen Devam Ediyor</span>
+                  <h4 className="text-xs font-bold text-ink mt-1">Yüksek Lisans Eğitimi</h4>
                   <p className="text-[11px] leading-relaxed text-ink-muted mt-0.5">Üsküdar Üniversitesi — Dil ve Konuşma Terapisi</p>
                 </div>
                 {/* DKT Lisans */}
-                <div className="relative pl-5 border-l-2 border-sage/24 pb-4">
-                  <span className="absolute -left-[5px] top-1.5 h-2 w-2 rounded-full bg-sage" />
-                  <span className="text-[9px] font-bold uppercase tracking-wider text-sage">2024 Mezuniyeti</span>
-                  <h4 className="text-xs font-bold text-ink mt-0.5">Dil ve Konuşma Terapisi Lisans Programı</h4>
+                <div className="relative pl-6 border-l-2 border-sage/20 pb-5">
+                  <span className="absolute -left-[6px] top-1.5 h-2.5 w-2.5 rounded-full border border-sage/40 bg-sage" />
+                  <span className="text-[9px] font-extrabold uppercase tracking-wider text-sage">2024 Mezuniyeti</span>
+                  <h4 className="text-xs font-bold text-ink mt-1">Dil ve Konuşma Terapisi Lisans Programı</h4>
                   <p className="text-[11px] leading-relaxed text-ink-muted mt-0.5">İstinye Üniversitesi (Çift Ana Dal, <strong>Yüksek Onur Öğrencisi</strong> unvanı ile mezuniyet)</p>
                 </div>
                 {/* FTR Lisans */}
-                <div className="relative pl-5 border-l-2 border-sage/24 last:pb-0">
-                  <span className="absolute -left-[5px] top-1.5 h-2 w-2 rounded-full bg-sage" />
-                  <span className="text-[9px] font-bold uppercase tracking-wider text-sage">2023 Mezuniyeti</span>
-                  <h4 className="text-xs font-bold text-ink mt-0.5">Fizyoterapi ve Rehabilitasyon Lisans Programı</h4>
+                <div className="relative pl-6 border-l-2 border-sage/20 last:pb-0">
+                  <span className="absolute -left-[6px] top-1.5 h-2.5 w-2.5 rounded-full border border-sage/40 bg-sage" />
+                  <span className="text-[9px] font-extrabold uppercase tracking-wider text-sage">2023 Mezuniyeti</span>
+                  <h4 className="text-xs font-bold text-ink mt-1">Fizyoterapi ve Rehabilitasyon Lisans Programı</h4>
                   <p className="text-[11px] leading-relaxed text-ink-muted mt-0.5">İstinye Üniversitesi</p>
                 </div>
               </div>
@@ -184,31 +179,33 @@ export default function AboutPage() {
         </PageShell>
       </section>
 
-      <section className="border-y border-sage-dark/35 bg-sage py-14 text-cream-muted sm:py-16 lg:py-20">
-        <PageShell width="full" className="min-w-0">
+      <section className="relative overflow-hidden bg-gradient-to-br from-sage-dark via-sage to-sage-dark/95 py-16 text-cream-muted sm:py-20 lg:py-24 border-y border-sage-dark/40">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,250,195,0.06),transparent_60%)]" />
+        <div className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-cream/5 blur-3xl" aria-hidden />
+        <PageShell width="full" className="relative z-10 min-w-0">
           <FadeIn delay={0.06}>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-cream-muted/90">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-highlight/85">
               Yaklaşım
             </p>
-            <h2 className="mt-4 border-l-[3px] border-cream-muted/55 pl-4 font-serif text-xl font-medium tracking-tight text-cream-muted sm:pl-5 sm:text-4xl">
+            <h2 className="mt-4 border-l-4 border-highlight pl-4 font-serif text-2xl font-medium tracking-tight text-cream-muted sm:pl-5 sm:text-4xl lg:text-5xl">
               Çalışma değerlerim
             </h2>
-            <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-cream-muted/90 sm:text-[17px] md:text-lg">
+            <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-cream-muted/85 sm:text-[17px] md:text-lg">
               Terapi ilişkisinde öncelediğim ilkeler: güven, netlik ve iş birliği.
               Aşağıdaki dört başlık, günlük pratiğe nasıl yansıdığını özetler.
             </p>
           </FadeIn>
-          <ul className="mt-10 grid gap-5 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4 lg:gap-5">
+          <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((v, i) => (
               <FadeIn key={v.title} delay={0.08 + i * 0.04}>
-                <li className="flex h-full flex-col rounded-xl border border-cream-muted/30 bg-black/12 px-4 py-5 shadow-[0_12px_32px_-16px_rgba(0,0,0,0.22),inset_0_1px_0_rgba(255,251,245,0.12)] ring-1 ring-cream-muted/10 transition duration-300 hover:-translate-y-0.5 hover:border-cream-muted/45 hover:bg-black/[0.16] sm:px-5 sm:py-6">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-cream-muted/35 bg-cream-muted/12 text-cream-muted">
-                    <v.icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+                <li className="group flex h-full flex-col rounded-2xl border border-white/12 bg-white/5 px-5 py-6 shadow-[0_12px_36px_-16px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.09] hover:border-white/20 sm:px-6 sm:py-7">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 bg-white/10 text-highlight transition-all duration-300 group-hover:scale-105 group-hover:bg-highlight group-hover:text-sage-dark">
+                    <v.icon className="h-5.5 w-5.5" strokeWidth={1.5} aria-hidden />
                   </span>
-                  <p className="mt-4 font-serif text-lg font-medium text-cream-muted sm:text-2xl">
+                  <p className="mt-5 font-serif text-lg font-bold text-cream-muted sm:text-xl">
                     {v.title}
                   </p>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-cream-muted/90 sm:text-[15px]">
+                  <p className="mt-2.5 flex-1 text-sm leading-relaxed text-cream-muted/80">
                     {v.body}
                   </p>
                 </li>
@@ -238,7 +235,6 @@ export default function AboutPage() {
           >
             <ClinicPhotoGrid
               size="large"
-              className="justify-items-stretch sm:grid-cols-2 lg:grid-cols-2"
             />
           </FadeIn>
         </PageShell>

@@ -57,10 +57,12 @@ export const BLOG_PAGE_HERO_IMAGE = "blog.jpg";
 export const CONTACT_PAGE_IMAGE = "contact2.jpg";
 
 const blogCoverBySlug: Record<string, string> = {
-  "erken-dil-gelisiminde-egitici-ortam": "IMG_6889.jpeg",
-  "kekemelik-ve-aile-destegi": "IMG_6892.jpeg",
-  "yutma-guvenligi-ve-isaretler": "IMG_6894.jpeg",
-  "ses-sagligi-profesyoneller-icin": "IMG_6901.jpeg",
+  "ekran-suresi-ve-dil-gelisimi": "PHOTO-2026-04-21-00-30-14 3.jpg",
+  "yaslara-gore-dil-gelisimi-rehberi": "PHOTO-2026-04-21-00-30-15 3.jpg",
+  "inme-sonrasi-konusma-terapisi": "therapy.jpg",
+  "afazi-nedir-ve-tedavisi": "uzmanlik2.jpg",
+  "konusma-sesi-bozuklugu-nedir": "PHOTO-2026-04-21-00-30-18.jpg",
+  "ses-sagligimizi-korumak-icin-oneriler": "PHOTO-2026-04-21-00-30-19.jpg",
 };
 
 export function getBlogCoverImage(slug: string): string {

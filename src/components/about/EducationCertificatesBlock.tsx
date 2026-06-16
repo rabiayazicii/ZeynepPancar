@@ -1,7 +1,8 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useState } from "react";
 import { ChevronDown, GraduationCap } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { CertificateGrid } from "@/components/about/CertificateGallery";
 import { IconBadge } from "@/components/decorative/IconBadge";
 import { cn } from "@/lib/cn";
@@ -11,41 +12,11 @@ type BlockProps = {
   compact?: boolean;
 };
 
-/**
- * Hakkımda — “Eğitim ve sertifikalar”: details/summary;
- * `open` state + summary click `preventDefault` ile tarayıcının ilk tıktaki scroll sıçramasını engeller.
- */
 export function EducationCertificatesBlock({ compact = false }: BlockProps) {
   const [open, setOpen] = useState(false);
-  const scrollLockY = useRef<number | null>(null);
-
-  const lockScrollY = useCallback(() => {
-    scrollLockY.current =
-      window.scrollY ||
-      window.pageYOffset ||
-      document.documentElement.scrollTop;
-  }, []);
-
-  /** Tarayıcı açılışta scroll’u oynatırsa aynı y’ye sabitle (smooth CSS’i geçici kapatır) */
-  const pinScrollY = useCallback((y: number) => {
-    const apply = () => {
-      const root = document.documentElement;
-      const prev = root.style.scrollBehavior;
-      root.style.scrollBehavior = "auto";
-      window.scrollTo(0, y);
-      root.style.scrollBehavior = prev;
-    };
-
-    apply();
-    queueMicrotask(apply);
-    requestAnimationFrame(apply);
-    requestAnimationFrame(() => requestAnimationFrame(apply));
-    window.setTimeout(apply, 0);
-    window.setTimeout(apply, 120);
-  }, []);
 
   return (
-    <section className="relative min-w-0 w-full max-w-full [overflow-anchor:none]">
+    <section className="relative min-w-0 w-full max-w-full">
       <div className={compact ? "mb-1" : "mb-2"}>
         <div className="inline-flex items-center gap-2">
           <span className="h-px w-8 bg-sage/35" aria-hidden />
@@ -65,38 +36,18 @@ export function EducationCertificatesBlock({ compact = false }: BlockProps) {
 
       <div
         className={cn(
-          /* card-lift kullanılmıyor: hover'da translateY(-4px) tıklanan başlığın “yukarı zıplaması” gibi algılanıyor */
           "relative overflow-hidden rounded-2xl border border-rule/28 glass p-5 shadow-sm ring-1 ring-sage/10 card-soft transition-[border-color,box-shadow] duration-300 hover:border-sage/30 hover:shadow-md sm:p-6",
-          "[overflow-anchor:none]",
           compact ? "mt-5" : "mt-8",
         )}
       >
-        <details open={open} className="group w-full [overflow-anchor:none]">
-          <summary
+        <div className="w-full">
+          <button
             id="edu-cert-trigger"
             aria-controls="edu-cert-panel"
             aria-expanded={open}
-            onPointerDown={lockScrollY}
-            onKeyDown={(e) => {
-              if (e.key === " " || e.key === "Enter") lockScrollY();
-            }}
-            onClick={(e) => {
-              /* Varsayılan summary davranışı (scroll-into-view) ilk tıkta sayfayı sıçratıyor */
-              e.preventDefault();
-              const y =
-                scrollLockY.current ??
-                (window.scrollY ||
-                  document.documentElement.scrollTop ||
-                  0);
-              scrollLockY.current = null;
-
-              const next = !open;
-              setOpen(next);
-              if (next) pinScrollY(y);
-            }}
+            onClick={() => setOpen(!open)}
             className={cn(
-              "flex w-full cursor-pointer list-none items-center gap-4 rounded-xl text-left sm:gap-5",
-              "[&::-webkit-details-marker]:hidden",
+              "flex w-full items-center gap-4 rounded-xl text-left sm:gap-5 focus:outline-none",
               "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage",
             )}
           >
@@ -104,7 +55,7 @@ export function EducationCertificatesBlock({ compact = false }: BlockProps) {
               icon={GraduationCap}
               accent="emerald"
               size="md"
-              className="shrink-0 transition-transform duration-300 group-hover:scale-[1.03]"
+              className="shrink-0 transition-transform duration-300"
             />
             <span
               id="edu-cert-title"
@@ -114,24 +65,45 @@ export function EducationCertificatesBlock({ compact = false }: BlockProps) {
             </span>
             <span
               className={cn(
-                "flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-rule/32 bg-white/60 text-sage shadow-sm ring-1 ring-sage/10 transition-transform duration-300 sm:h-11 sm:w-11",
+                "flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-rule/32 bg-surface/60 text-sage shadow-sm ring-1 ring-sage/10 transition-transform duration-300 sm:h-11 sm:w-11",
                 open && "rotate-180",
               )}
               aria-hidden
             >
               <ChevronDown className="h-5 w-5" />
             </span>
-          </summary>
+          </button>
 
-          <div
-            id="edu-cert-panel"
-            role="region"
-            aria-labelledby="edu-cert-title"
-            className="border-t border-rule/22 pt-6"
-          >
-            <CertificateGrid expanded={open} />
-          </div>
-        </details>
+          <AnimatePresence initial={false}>
+            {open && (
+              <motion.div
+                id="edu-cert-panel"
+                role="region"
+                aria-labelledby="edu-cert-title"
+                initial={{ height: 0, opacity: 0 }}
+                animate={{
+                  height: "auto",
+                  opacity: 1,
+                  transition: {
+                    height: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
+                    opacity: { duration: 0.25, delay: 0.05 }
+                  }
+                }}
+                exit={{
+                  height: 0,
+                  opacity: 0,
+                  transition: {
+                    height: { duration: 0.3, ease: [0.16, 1, 0.3, 1] },
+                    opacity: { duration: 0.2 }
+                  }
+                }}
+                className="overflow-hidden border-t border-rule/22 mt-6 pt-6"
+              >
+                <CertificateGrid expanded={open} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
     </section>
   );

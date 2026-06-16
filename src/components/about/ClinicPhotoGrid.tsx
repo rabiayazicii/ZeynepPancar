@@ -17,35 +17,32 @@ export function ClinicPhotoGrid({ className, size = "default" }: Props) {
   return (
     <div
       className={cn(
-        "grid w-full min-w-0 max-w-full grid-cols-2 gap-2.5 sm:gap-3",
-        large && "gap-3.5 sm:gap-5 lg:gap-6",
+        large
+          ? "grid w-full min-w-0 max-w-full grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3"
+          : "grid w-full min-w-0 max-w-full grid-cols-2 gap-2.5 sm:gap-3",
         className,
       )}
     >
-      {aboutGalleryFiles.map((file, i) => (
-        <div
-          key={file}
-          className={cn(
-            "group relative aspect-[4/3] min-h-0 min-w-0 overflow-hidden ring-1 ring-sage/22 transition-shadow duration-300 hover:shadow-lg hover:ring-sage/38",
-            large
-              ? // Mobilde min-height + aspect birlikte sütundan geniş min-içerik üretip taşırıyor; min-h yalnız md+
-                "rounded-xl sm:rounded-2xl md:min-h-[13rem] lg:min-h-[17rem] xl:min-h-[20rem]"
-              : "rounded-xl hover:shadow-md hover:ring-sage/32",
-          )}
-        >
-          <Image
-            src={aboutImageSrc(file)}
-            alt={`Çalışma ortamı — görsel ${i + 1}`}
-            fill
-            sizes={
-              large
-                ? "(max-width: 768px) 42vw, (max-width: 1280px) 40vw, 38vw"
-                : "(max-width: 1024px) 45vw, 18vw"
-            }
-            className="object-cover transition duration-300 group-hover:scale-[1.02]"
-          />
-        </div>
-      ))}
+      {aboutGalleryFiles.map((file, i) => {
+        return (
+          <div
+            key={file}
+            className="group relative aspect-[4/3] min-h-0 min-w-0 overflow-hidden ring-1 ring-sage/22 transition-all duration-500 hover:shadow-xl hover:ring-sage/38 hover:-translate-y-1 rounded-2xl"
+          >
+            <Image
+              src={aboutImageSrc(file)}
+              alt={`Çalışma ortamı — görsel ${i + 1}`}
+              fill
+              sizes={
+                large
+                  ? "(max-width: 768px) 50vw, 33vw"
+                  : "(max-width: 1024px) 50vw, 25vw"
+              }
+              className="object-cover transition duration-700 group-hover:scale-[1.05]"
+            />
+          </div>
+        );
+      })}
     </div>
   );
 }

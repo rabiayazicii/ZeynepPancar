@@ -48,7 +48,7 @@ export function PhotoFrame({
   if (variant === "polaroid") {
     return (
       <figure className={cn("mx-auto w-full max-w-md", className)}>
-        <div className="rounded-sm bg-white p-2 pb-3 shadow-[0_12px_40px_-8px_rgba(42,50,47,0.18)] ring-1 ring-black/[0.12] sm:p-3 sm:pb-4">
+        <div className="rounded-sm bg-surface p-2 pb-3 shadow-[0_12px_40px_-8px_rgba(42,50,47,0.18)] ring-1 ring-black/[0.12] sm:p-3 sm:pb-4">
           <div className="overflow-hidden rounded-[2px] bg-cream-muted/30">
             {inner}
           </div>

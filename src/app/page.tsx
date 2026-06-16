@@ -24,6 +24,7 @@ import {
   HOME_TRUST_SECTION_IMAGE,
   aboutImageSrc,
   homeHeroCarouselSlides,
+  getBlogCoverImage,
 } from "@/lib/about-images";
 
 const pillars: { title: string; text: string; icon: LucideIcon }[] = [
@@ -132,69 +133,70 @@ export default function HomePage() {
         <PageShell
           width="full"
           className={cn(
-            "max-w-4xl lg:max-w-3xl",
+            "mr-auto ml-0 max-w-xl lg:max-w-2xl pl-4 sm:pl-8 lg:pl-16",
             "max-sm:mx-0 max-sm:max-w-none max-sm:px-3 max-sm:pr-2",
           )}
         >
-          <div className="max-sm:mr-auto max-sm:max-w-[min(100%,20rem)] max-sm:text-left sm:max-w-none">
+          <div className="max-w-[32rem] rounded-[2rem] border border-white/12 bg-black/20 p-8 sm:p-10 shadow-[0_24px_50px_-16px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-md">
             <FadeIn
               initial={{ opacity: 0, y: 12 }}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
             >
-            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-cream-muted/85 sm:text-[11px]">
-              Dil ve Konuşma Terapisi & Fizyoterapi
-            </p>
-            <h1 className="mt-3 max-w-[16ch] font-serif text-[1.7rem] font-medium leading-[1.1] tracking-tight text-cream-muted [text-shadow:0_2px_24px_rgba(0,0,0,0.55)] sm:mt-5 sm:max-w-[15ch] sm:text-5xl sm:leading-[1.02] lg:max-w-[18ch] lg:text-[3.45rem]">
-              Net iletişim, bilimle desteklenen yol.
-            </h1>
-            <p className="mt-4 max-w-lg text-[13px] leading-relaxed text-cream-muted/95 [text-shadow:0_1px_14px_rgba(0,0,0,0.5)] sm:mt-6 sm:max-w-xl sm:text-lg sm:leading-relaxed">
-              Merhaba, ben{" "}
-              <span className="font-semibold text-cream-muted">Zeynep Pancar</span>.
-              Dil ve Konuşma Terapisti ve Fizyoterapist olarak, çocuktan yetişkine her yaşta bütüncül, bilimsel temelli ve size özel çözümler sunuyorum.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-3 sm:mt-10 sm:gap-5">
-              <ButtonLink
-                href="/iletisim"
-                variant="primary"
-                className={cn(
-                  "!bg-highlight !text-ink hover:!bg-cream-muted",
-                  highlightCta3d,
-                )}
-              >
-                Randevu talep et
-              </ButtonLink>
-              <Link
-                href="/hizmetler"
-                className="group inline-flex items-center gap-2 text-[13px] font-semibold text-cream-muted/95 [text-shadow:0_1px_12px_rgba(0,0,0,0.45)] sm:text-sm"
-              >
-                Hizmetlere bak
-                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-              </Link>
-            </div>
-          </FadeIn>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-cream-muted/90 sm:text-[11px] flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-highlight animate-pulse" />
+                Dil ve Konuşma Terapisi & Fizyoterapi
+              </p>
+              <h1 className="mt-4 max-w-[16ch] font-serif text-[1.85rem] font-medium leading-[1.15] tracking-tight text-cream-muted sm:mt-5 sm:text-5xl sm:leading-[1.08] lg:text-[3.6rem]">
+                Net iletişim, bilimle desteklenen yol.
+              </h1>
+              <p className="mt-4 text-[14px] leading-relaxed text-cream-muted/90 sm:mt-6 sm:text-lg sm:leading-relaxed">
+                Merhaba, ben <span className="font-semibold text-cream-muted">Zeynep Pancar</span>.
+                Dil ve Konuşma Terapisti ve Fizyoterapist olarak, çocuktan yetişkine her yaşta bütüncül, bilimsel temelli ve size özel çözümler sunuyorum.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-3 sm:mt-10 sm:gap-5">
+                <ButtonLink
+                  href="/iletisim"
+                  variant="primary"
+                  className={cn(
+                    "!bg-highlight !text-ink hover:!bg-cream-muted !shadow-lg transition-all hover:scale-105 duration-300",
+                    highlightCta3d,
+                  )}
+                >
+                  Randevu talep et
+                </ButtonLink>
+                <Link
+                  href="/hizmetler"
+                  className="group inline-flex items-center gap-2 text-[13px] font-semibold text-cream-muted hover:text-highlight transition duration-300 sm:text-sm"
+                >
+                  Hizmetlere bak
+                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </FadeIn>
           </div>
         </PageShell>
       </HomeHeroBackdrop>
 
       {/* ——— Üç ilke: modern, ikonlu cam kartlar ——— */}
-      <section className="border-t border-b border-sage/20 bg-gradient-to-r from-sage-dark via-sage to-sage-dark py-12 text-cream-muted sm:py-16">
+      <section className="relative overflow-hidden bg-gradient-to-b from-transparent via-background to-cream-muted/30 py-16 sm:py-24 border-b border-rule/8">
         <PageShell width="full">
-          <div className="grid gap-6 sm:grid-cols-3 sm:gap-8">
-            {pillars.map((p) => (
-              <div
-                key={p.title}
-                className="group relative flex flex-col items-center text-center rounded-2xl border border-cream-muted/30 bg-white/10 p-6 shadow-md backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:bg-white/15 hover:border-cream-muted/50"
-              >
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-cream-muted/15 text-cream-muted border border-cream-muted/20 shadow-inner group-hover:scale-105 transition-transform duration-300">
-                  <p.icon className="h-6 w-6" strokeWidth={1.75} aria-hidden />
-                </span>
-                <h3 className="mt-4 font-serif text-lg font-bold text-cream-muted sm:text-xl">
-                  {p.title}
-                </h3>
-                <p className="mt-2 max-w-xs text-xs sm:text-sm leading-relaxed text-cream-muted/85">
-                  {p.text}
-                </p>
-              </div>
+          <div className="grid gap-8 sm:grid-cols-3">
+            {pillars.map((p, i) => (
+              <FadeIn key={p.title} delay={i * 0.05}>
+                <div className="group relative flex flex-col items-start text-left rounded-[2rem] border border-sage/12 bg-surface/80 p-8 shadow-[0_12px_40px_rgba(95,122,108,0.05)] backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:bg-surface hover:border-sage/24 hover:shadow-[0_24px_56px_rgba(95,122,108,0.12)]">
+                  {/* Subtle card glow on hover */}
+                  <div className="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-highlight/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-sage-light/10 text-sage border border-sage/15 shadow-sm group-hover:scale-105 group-hover:bg-sage group-hover:text-cream-muted transition-all duration-500">
+                    <p.icon className="h-7 w-7" strokeWidth={1.25} aria-hidden />
+                  </span>
+                  <h3 className="mt-6 font-serif text-xl font-bold text-ink">
+                    {p.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+                    {p.text}
+                  </p>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </PageShell>
@@ -203,52 +205,68 @@ export default function HomePage() {
       {/* ——— Uzmanlık: sıcak krem / sarı vurgu (süreçten ayrı ton) ——— */}
       <section className="border-b border-rule/12 bg-gradient-to-b from-cream via-highlight/18 to-cream-muted/50 py-20 sm:py-28">
         <PageShell width="full">
-          <FadeIn>
-            <h2 className="max-w-xl border-l-4 border-sage pl-4 font-serif text-xl font-medium tracking-tight text-ink sm:pl-5 sm:text-4xl">
-              Alanlar
-            </h2>
-            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-ink/90 sm:text-[17px]">
-              İlk görüşmede öykü, test ve klinik gözlemle profil netleşir; ardından
-              hedeflerinize uygun program önerilir. Her yaş ve ihtiyaç için
-              değerlendirme ve tedavi planı birlikte şekillenir; gerektiğinde diğer
-              uzmanlarla koordinasyon plana dahil edilir.
-            </p>
-          </FadeIn>
-          <ul className="mt-12 grid gap-4 sm:mt-14 sm:grid-cols-2 lg:gap-0 lg:divide-x lg:divide-sage/22 lg:overflow-hidden lg:rounded-2xl lg:border lg:border-sage/26 lg:bg-gradient-to-b lg:from-cream-muted/42 lg:via-background/96 lg:to-cream-muted/36 lg:shadow-[0_22px_56px_-28px_rgba(18,22,20,0.14),inset_0_1px_0_rgba(255,251,240,0.48)] lg:ring-1 lg:ring-sage/10">
+          <div className="text-center max-w-3xl mx-auto">
+            <FadeIn>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-sage">
+                Hizmetler
+              </p>
+              <h2 className="mt-3 font-serif text-3xl font-medium tracking-tight text-ink sm:text-4xl">
+                Alanlar ve Uzmanlıklar
+              </h2>
+              <p className="mt-5 max-w-2xl mx-auto text-[15px] leading-relaxed text-ink/90 sm:text-[17px]">
+                İlk görüşmede öykü, test ve klinik gözlemle profil netleşir; ardından
+                hedeflerinize uygun program önerilir. Her yaş ve ihtiyaç için
+                değerlendirme ve tedavi planı birlikte şekillenir; gerektiğinde diğer
+                uzmanlarla koordinasyon plana dahil edilir.
+              </p>
+            </FadeIn>
+          </div>
+          
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:gap-8">
             {services.map((s, si) => (
-              <li
-                key={s.title}
-                className="flex gap-4 rounded-xl border border-sage/24 bg-gradient-to-b from-cream-muted/45 to-background/95 p-5 shadow-[0_16px_40px_-20px_rgba(18,22,20,0.11),inset_0_1px_0_rgba(255,251,240,0.55)] transition duration-300 hover:-translate-y-0.5 hover:border-sage/32 sm:p-6 lg:rounded-none lg:border-0 lg:bg-background/82 lg:p-8 lg:shadow-none lg:[background-image:none] lg:hover:translate-y-0 lg:odd:border-r lg:odd:border-sage/22"
-              >
-                <span
-                  className={cn(
-                    "mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl",
-                    pastelIconBox(si),
-                  )}
-                >
-                  <s.icon className="h-5 w-5 opacity-90" strokeWidth={1.75} aria-hidden />
-                </span>
-                <div>
-                  <p className="font-medium text-ink">{s.title}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-                    {s.desc}
-                  </p>
+              <FadeIn key={s.title} delay={si * 0.05}>
+                <div className="group relative flex gap-6 rounded-[2rem] border border-sage/12 bg-surface/70 p-7 shadow-[0_12px_36px_rgba(95,122,108,0.04)] backdrop-blur-sm transition-all duration-500 hover:-translate-y-1.5 hover:bg-surface hover:border-sage/24 hover:shadow-[0_24px_50px_rgba(95,122,108,0.1)] sm:p-8">
+                  {/* Subtle inner accent glow on hover */}
+                  <div className="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-tr from-cream-muted/5 to-highlight/12 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  <span
+                    className={cn(
+                      "mt-0.5 flex h-13 w-13 shrink-0 items-center justify-center rounded-2xl group-hover:scale-105 transition-all duration-500",
+                      pastelIconBox(si),
+                    )}
+                  >
+                    <s.icon className="h-6 w-6 opacity-90" strokeWidth={1.25} aria-hidden />
+                  </span>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-mono font-bold tracking-wider text-sage/40 uppercase">0{si + 1} / {si < 2 ? "Çocuk" : "Yetişkin"}</span>
+                      <ArrowRight className="h-4.5 w-4.5 text-sage/30 transition-all duration-300 group-hover:translate-x-1.5 group-hover:text-sage" />
+                    </div>
+                    <h3 className="mt-2.5 font-serif text-lg font-bold text-ink">
+                      {s.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+                      {s.desc}
+                    </p>
+                  </div>
                 </div>
-              </li>
+              </FadeIn>
             ))}
-          </ul>
-          <FadeIn delay={0.06}>
-            <Link
-              href="/hizmetler"
-              className={cn(
-                "mt-10 inline-flex items-center gap-2 px-4 py-2 text-[13px] font-semibold text-sage-dark sm:px-5 sm:py-2.5 sm:text-sm",
-                softRoundLink3d,
-              )}
-            >
-              Tüm hizmet detayları
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </FadeIn>
+          </div>
+
+          <div className="mt-12 text-center">
+            <FadeIn>
+              <Link
+                href="/hizmetler"
+                className={cn(
+                  "inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-sage-dark hover:text-sage transition",
+                  softRoundLink3d,
+                )}
+              >
+                Tüm hizmet detayları
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </FadeIn>
+          </div>
         </PageShell>
       </section>
 
@@ -257,7 +275,10 @@ export default function HomePage() {
         <PageShell width="full">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-12">
             <FadeIn className="max-w-xl lg:max-w-2xl">
-              <h2 className="border-l-4 border-sage pl-4 font-serif text-xl font-medium tracking-tight text-ink sm:pl-5 sm:text-4xl">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-sage">
+                Terapi Süreci
+              </p>
+              <h2 className="mt-3 font-serif text-3xl font-medium tracking-tight text-ink sm:text-4xl">
                 Nasıl ilerliyoruz?
               </h2>
               <p className="mt-4 text-[15px] leading-relaxed text-ink/90 sm:text-[17px] md:text-lg">
@@ -273,18 +294,18 @@ export default function HomePage() {
             </FadeIn>
             <FadeIn
               delay={0.05}
-              className="w-full shrink-0 rounded-2xl border border-sage/24 bg-gradient-to-br from-cream-muted/48 to-background/95 p-5 shadow-[0_18px_44px_-24px_rgba(18,22,20,0.12),inset_0_1px_0_rgba(255,251,240,0.45)] ring-1 ring-sage/10 sm:p-6 lg:max-w-sm"
+              className="w-full shrink-0 rounded-3xl border border-sage/15 bg-surface/75 p-6 shadow-[0_12px_36px_rgba(95,122,108,0.06)] backdrop-blur-sm sm:p-8 lg:max-w-sm"
             >
               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-sage">
                 Pratik notlar
               </p>
-              <ul className="mt-4 space-y-3 text-sm leading-relaxed text-ink-muted">
+              <ul className="mt-4 space-y-3.5 text-sm leading-relaxed text-ink-muted">
                 {[
                   "İlk görüşmede belgelerinizi yanınızda bulundurmanız süreci hızlandırır.",
                   "Ev ödevleri kısa ve uygulanabilir tutulur; takipte birlikte gözden geçirilir.",
                   "Gerekirse yönlendirme ve multidisipliner iş birliği plana eklenir.",
                 ].map((line, bi) => (
-                  <li key={line} className="flex gap-2.5">
+                  <li key={line} className="flex gap-3 items-start">
                     <span
                       className={cn(
                         "mt-1.5 h-2 w-2 shrink-0 rounded-full",
@@ -292,69 +313,91 @@ export default function HomePage() {
                       )}
                       aria-hidden
                     />
-                    {line}
+                    <span>{line}</span>
                   </li>
                 ))}
               </ul>
             </FadeIn>
           </div>
-          <ol className="mt-12 grid gap-4 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4 lg:gap-5">
-            {steps.map((row, i) => (
-              <FadeIn key={row.n} delay={i * 0.05}>
-                <li className="group relative flex h-full min-h-[10.5rem] flex-col rounded-2xl border border-sage/26 bg-gradient-to-b from-cream-muted/38 via-background/96 to-cream-muted/32 p-5 shadow-[0_18px_48px_-24px_rgba(18,22,20,0.13),inset_0_1px_0_rgba(255,251,240,0.52)] ring-1 ring-sage/10 transition duration-300 hover:-translate-y-1 hover:border-sage/34 hover:shadow-[0_26px_56px_-26px_rgba(95,122,108,0.15),inset_0_1px_0_rgba(255,251,240,0.58)] sm:min-h-[12rem] sm:p-7">
-                  <div className="flex items-center justify-start gap-3">
-                    <span
-                      className={cn(
-                        "rounded-full px-2.5 py-0.5 font-mono text-[11px] font-semibold tabular-nums",
-                        stepNumberBadge(i),
-                      )}
-                    >
-                      {row.n}
-                    </span>
-                  </div>
-                  <h3 className="mt-4 font-serif text-base font-medium tracking-tight text-ink sm:mt-5 sm:text-xl">
-                    {row.title}
-                  </h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-muted">
-                    {row.text}
-                  </p>
-                </li>
-              </FadeIn>
-            ))}
-          </ol>
+
+          {/* Timeline Process steps */}
+          <div className="relative mt-16">
+            {/* Connector line running behind numbers */}
+            <div className="absolute top-10 left-12 right-12 hidden h-[2px] border-t-2 border-dashed border-sage/20 lg:block z-0" />
+            
+            <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8 relative z-10">
+              {steps.map((row, i) => (
+                <FadeIn key={row.n} delay={i * 0.05}>
+                  <li className="group relative flex h-full flex-col rounded-[2rem] border border-sage/12 bg-surface/75 p-6 shadow-[0_12px_36px_rgba(95,122,108,0.05)] backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:bg-surface hover:border-sage/24 hover:shadow-[0_24px_50px_rgba(95,122,108,0.12)]">
+                    <div className="flex items-center justify-between">
+                      <span
+                        className={cn(
+                          "flex h-8 w-8 items-center justify-center rounded-full font-mono text-xs font-bold shadow-sm transition-all duration-300 group-hover:scale-105",
+                          stepNumberBadge(i),
+                        )}
+                      >
+                        {row.n}
+                      </span>
+                      <span className="h-2 w-2 rounded-full bg-sage/35 transition-all duration-500 group-hover:bg-sage group-hover:scale-150" />
+                    </div>
+                    <h3 className="mt-6 font-serif text-lg font-bold text-ink sm:text-xl">
+                      {row.title}
+                    </h3>
+                    <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-muted">
+                      {row.text}
+                    </p>
+                  </li>
+                </FadeIn>
+              ))}
+            </ol>
+          </div>
         </PageShell>
       </section>
 
-      {/* ——— Gizlilik: tam genişlik görsel — overlay yok, fotoğraf kendi rengi ——— */}
-      <section className="relative isolate min-h-[20rem] overflow-hidden sm:min-h-[22rem] lg:min-h-[24rem]">
-        <Image
-          src={aboutImageSrc(HOME_TRUST_SECTION_IMAGE)}
-          alt="Terapi ortamı"
-          fill
-          className="object-cover object-center"
-          sizes="100vw"
-          priority={false}
-        />
-        <PageShell
-          width="full"
-          className="relative z-10 flex min-h-[20rem] flex-col justify-end py-12 sm:min-h-[22rem] sm:justify-center sm:py-14 lg:min-h-[24rem] lg:max-w-2xl lg:py-16"
-        >
-          <div className="rounded-2xl border border-white/25 bg-black/45 p-6 shadow-[0_24px_60px_-16px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-md sm:p-8">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-cream-muted/95 flex items-center gap-1.5 justify-start">
-              <Lock className="h-3.5 w-3.5 opacity-80" />
-              Güven
-            </p>
-            <h2 className="mt-3 border-b border-white/15 pb-3 font-serif text-xl font-bold tracking-tight text-cream-muted sm:text-4xl">
-              Gizlilik ve güven
-            </h2>
-            <p className="mt-5 text-[15px] leading-relaxed text-cream-muted/92 sm:text-[17px] md:text-lg">
-              Paylaştığınız sağlık bilgileri mesleki etik ve yasal çerçevede korunur;
-              onam süreçlerinde sorularınız için zaman ayrılır.
-            </p>
-            <p className="mt-4 text-[15px] leading-relaxed text-cream-muted/88 sm:text-[17px] md:text-lg">
-              Çocuk çalışmalarında ebeveyn katılımı ve ev aktiviteleri, sürdürülebilir
-              sonuçlar için planın parçasıdır.
-            </p>
+      {/* ——— Gizlilik: Tüm arka planı kaplayan görsel düzeni ——— */}
+      <section className="relative isolate overflow-hidden py-24 sm:py-32 border-t border-b border-rule/10">
+        {/* Background Image spanning the entire section */}
+        <div className="absolute inset-0 -z-10 h-full w-full">
+          <Image
+            src={aboutImageSrc(HOME_TRUST_SECTION_IMAGE)}
+            alt="Terapi ortamı arka planı"
+            fill
+            className="object-cover object-center"
+            sizes="100vw"
+            priority={false}
+          />
+          {/* Gradient mask for text legibility and blending with warm background */}
+          <div className="absolute inset-0 bg-gradient-to-r from-cream/95 via-cream/85 to-transparent max-lg:bg-cream/90" />
+        </div>
+
+        <PageShell width="full">
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+            {/* Left Side: Content Panel */}
+            <div className="lg:col-span-7 xl:col-span-6">
+              <FadeIn>
+                <div className="rounded-3xl border border-sage/12 bg-surface/90 p-8 sm:p-10 shadow-[0_20px_50px_rgba(95,122,108,0.08)] backdrop-blur-md">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-sage flex items-center gap-1.5">
+                    <Lock className="h-3.5 w-3.5" />
+                    Güvenilirlik
+                  </p>
+                  <h2 className="mt-3 font-serif text-3xl font-medium tracking-tight text-ink sm:text-4xl">
+                    Gizlilik ve Güven
+                  </h2>
+                  <div className="h-[2px] w-12 bg-sage/30 rounded-full mt-4" />
+                  <p className="mt-6 text-[15px] leading-relaxed text-ink/95 sm:text-[16px] md:text-[17px]">
+                    Paylaştığınız sağlık bilgileri mesleki etik ve yasal çerçevede korunur;
+                    onam süreçlerinde sorularınız için zaman ayrılır.
+                  </p>
+                  <p className="mt-4 text-[15px] leading-relaxed text-ink/95 sm:text-[16px] md:text-[17px]">
+                    Çocuk çalışmalarında ebeveyn katılımı ve ev aktiviteleri, sürdürülebilir
+                    sonuçlar için planın parçasıdır.
+                  </p>
+                </div>
+              </FadeIn>
+            </div>
+            
+            {/* Right side left empty to let the background photo display clearly */}
+            <div className="hidden lg:block lg:col-span-5 xl:col-span-6" />
           </div>
         </PageShell>
       </section>
@@ -364,23 +407,22 @@ export default function HomePage() {
         <PageShell width="full">
           <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
             <FadeIn className="max-w-2xl">
-              <h2 className="border-l-4 border-sage pl-4 font-serif text-xl font-medium tracking-tight text-ink sm:pl-5 sm:text-4xl">
-                Yazılar
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-sage">
+                Blog
+              </p>
+              <h2 className="mt-3 font-serif text-3xl font-medium tracking-tight text-ink sm:text-4xl">
+                Yazılar ve Rehberler
               </h2>
               <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-ink/90 sm:text-[17px] md:text-lg">
                 Dil, konuşma, ses ve yutma sağlığına dair kısa rehberler ve sık
                 sorulan konulara yönelik yazılar.
-              </p>
-              <p className="mt-2 max-w-xl text-sm leading-relaxed text-ink-muted sm:text-[15px]">
-                Her yazıda pratik özet ve güvenilir kaynaklara uyumlu bir çerçeve
-                bulabilirsiniz.
               </p>
             </FadeIn>
             <FadeIn>
               <Link
                 href="/blog"
                 className={cn(
-                  "inline-flex shrink-0 items-center gap-2 px-4 py-2 text-[13px] font-semibold text-sage-dark backdrop-blur-sm sm:px-5 sm:py-2.5 sm:text-sm",
+                  "inline-flex shrink-0 items-center gap-2 px-5 py-2.5 text-sm font-semibold text-sage-dark backdrop-blur-sm transition",
                   softRoundLink3d,
                 )}
               >
@@ -389,43 +431,55 @@ export default function HomePage() {
               </Link>
             </FadeIn>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
             {latest.map((post, i) => (
               <FadeIn key={post.slug} delay={i * 0.06}>
-                <article className="group flex h-full flex-col rounded-2xl border border-sage/26 bg-gradient-to-b from-cream-muted/40 via-background/97 to-cream-muted/30 p-5 shadow-[0_16px_44px_-22px_rgba(18,22,20,0.12),inset_0_1px_0_rgba(255,251,240,0.5)] ring-1 ring-sage/10 transition duration-300 hover:-translate-y-1 hover:border-sage/32 hover:ring-sage/18 hover:shadow-[0_26px_52px_-26px_rgba(95,122,108,0.16),inset_0_1px_0_rgba(255,251,240,0.58)] sm:p-7">
-                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-sage">
-                    <span className="rounded-full border border-emerald-200/45 bg-gradient-to-r from-emerald-50/95 to-cream-muted/70 px-2.5 py-0.5 text-sage-dark shadow-sm">
+                <article className="group flex h-full flex-col rounded-3xl border border-sage/12 bg-surface/65 p-5 shadow-[0_12px_36px_rgba(95,122,108,0.06)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:bg-surface/95 hover:border-sage/24 hover:shadow-[0_20px_48px_rgba(95,122,108,0.12)]">
+                  
+                  {/* Cover Image */}
+                  <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-rule/5 bg-cream-muted/40 mb-5">
+                    <Image
+                      src={aboutImageSrc(getBlogCoverImage(post.slug))}
+                      alt={post.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 30vw"
+                      className="object-cover transition duration-700 group-hover:scale-[1.04]"
+                    />
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[10px] font-mono tracking-wider uppercase text-sage">
+                    <span className="rounded-full border border-sage/15 bg-sage-light/8 px-2.5 py-0.5 text-sage-dark text-[9px] font-sans font-semibold tracking-normal normal-case">
                       {post.category}
                     </span>
-                    <time dateTime={post.date}>
+                    <time dateTime={post.date} className="text-sage/80">
                       {new Date(post.date).toLocaleDateString("tr-TR", {
                         day: "numeric",
                         month: "long",
                         year: "numeric",
                       })}
                     </time>
-                    <span className="inline-flex items-center gap-1 normal-case font-medium tracking-normal text-ink-muted">
-                      <Clock className="h-3.5 w-3.5" aria-hidden />
-                      {post.readMinutes} dk
+                    <span className="inline-flex items-center gap-1 font-sans text-ink-muted/80">
+                      • {post.readMinutes} dk
                     </span>
                   </div>
-                  <h3 className="mt-4 font-serif text-base font-medium leading-snug tracking-tight text-ink sm:text-xl">
+
+                  <h3 className="mt-4 font-serif text-lg font-bold leading-snug tracking-tight text-ink flex-1">
                     <Link
                       href={`/blog/${post.slug}`}
-                      className="transition group-hover:text-sage"
+                      className="transition hover:text-sage-dark"
                     >
                       {post.title}
                     </Link>
                   </h3>
-                  <p className="mt-3 line-clamp-4 flex-1 text-sm leading-relaxed text-ink-muted">
+                  <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-ink-muted">
                     {post.excerpt}
                   </p>
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sage"
+                    className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-sage group-hover:text-sage-dark transition"
                   >
                     Devamını oku
-                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                   </Link>
                 </article>
               </FadeIn>
@@ -434,14 +488,15 @@ export default function HomePage() {
         </PageShell>
       </section>
 
-      {/* ——— CTA: yeşil bant ——— */}
-      <section className="border-t border-sage/20 bg-sage py-16 text-cream-muted sm:py-20">
-        <PageShell width="content" className="text-center">
+      {/* ——— CTA: modern mesh-style band ——— */}
+      <section className="relative overflow-hidden py-20 text-cream-muted sm:py-28 bg-gradient-to-br from-sage-dark via-sage to-sage-dark">
+        <div className="pointer-events-none absolute inset-0 bg-radial-gradient(circle at 80% 20%, rgba(255,250,195,0.15), transparent 50%)" />
+        <PageShell width="content" className="relative z-10 text-center">
           <FadeIn>
-            <h2 className="mx-auto mt-0 max-w-md rounded-xl border border-cream-muted/42 bg-black/14 px-4 py-2.5 font-serif text-xl font-medium tracking-tight text-cream-muted shadow-[0_14px_36px_-16px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,251,245,0.12)] sm:px-5 sm:py-3 sm:text-3xl">
+            <h2 className="mx-auto mt-0 max-w-lg rounded-2xl border border-white/20 bg-white/5 px-6 py-4 font-serif text-2xl font-medium tracking-tight text-cream-muted shadow-[0_20px_50px_rgba(0,0,0,0.15),inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-sm sm:text-4xl">
               Bir sonraki adımı konuşalım
             </h2>
-            <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-cream-muted/85 sm:text-[15px]">
+            <p className="mx-auto mt-6 max-w-lg text-sm leading-relaxed text-cream-muted/90 sm:text-lg">
               Sorularınız veya yönlendirme için iletişim formu veya telefon. Yüz yüze
               veya çevrim içi görüşme türünü birlikte seçeriz.
             </p>
@@ -449,7 +504,7 @@ export default function HomePage() {
               <ButtonLink
                 href="/iletisim"
                 variant="primary"
-                className={cn(heroPrimarySoft, highlightCta3d)}
+                className={cn(heroPrimarySoft, highlightCta3d, "hover:scale-105 transition-transform duration-300")}
               >
                 İletişime geç
               </ButtonLink>
