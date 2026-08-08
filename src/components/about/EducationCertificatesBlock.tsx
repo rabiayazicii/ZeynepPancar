@@ -36,8 +36,8 @@ export function EducationCertificatesBlock({ compact = false }: BlockProps) {
 
       <div
         className={cn(
-          "relative overflow-hidden rounded-2xl border border-rule/28 glass p-5 shadow-sm ring-1 ring-sage/10 card-soft transition-[border-color,box-shadow] duration-300 hover:border-sage/30 hover:shadow-md sm:p-6",
-          compact ? "mt-5" : "mt-8",
+          "relative overflow-hidden rounded-3xl border border-sage/12 bg-surface/50 p-6 sm:p-8 shadow-sm glass transition-[border-color,box-shadow] duration-300 hover:border-sage/25",
+          compact ? "mt-6" : "mt-8",
         )}
       >
         <div className="w-full">
@@ -65,7 +65,7 @@ export function EducationCertificatesBlock({ compact = false }: BlockProps) {
             </span>
             <span
               className={cn(
-                "flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-rule/32 bg-surface/60 text-sage shadow-sm ring-1 ring-sage/10 transition-transform duration-300 sm:h-11 sm:w-11",
+                "flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-sage/20 bg-surface/80 text-sage shadow-sm transition-transform duration-300 sm:h-11 sm:w-11",
                 open && "rotate-180",
               )}
               aria-hidden

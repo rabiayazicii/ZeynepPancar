@@ -165,6 +165,11 @@ body {
     );
 }
 
+@keyframes flow {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 0% 200%; }
+}
+
 .card-soft {
   box-shadow:
     0 1px 0 color-mix(in srgb, var(--ink) 4%, transparent),
@@ -198,74 +203,60 @@ body {
     0 1px 0 color-mix(in srgb, var(--ink) 5%, transparent);
 }
 
-/* Birincil buton — belirgin gölge, hover kalkış (mobilde biraz daha kompakt) */
+/* Birincil buton — belirgin ince çerçeve, hover geçişli */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  padding: 0.625rem 1.35rem;
+  padding: 0.55rem 1.4rem;
   font-size: 0.8125rem;
   font-weight: 600;
   line-height: 1.25;
   color: var(--cream-muted);
   background-color: var(--brand);
-  box-shadow:
-    0 4px 16px color-mix(in srgb, var(--brand) 32%, transparent),
-    0 1px 0 color-mix(in srgb, black 8%, var(--brand));
-  transition:
-    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.25s ease,
-    background-color 0.2s ease;
+  border: 1px solid var(--brand);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 @media (min-width: 640px) {
   .btn-primary {
-    padding: 0.875rem 2rem;
+    padding: 0.75rem 1.85rem;
     font-size: 0.875rem;
   }
 }
 .btn-primary:hover {
-  transform: translateY(-2px);
-  background-color: var(--sage-dark);
-  box-shadow:
-    0 12px 32px color-mix(in srgb, var(--brand) 38%, transparent),
-    0 1px 0 color-mix(in srgb, black 12%, var(--brand));
+  transform: translateY(-1px);
+  background-color: transparent;
+  color: var(--brand);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--brand) 10%, transparent);
 }
 .btn-primary:active {
   transform: translateY(0);
 }
 
-/* İkincil buton — cam + ince çerçeve */
+/* İkincil buton — ince çerçeve */
 .btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  padding: 0.625rem 1.35rem;
+  padding: 0.55rem 1.4rem;
   font-size: 0.8125rem;
   font-weight: 600;
   line-height: 1.25;
   color: var(--brand);
-  background-color: color-mix(
-    in srgb,
-    color-mix(in srgb, var(--highlight) 18%, transparent) 35%,
-    color-mix(in srgb, var(--surface) 88%, transparent) 65%
-  );
-  border: 1px solid color-mix(in srgb, var(--brand) 22%, var(--line));
-  backdrop-filter: blur(8px);
-  transition:
-    transform 0.25s ease,
-    background-color 0.2s ease,
-    border-color 0.2s ease;
+  background-color: transparent;
+  border: 1px solid color-mix(in srgb, var(--brand) 30%, var(--line));
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .btn-secondary:hover {
   transform: translateY(-1px);
-  background-color: var(--cream-muted);
-  border-color: color-mix(in srgb, var(--brand) 35%, var(--line));
+  background-color: color-mix(in srgb, var(--brand) 6%, transparent);
+  border-color: var(--brand);
 }
 @media (min-width: 640px) {
   .btn-secondary {
-    padding: 0.875rem 2rem;
+    padding: 0.75rem 1.85rem;
     font-size: 0.875rem;
   }
 }
@@ -276,25 +267,22 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  padding: 0.4rem 0.85rem;
-  font-size: 0.6875rem;
+  padding: 0.35rem 0.95rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--cream-muted);
   background-color: var(--brand);
-  box-shadow: 0 2px 12px color-mix(in srgb, var(--brand) 26%, transparent);
-  transition:
-    transform 0.2s ease,
-    background-color 0.2s ease,
-    box-shadow 0.2s ease;
+  border: 1px solid var(--brand);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .btn-primary-sm:hover {
   transform: translateY(-1px);
-  background-color: var(--sage-dark);
-  box-shadow: 0 4px 18px color-mix(in srgb, var(--brand) 32%, transparent);
+  background-color: transparent;
+  color: var(--brand);
 }
 @media (min-width: 640px) {
   .btn-primary-sm {
-    padding: 0.5rem 1.15rem;
+    padding: 0.45rem 1.15rem;
     font-size: 0.8125rem;
   }
 }

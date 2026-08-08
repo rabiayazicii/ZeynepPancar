@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, Fraunces } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { FloatingSocialStack } from "@/components/ui/FloatingSocialStack";
 import { SITE_LOGO_SRC } from "@/lib/about-images";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -54,6 +55,7 @@ export default function RootLayout({
         <Header />
         <div className="flex-1">{children}</div>
         <Footer />
+        <FloatingSocialStack />
       </body>
     </html>
   );

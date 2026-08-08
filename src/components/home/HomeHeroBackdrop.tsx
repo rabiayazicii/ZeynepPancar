@@ -90,8 +90,8 @@ export function HomeHeroBackdrop({ slides, children }: Props) {
         ))}
       </div>
 
-      {/* İçerik — fotoğraf üzerinde koyu scrim yok; metin okunabilirliği sayfa içi panellerle */}
-      <div className="relative z-[3] flex min-h-[100svh] w-full flex-col justify-end pb-[6.25rem] pt-[calc(var(--header-h)+1rem)] max-sm:items-start sm:justify-center sm:pb-20 sm:pt-[calc(var(--header-h)+2rem)] sm:items-stretch">
+      {/* İçerik — sol başlangıç hizalaması */}
+      <div className="relative z-[3] flex min-h-[100svh] w-full flex-col justify-end items-start pb-24 pt-[calc(var(--header-h)+1.5rem)] text-left px-4 sm:px-8">
         {children}
       </div>
 

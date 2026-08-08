@@ -63,7 +63,7 @@ export default async function BlogPostPage({ params }: Props) {
             </nav>
 
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs sm:text-sm text-ink-muted mb-4">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-sage/8 border border-sage/12 px-3 py-0.5 text-sage font-bold uppercase tracking-wider text-[11px]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#d4edda]/60 border border-[#a8d5b5]/40 px-3 py-0.5 text-[#4a8c61] font-bold uppercase tracking-wider text-[11px]">
                 {post.category}
               </span>
               <span className="flex items-center gap-1">
@@ -126,11 +126,11 @@ export default async function BlogPostPage({ params }: Props) {
               {/* Decorative blockquote insertion for visual beauty */}
               {post.content.length >= 2 && (
                 <FadeIn delay={0.1}>
-                  <blockquote className="my-8 rounded-3xl border-l-4 border-sage bg-surface/70 p-6 shadow-sm backdrop-blur-sm sm:p-8">
+                  <blockquote className="my-8 rounded-3xl border-l-4 border-[#a8d5b5] bg-[#EEF5F0]/70 p-6 shadow-sm backdrop-blur-sm sm:p-8">
                     <p className="font-serif text-lg italic leading-relaxed text-ink">
                       "Bütüncül yaklaşım, bireyin tüm gelişim basamaklarını (dil, konuşma, yutma, ses ve fiziksel fonksiyonlar) tek bir çerçevede birleştirmeyi ve kişiye özel hedefleri hayata geçirmeyi gerektirir."
                     </p>
-                    <cite className="mt-3 block text-xs font-semibold uppercase tracking-wider text-sage font-sans not-italic">
+                    <cite className="mt-3 block text-xs font-semibold uppercase tracking-wider text-[#4a8c61] font-sans not-italic">
                       — Klinik Prensip
                     </cite>
                   </blockquote>
@@ -140,8 +140,8 @@ export default async function BlogPostPage({ params }: Props) {
 
             {/* Warning Note */}
             <FadeIn delay={0.15}>
-              <div className="rounded-3xl border border-sage/15 bg-surface/65 p-6 text-sm leading-relaxed text-ink-muted shadow-sm backdrop-blur-sm sm:p-8 flex gap-4 items-start">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-amber-50 text-amber-600 border border-amber-200">
+              <div className="rounded-3xl border border-[#e8dcc8]/80 bg-[#FAF7F3]/70 p-6 text-sm leading-relaxed text-ink-muted shadow-sm backdrop-blur-sm sm:p-8 flex gap-4 items-start">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#e8dcc8]/60 text-[#8c7a4a] border border-[#d5c5a0]/40">
                   !
                 </span>
                 <div>
@@ -226,20 +226,18 @@ export default async function BlogPostPage({ params }: Props) {
 
             {/* Quick Consultation CTA */}
             <FadeIn delay={0.2}>
-              <div className="rounded-3xl border border-sage/15 bg-gradient-to-br from-sage to-sage-dark p-6 text-cream-muted shadow-lg relative overflow-hidden">
-                <div className="pointer-events-none absolute inset-0 bg-radial-gradient(circle at 80% 20%, rgba(255,250,195,0.08), transparent 50%)" />
-                <h3 className="font-serif text-lg font-medium leading-snug mb-2 flex items-center gap-2 relative z-10">
-                  <Send className="h-4 w-4 text-highlight" />
+              <div className="rounded-3xl border border-[#a0b8d5]/30 bg-gradient-to-br from-[#c8dcee]/60 to-[#d4edda]/60 p-6 shadow-sm relative overflow-hidden">
+                <div className="pointer-events-none absolute inset-0 bg-radial-gradient(circle at 80% 20%, rgba(255,255,255,0.4), transparent 60%)" />
+                <h3 className="font-serif text-lg font-bold leading-snug text-ink mb-2 flex items-center gap-2 relative z-10">
+                  <Send className="h-4 w-4 text-[#4a6b8c]" />
                   Randevu Alın
                 </h3>
-                <p className="text-xs leading-relaxed text-cream-muted/90 mb-5 relative z-10">
+                <p className="text-xs leading-relaxed text-ink-muted mb-5 relative z-10">
                   Size özel terapi planı oluşturmak veya değerlendirme seansı planlamak için hemen iletişime geçin.
                 </p>
                 <Link
                   href="/iletisim"
-                  className={cn(
-                    "w-full text-center py-2.5 rounded-full text-xs font-semibold bg-highlight text-ink hover:bg-cream-muted transition-all duration-300 block relative z-10"
-                  )}
+                  className="w-full text-center py-2.5 rounded-full text-xs font-bold text-white bg-[#4a6b8c] hover:bg-[#4a8c61] transition-all duration-300 block relative z-10"
                 >
                   İletişime Geçin
                 </Link>

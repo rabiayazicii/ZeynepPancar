@@ -12,7 +12,7 @@ const nav = [
   { href: "/hakkimda", label: "Hakkımda" },
   { href: "/hizmetler", label: "Hizmetler" },
   { href: "/blog", label: "Blog" },
-  { href: "/iletisim", label: "İletişim" },
+  { href: "/iletisim", label: "İletişim & Randevu" },
 ];
 
 function navLinkActive(href: string, pathname: string) {
@@ -96,18 +96,10 @@ export function Header() {
               );
             })}
           </nav>
-          <Link
-            href="/iletisim"
-            className="btn-primary-sm ml-3"
-          >
-            Randevu
-          </Link>
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
-          <Link href="/iletisim" className="btn-primary-sm">
-            Randevu
-          </Link>
+
           <button
             type="button"
             className="flex h-11 w-11 items-center justify-center rounded-full border border-rule/32 glass text-ink"

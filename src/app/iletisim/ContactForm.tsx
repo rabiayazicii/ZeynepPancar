@@ -4,7 +4,6 @@ import { useState } from "react";
 import { ArrowUpRight, CheckCircle2, Send } from "lucide-react";
 import { FadeIn } from "@/components/FadeIn";
 import { PageShell } from "@/components/layout/PageShell";
-import { highlightCta3d } from "@/lib/highlight-cta-3d";
 import { cn } from "@/lib/cn";
 import { ContactMapEmbed } from "./ContactMapEmbed";
 
@@ -43,8 +42,8 @@ const innerForm3d = cn(
 );
 
 const submitBase = cn(
-  "inline-flex w-full items-center justify-center gap-2 rounded-full border border-sage/40 bg-highlight px-5 py-2.5 text-[13px] font-semibold text-ink sm:px-6 sm:py-3.5 sm:text-sm",
-  "transition hover:border-sage hover:bg-cream-muted",
+  "inline-flex w-full items-center justify-center gap-2 rounded-full border border-brand bg-brand px-5 py-2.5 text-[13px] font-semibold text-cream-muted sm:px-6 sm:py-3.5 sm:text-sm transition-all duration-300",
+  "hover:bg-transparent hover:text-brand hover:shadow-[0_4px_12px_rgba(95,122,108,0.1)]",
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage",
 );
 
@@ -201,7 +200,7 @@ export function ContactForm() {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <header className="border-b border-sage/15 pb-5">
                     <Kicker>Form</Kicker>
                     <h2 className="mt-4 font-serif text-xl font-medium tracking-tight text-ink sm:text-[1.65rem]">
@@ -212,10 +211,10 @@ export function ContactForm() {
                     </p>
                   </header>
 
-                  <div className="grid gap-5 sm:grid-cols-2 sm:gap-x-5 sm:gap-y-6">
+                  <div className="grid gap-4 sm:grid-cols-2">
                     <div className="sm:col-span-1">
                       <label htmlFor="name" className="block text-sm font-medium text-ink">
-                        Ad Soyad
+                        Ad soyad
                       </label>
                       <input
                         id="name"
@@ -274,7 +273,7 @@ export function ContactForm() {
                       placeholder="Kısaca durumunuzu veya sorunuzu yazın"
                     />
                   </div>
-                  <button type="submit" className={cn(submitBase, highlightCta3d)}>
+                  <button type="submit" className={submitBase}>
                     <Send
                       className="h-4 w-4 shrink-0 text-sage-dark"
                       strokeWidth={2}
