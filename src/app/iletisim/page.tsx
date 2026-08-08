@@ -17,7 +17,6 @@ export default function ContactPage() {
         title="Randevu ve sorular"
         backdropImageSrc={aboutImageSrc(CONTACT_PAGE_IMAGE)}
         backdropClear
-        imagePosition="object-[50%_75%] sm:object-[50%_80%]"
       />
 
       <ContactForm />

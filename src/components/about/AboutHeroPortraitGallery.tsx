@@ -9,9 +9,9 @@ import { cn } from "@/lib/cn";
 
 // Slayt görselleri (İlk olarak varsayılan görsel, ardından kullanıcının eklediği portreler)
 const portraitSlides = [
-  ABOUT_PORTRAIT_FILE, // IMG_6870.jpeg
-  "PHOTO-2026-04-21-00-30-17 3.jpg",
-  "PHOTO-2026-04-21-00-30-14 3.jpg",
+  "anasayfazeynosu.jpg",
+  "baloncuk.jpg",
+  "IMG_6899.jpeg",
 ];
 
 const CYCLE_INTERVAL_MS = 5000;

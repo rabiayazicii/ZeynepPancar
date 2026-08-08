@@ -48,13 +48,13 @@ export const HOME_TRUST_SECTION_IMAGE = "IMG_6890.jpeg";
 export const SERVICES_SIDEBAR_IMAGE = "IMG_6887.jpeg";
 
 /** Hizmetler — hero başlık bandı arkası (saydam dekor) */
-export const SERVICES_HERO_BACKDROP_IMAGE = "cubeswith.jpg";
+export const SERVICES_HERO_BACKDROP_IMAGE = "yazilar.jpg";
 
 /** Blog — hero başlık bandı arkası */
-export const BLOG_PAGE_HERO_IMAGE = "yazilar.jpg";
+export const BLOG_PAGE_HERO_IMAGE = "read2.jpg";
 
 /** İletişim — hero arkası */
-export const CONTACT_PAGE_IMAGE = "call.jpg";
+export const CONTACT_PAGE_IMAGE = "call2.jpg";
 
 const blogCoverBySlug: Record<string, string> = {
   "ekran-suresi-ve-dil-gelisimi": "screen.jpg",
@@ -73,9 +73,8 @@ export const ABOUT_PORTRAIT_FILE = "anasayfazeynosu.jpg";
 
 /** Polaroid şeridi (3 kare) */
 export const aboutPolaroidFiles = [
-  { file: "IMG_6877.jpeg", caption: "Çalışma ortamı" },
-  { file: "IMG_6884.jpeg", caption: "Terapi süreci" },
-  { file: "IMG_6887.jpeg", caption: "Materyaller" },
+  { file: "baloncuk.jpeg", caption: "Oyun ile öğrenme" },
+  { file: "IMG_6899.jpeg", caption: "Çalışma ortamı" },
 ] as const;
 
 /** Hakkımda hero: büyük görsel + küçük seçiciler (portre + polaroid seti) */
@@ -86,10 +85,18 @@ export const aboutHeroGallerySlides = [
 
 /** Alt galeri grid’i */
 export const aboutGalleryFiles = [
-  "IMG_6889.jpeg",
-  "IMG_6890.jpeg",
-  "IMG_6892.jpeg",
-  "IMG_6894.jpeg",
-  "IMG_6899.jpeg",
-  "IMG_6901.jpeg",
+  "ahtapotvesalincak.jpeg",
+  "balinasalincagi.jpeg",
+  "caydanlik.jpeg",
+  "ev-onden.jpeg",
+  "guzelpazar.jpeg",
+  "mutfak.jpeg",
+  "mutfakvekoltuk.jpeg",
+  "oyuncakevvecam.jpeg",
+  "panda.jpeg",
+  "piknik.jpeg",
+  "salincakuzak.jpeg",
+  "teyze.jpg",
+  "zurafakitaplar.jpeg",
+  "zurafamasauzak.jpeg",
 ] as const;

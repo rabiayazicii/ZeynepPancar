@@ -162,13 +162,12 @@ export function AboutInteractiveLayout() {
               {/* Body (Scrollable List) */}
               <div className="flex-1 overflow-y-auto p-6 space-y-6 scrollbar-thin">
                 {aboutGalleryFiles.map((file, i) => (
-                  <div key={file} className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-line/30 shadow-sm transition-transform duration-300 hover:scale-[1.01]">
-                    <Image
+                  <div key={file} className="relative w-full bg-black/5 overflow-hidden rounded-2xl border border-line/30 shadow-sm transition-transform duration-300 hover:scale-[1.01] flex items-center justify-center p-2">
+                    <img
                       src={aboutImageSrc(file)}
                       alt={`Klinik ortamı detaylı görsel ${i + 1}`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 600px"
+                      className="w-full h-auto max-h-[70vh] object-contain rounded-xl"
+                      loading="lazy"
                     />
                   </div>
                 ))}

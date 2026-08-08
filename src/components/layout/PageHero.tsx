@@ -126,7 +126,7 @@ export function PageHero({
         /* Arka plan: kısa metin sayfaları da yeterli band; max(vh,rem) — uzunluğu abartmamak için orta taban */
         backdropImageSrc &&
           (clearBackdrop
-            ? "flex min-h-[100svh] sm:min-h-[max(42vh,26rem)] lg:min-h-[max(40vh,28rem)] w-full flex-col justify-end items-start pb-8 sm:pb-12 pt-[calc(var(--header-h)+1.5rem)]"
+            ? "flex min-h-[100dvh] sm:min-h-[max(42vh,26rem)] lg:min-h-[max(40vh,28rem)] w-full flex-col justify-end items-start pb-8 sm:pb-12 pt-[calc(var(--header-h)+1.5rem)]"
             : "min-h-[max(44vh,24rem)] sm:min-h-[max(42vh,26rem)] lg:min-h-[max(40vh,28rem)]"),
         className,
       )}

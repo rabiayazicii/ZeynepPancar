@@ -31,6 +31,7 @@ export default function BlogIndexPage() {
         title="Okuma & Bilgilenme"
         backdropImageSrc={aboutImageSrc(BLOG_PAGE_HERO_IMAGE)}
         backdropClear
+        imagePosition="object-center lg:object-[50%_60%]"
       />
 
       <BlogInteractiveLayout posts={sorted} />

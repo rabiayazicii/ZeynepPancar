@@ -27,7 +27,7 @@ export function ServicesScrollHero({
     <header
       className={cn(
         "relative overflow-hidden border-b border-rule/28 bg-transparent [backdrop-filter:none] [-webkit-backdrop-filter:none]",
-        "flex min-h-[100svh] sm:min-h-[max(42vh,26rem)] lg:min-h-[max(40vh,28rem)] w-full flex-col justify-end items-start pb-8 sm:pb-12 pt-[calc(var(--header-h)+1.5rem)]",
+        "flex min-h-[100dvh] sm:min-h-[max(42vh,26rem)] lg:min-h-[max(40vh,28rem)] w-full flex-col justify-end items-start pb-8 sm:pb-12 pt-[calc(var(--header-h)+1.5rem)]",
       )}
     >
       <div
