@@ -10,7 +10,7 @@ type Props = {
   /** Ana başlık */
   headline: string;
   /** Giriş paragrafı */
-  description: string;
+  description?: string;
 };
 
 /**
@@ -27,7 +27,7 @@ export function ServicesScrollHero({
     <header
       className={cn(
         "relative overflow-hidden border-b border-rule/28 bg-transparent [backdrop-filter:none] [-webkit-backdrop-filter:none]",
-        "flex min-h-[100svh] flex-col sm:block sm:min-h-[max(42vh,26rem)] lg:min-h-[max(40vh,28rem)]",
+        "flex min-h-[100svh] sm:min-h-[max(42vh,26rem)] lg:min-h-[max(40vh,28rem)] w-full flex-col justify-end items-start pb-8 sm:pb-12 pt-[calc(var(--header-h)+1.5rem)]",
       )}
     >
       <div
@@ -53,32 +53,22 @@ export function ServicesScrollHero({
 
       <PageShell
         width="full"
-        className={cn(
-          "relative z-10 w-full max-sm:mt-auto max-sm:pb-[max(1.25rem,env(safe-area-inset-bottom))] max-sm:pt-3 sm:mt-0 sm:pb-16 sm:pt-[calc(var(--header-h)+3.5rem)] lg:pb-20 lg:pt-[calc(var(--header-h)+4rem)]",
-        )}
+        className="relative z-10 w-full max-w-none px-4 sm:px-8 lg:px-12"
       >
-        <div className="min-w-0 max-w-2xl">
-          <div className="relative isolate overflow-hidden max-sm:rounded-none max-sm:border-0 sm:rounded-2xl sm:border sm:border-rule/28">
-            <div
-              className="pointer-events-none absolute inset-0 z-0 max-sm:hidden bg-[color-mix(in_srgb,var(--cream)_38%,transparent)] backdrop-blur-md [transition:none] [-webkit-backdrop-filter:blur(12px)]"
-              aria-hidden
-            />
-            <div className="relative z-[1] px-0 pb-0 pt-0 sm:px-7 sm:py-6">
-              <SectionLabel
-                className={cn(
-                  "max-sm:[&>span:first-of-type]:bg-cream-muted/55 max-sm:[&>span.text-gold]:text-cream-muted max-sm:[&>span.text-gold]:drop-shadow-sm sm:[&>span.text-gold]:text-sage-dark",
-                )}
-              >
-                {pageTitle}
-              </SectionLabel>
-              <h1 className="mt-5 max-w-3xl font-serif text-[1.5625rem] font-semibold leading-[1.14] tracking-tight text-ink max-sm:text-cream-muted max-sm:[text-shadow:0_2px_26px_rgba(0,0,0,0.55)] sm:text-5xl sm:leading-tight lg:text-[3.15rem] lg:leading-[1.08]">
-                {headline}
-              </h1>
-              <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-ink-muted max-sm:text-cream-muted/92 max-sm:[text-shadow:0_1px_16px_rgba(0,0,0,0.5)] sm:text-lg">
-                {description}
-              </p>
-            </div>
-          </div>
+        <div className="min-w-0">
+          <SectionLabel
+            className="text-white/80 [&>span:first-of-type]:bg-white/20"
+          >
+            {pageTitle}
+          </SectionLabel>
+          <h1 className="mt-5 max-w-3xl font-serif text-[1.5625rem] font-light leading-[1.25] tracking-tight text-white [text-shadow:0_2px_10px_rgba(0,0,0,0.6)] sm:text-4xl lg:text-[3.15rem] lg:leading-[1.08]">
+            {headline}
+          </h1>
+          {description && (
+            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-cream-muted/95 [text-shadow:0_2px_10px_rgba(0,0,0,0.6)] sm:text-lg">
+              {description}
+            </p>
+          )}
         </div>
       </PageShell>
     </header>

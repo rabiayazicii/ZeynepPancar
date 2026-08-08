@@ -148,7 +148,7 @@ export function AboutInteractiveLayout() {
                   <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-sage-light/10 border border-sage/15 text-sage">
                     <Camera className="h-4.5 w-4.5" />
                   </span>
-                  <h4 className="font-serif text-lg font-bold text-ink">Terapi Odası Detayları</h4>
+                  <h4 className="font-serif text-lg font-light text-ink">Terapi Odası Detayları</h4>
                 </div>
                 <button 
                   onClick={() => setIsModalOpen(false)}
@@ -198,7 +198,7 @@ export function AboutInteractiveLayout() {
               {/* Header */}
               <div className="flex items-center justify-between border-b border-line/20 px-6 py-4 bg-surface/50">
                 <div>
-                  <h3 className="font-serif text-lg font-bold text-ink">Eğitim & Seminerler</h3>
+                  <h3 className="font-serif text-lg font-light text-ink">Eğitim & Seminerler</h3>
                   <p className="text-xs text-ink-muted mt-0.5">Katılım sağlanan sertifika programları</p>
                 </div>
                 <button 
@@ -224,7 +224,7 @@ export function AboutInteractiveLayout() {
                           {c.category}
                         </span>
                       </div>
-                      <h4 className="mt-2.5 font-serif text-xs font-bold leading-snug text-ink">
+                      <h4 className="mt-2.5 font-serif text-xs font-light leading-snug text-ink">
                         {c.title}
                       </h4>
                       <div className="mt-1 flex items-center gap-1 text-[10px] font-semibold text-[#4a8c61]">
@@ -314,7 +314,7 @@ export function AboutInteractiveLayout() {
             whileHover={{ y: -8 }}
             className="rounded-[2.5rem] border border-[#DEE5DE]/50 bg-[#F3F5F3] p-8 shadow-[0_20px_50px_rgba(95,122,108,0.04),0_1px_3px_rgba(0,0,0,0.01)] hover:shadow-[0_35px_70px_rgba(95,122,108,0.12)] transition-all duration-500 glass cursor-default"
           >
-            <h3 className="font-serif text-base font-bold text-sage-dark flex items-center gap-2 mb-8">
+            <h3 className="font-serif text-base font-light text-sage-dark flex items-center gap-2 mb-8">
               <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#d4edda]/60 border border-[#a8d5b5]/40 text-[#4a8c61]">
                 <GraduationCap className="h-4.5 w-4.5" />
               </span>
@@ -358,7 +358,7 @@ export function AboutInteractiveLayout() {
                   <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#e8dcc8]/50 border border-[#d5c5a0]/40 text-[#8c7a4a]">
                     <Award className="h-4.5 w-4.5" />
                   </span>
-                  <h3 className="font-serif text-base font-bold text-sage-dark">
+                  <h3 className="font-serif text-base font-light text-sage-dark">
                     Eğitim & Sertifikalar
                   </h3>
                 </div>
@@ -404,7 +404,7 @@ export function AboutInteractiveLayout() {
               <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#edcfca]/50 border border-[#d5a8a0]/40 text-[#b85b50]">
                 <Award className="h-4.5 w-4.5" />
               </span>
-              <h3 className="font-serif text-base font-bold text-sage-dark">
+              <h3 className="font-serif text-base font-light text-sage-dark">
                 Çalışma Değerlerim
               </h3>
             </div>
@@ -423,7 +423,7 @@ export function AboutInteractiveLayout() {
                       <span className={`flex h-8 w-8 items-center justify-center rounded-xl border transition-all duration-300 group-hover:scale-110 ${v.iconBg} ${v.iconColor}`}>
                         <v.icon className="h-4.5 w-4.5" strokeWidth={1.5} aria-hidden />
                       </span>
-                      <h4 className={`font-serif text-sm font-bold transition-colors group-hover:opacity-80 ${v.iconColor}`}>
+                      <h4 className={`font-serif text-sm font-light transition-colors group-hover:opacity-80 ${v.iconColor}`}>
                         {v.title}
                       </h4>
                     </div>
@@ -465,7 +465,7 @@ export function AboutInteractiveLayout() {
                       <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#c8dcee]/50 border border-[#a0b8d5]/40 text-[#4a6b8c]">
                         <Camera className="h-4.5 w-4.5" />
                       </span>
-                      <h3 className="font-serif text-base font-bold text-ink group-hover:text-sage transition-colors">
+                      <h3 className="font-serif text-base font-light text-ink group-hover:text-sage transition-colors">
                         Terapi Ortamı
                       </h3>
                     </div>
@@ -492,7 +492,7 @@ export function AboutInteractiveLayout() {
                 </div>
 
                 <div className="rounded-[2.5rem] border border-accent-soft/30 bg-accent-soft/8 p-6 shadow-sm glass text-center">
-                  <h4 className="font-serif text-base font-bold text-ink">İletişime Geçin</h4>
+                  <h4 className="font-serif text-base font-light text-ink">İletişime Geçin</h4>
                   <p className="text-xs text-ink-muted mt-1.5 leading-relaxed">
                     Randevu planlamak veya terapi süreci hakkında bilgi almak için randevu sayfamızı ziyaret edebilirsiniz.
                   </p>
@@ -518,7 +518,7 @@ export function AboutInteractiveLayout() {
                     <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#e8dcc8]/50 border border-[#d5c5a0]/40 text-[#8c7a4a]">
                       <Award className="h-4.5 w-4.5" />
                     </span>
-                    <h3 className="font-serif text-base font-bold text-ink">Sertifikalar &amp; Belgeler</h3>
+                    <h3 className="font-serif text-base font-light text-ink">Sertifikalar &amp; Belgeler</h3>
                   </div>
                   <button
                     onClick={() => setActiveRightTab("media")}
@@ -541,7 +541,7 @@ export function AboutInteractiveLayout() {
                             {c.category}
                           </span>
                         </div>
-                        <h4 className="mt-2.5 font-serif text-xs font-bold leading-snug text-ink">
+                        <h4 className="mt-2.5 font-serif text-xs font-light leading-snug text-ink">
                           {c.title}
                         </h4>
                         <div className="mt-1 flex items-center gap-1 text-[10px] font-semibold text-[#4a8c61]">

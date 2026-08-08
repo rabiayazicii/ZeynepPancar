@@ -21,7 +21,7 @@ export default function AboutPage() {
           <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-sage">
             Özgeçmiş & Yaklaşım
           </p>
-          <h1 className="mt-2 font-serif text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+          <h1 className="mt-2 font-serif text-3xl font-light tracking-tight text-ink sm:text-4xl">
             Zeynep Pancar
           </h1>
           <div className="h-[2px] w-12 bg-sage/35 rounded-full mt-3" />

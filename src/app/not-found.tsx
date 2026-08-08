@@ -6,7 +6,7 @@ export default function NotFound() {
       <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sage">
         404
       </p>
-      <h1 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink">
+      <h1 className="mt-4 font-serif text-3xl font-light tracking-tight text-ink">
         Sayfa bulunamadı
       </h1>
       <p className="mt-3 max-w-md text-ink-muted">

@@ -18,7 +18,6 @@ export default function ServicesPage() {
         backdropImageSrc={aboutImageSrc(SERVICES_HERO_BACKDROP_IMAGE)}
         pageTitle="Hizmetler"
         headline="Uzmanlık alanları ve süreç"
-        description="Aşağıdaki başlıklar dil ve konuşma terapisinin yaygın alanlarını özetler. Size özel program ilk değerlendirme sonrasında netleşir; metinleri kendi klinik içeriğinizle güncelleyebilirsiniz."
       />
 
       <PageShell width="full" className="mt-14 sm:mt-20 lg:mt-24 mb-16">

@@ -23,7 +23,7 @@ export function Footer() {
                 className="h-10 w-auto shrink-0 sm:h-11"
               />
               <span className="flex flex-col leading-tight">
-                <span className="font-serif text-base font-semibold tracking-tight text-ink group-hover:text-sage sm:text-lg">
+                <span className="font-serif text-base font-light tracking-tight text-ink group-hover:text-sage sm:text-lg">
                   Zeynep Pancar
                 </span>
                 <span className="text-[9px] font-semibold uppercase tracking-[0.16em] text-sage-dark/95 sm:text-[10px]">

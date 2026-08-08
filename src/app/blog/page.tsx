@@ -28,8 +28,7 @@ export default function BlogIndexPage() {
     <main className="pb-24 lg:pb-32">
       <PageHero
         kicker="Blog"
-        title="Yazılar ve notlar"
-        description="Ailelere ve yetişkin danışanlara yönelik kısa, anlaşılır içerikler. Tıbbi teşhis yerine geçmez; şüphe halinde uzman görüşü alın."
+        title="Okuma & Bilgilenme"
         backdropImageSrc={aboutImageSrc(BLOG_PAGE_HERO_IMAGE)}
         backdropClear
       />

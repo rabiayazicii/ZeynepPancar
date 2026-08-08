@@ -70,11 +70,6 @@ export default async function BlogPostPage({ params }: Props) {
                 <Calendar className="h-3.5 w-3.5" />
                 <time dateTime={post.date}>{dateLabel}</time>
               </span>
-              <span>•</span>
-              <span className="flex items-center gap-1">
-                <Clock className="h-3.5 w-3.5" />
-                {post.readMinutes} dk okuma
-              </span>
             </div>
 
             <h1 className="font-serif text-3xl font-medium leading-[1.15] tracking-tight text-ink sm:text-4xl lg:text-5xl lg:max-w-4xl">
@@ -111,7 +106,7 @@ export default async function BlogPostPage({ params }: Props) {
                 <FadeIn key={i} delay={i * 0.05}>
                   {i === 0 ? (
                     // Lead paragraph
-                    <p className="text-[17px] leading-[1.8] text-ink font-medium sm:text-xl sm:leading-[1.85] first-letter:text-5xl first-letter:font-serif first-letter:font-bold first-letter:text-sage first-letter:float-left first-letter:mr-3 first-letter:mt-1">
+                    <p className="text-[17px] leading-[1.8] text-ink font-medium sm:text-xl sm:leading-[1.85] first-letter:text-5xl first-letter:font-serif first-letter:font-light first-letter:text-sage first-letter:float-left first-letter:mr-3 first-letter:mt-1">
                       {paragraph}
                     </p>
                   ) : (
@@ -180,7 +175,7 @@ export default async function BlogPostPage({ params }: Props) {
                     className="object-cover"
                   />
                 </div>
-                <h3 className="font-serif text-lg font-bold text-ink">Zeynep Pancar</h3>
+                <h3 className="font-serif text-lg font-light text-ink">Zeynep Pancar</h3>
                 <p className="text-xs font-semibold text-sage uppercase tracking-wider mt-1">
                   Dil ve Konuşma Terapisti & Fizyoterapist
                 </p>
@@ -202,7 +197,7 @@ export default async function BlogPostPage({ params }: Props) {
             {relatedPosts.length > 0 && (
               <FadeIn delay={0.15}>
                 <div className="rounded-3xl border border-sage/12 bg-surface/80 p-6 shadow-[0_12px_36px_rgba(95,122,108,0.06)] backdrop-blur-sm">
-                  <h3 className="font-serif text-base font-bold text-ink mb-4 flex items-center gap-2">
+                  <h3 className="font-serif text-base font-light text-ink mb-4 flex items-center gap-2">
                     <BookOpen className="h-4 w-4 text-sage" />
                     Benzer Yazılar
                   </h3>
@@ -228,7 +223,7 @@ export default async function BlogPostPage({ params }: Props) {
             <FadeIn delay={0.2}>
               <div className="rounded-3xl border border-[#a0b8d5]/30 bg-gradient-to-br from-[#c8dcee]/60 to-[#d4edda]/60 p-6 shadow-sm relative overflow-hidden">
                 <div className="pointer-events-none absolute inset-0 bg-radial-gradient(circle at 80% 20%, rgba(255,255,255,0.4), transparent 60%)" />
-                <h3 className="font-serif text-lg font-bold leading-snug text-ink mb-2 flex items-center gap-2 relative z-10">
+                <h3 className="font-serif text-lg font-light leading-snug text-ink mb-2 flex items-center gap-2 relative z-10">
                   <Send className="h-4 w-4 text-[#4a6b8c]" />
                   Randevu Alın
                 </h3>

@@ -176,7 +176,7 @@ export function HomeInteractiveLayout({ latestBlogPosts }: Props) {
             <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-sage">
               Çalışma Felsefem
             </p>
-            <h2 className="mt-2 font-serif text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+            <h2 className="mt-2 font-serif text-2xl font-light tracking-tight text-ink sm:text-3xl">
               Her bireyin ihtiyacı farklı.
             </h2>
           </FadeIn>
@@ -193,7 +193,7 @@ export function HomeInteractiveLayout({ latestBlogPosts }: Props) {
                   >
                     <item.icon className="h-5 w-5" strokeWidth={1.5} />
                   </span>
-                  <h3 className={`mt-5 font-serif text-base font-bold transition-colors ${item.iconColor}`}>
+                  <h3 className={`mt-5 font-serif text-base font-light transition-colors ${item.iconColor}`}>
                     {item.title}
                   </h3>
                   <p className="mt-3 flex-1 text-xs sm:text-sm leading-relaxed text-ink-muted">
@@ -234,7 +234,7 @@ export function HomeInteractiveLayout({ latestBlogPosts }: Props) {
                 <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-sage">
                   Hakkımda
                 </p>
-                <h2 className="mt-2 font-serif text-2xl font-bold tracking-tight text-ink sm:text-3xl lg:text-4xl">
+                <h2 className="mt-2 font-serif text-2xl font-light tracking-tight text-ink sm:text-3xl lg:text-4xl">
                   Bilimsel temelli,
                   <br />
                   <span className="text-[#4a8c61]">insani bir yaklaşım.</span>
@@ -303,7 +303,7 @@ export function HomeInteractiveLayout({ latestBlogPosts }: Props) {
               <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-sage">
                 Hizmetler
               </p>
-              <h2 className="mt-2 font-serif text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+              <h2 className="mt-2 font-serif text-2xl font-light tracking-tight text-ink sm:text-3xl">
                 Uzmanlık Alanları
               </h2>
             </FadeIn>
@@ -338,7 +338,7 @@ export function HomeInteractiveLayout({ latestBlogPosts }: Props) {
                       </span>
                       <ArrowRight className="h-3.5 w-3.5 opacity-30 transition group-hover:translate-x-1 group-hover:opacity-80" />
                     </div>
-                    <h3 className={`mt-1.5 font-serif text-sm font-bold ${s.titleColor}`}>
+                    <h3 className={`mt-1.5 font-serif text-sm font-light ${s.titleColor}`}>
                       {s.title}
                     </h3>
                     <p className="mt-2 text-xs leading-relaxed text-ink-muted">
@@ -361,7 +361,7 @@ export function HomeInteractiveLayout({ latestBlogPosts }: Props) {
             <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-sage">
               Nasıl İlerliyoruz?
             </p>
-            <h2 className="mt-2 font-serif text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+            <h2 className="mt-2 font-serif text-2xl font-light tracking-tight text-ink sm:text-3xl">
               Terapi süreci, adım adım.
             </h2>
           </FadeIn>
@@ -379,7 +379,7 @@ export function HomeInteractiveLayout({ latestBlogPosts }: Props) {
                   >
                     {row.n}
                   </span>
-                  <h3 className="mt-4 font-serif text-sm font-bold text-ink">
+                  <h3 className="mt-4 font-serif text-sm font-light text-ink">
                     {row.title}
                   </h3>
                   <p className="mt-2 flex-1 text-xs leading-relaxed text-ink-muted">
@@ -411,7 +411,7 @@ export function HomeInteractiveLayout({ latestBlogPosts }: Props) {
                 <Lock className="h-3.5 w-3.5" />
                 Güvenilirlik
               </p>
-              <h2 className="mt-2 font-serif text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              <h2 className="mt-2 font-serif text-2xl font-light tracking-tight text-white sm:text-3xl">
                 Gizlilik ve Güven
               </h2>
               <div className="mt-2 h-[2px] w-10 rounded-full bg-[#d4edda]/60" />
@@ -443,7 +443,7 @@ export function HomeInteractiveLayout({ latestBlogPosts }: Props) {
               <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-sage">
                 Blog
               </p>
-              <h2 className="mt-2 font-serif text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+              <h2 className="mt-2 font-serif text-2xl font-light tracking-tight text-ink sm:text-3xl">
                 Yazılar ve Rehberler
               </h2>
               <p className="mt-2 text-xs sm:text-sm text-ink-muted max-w-sm leading-relaxed">
@@ -489,7 +489,7 @@ export function HomeInteractiveLayout({ latestBlogPosts }: Props) {
                     <span className="text-[9px] font-bold uppercase tracking-widest text-[#4a8c61]">
                       {latestBlogPosts[0].category}
                     </span>
-                    <h3 className="mt-2 font-serif text-base font-bold leading-snug text-ink transition group-hover:text-[#4a8c61] sm:text-lg">
+                    <h3 className="mt-2 font-serif text-base font-light leading-snug text-ink transition group-hover:text-[#4a8c61] sm:text-lg">
                       <Link href={`/blog/${latestBlogPosts[0].slug}`}>
                         {latestBlogPosts[0].title}
                       </Link>
@@ -532,7 +532,7 @@ export function HomeInteractiveLayout({ latestBlogPosts }: Props) {
                         <span className="text-[9px] font-bold uppercase tracking-widest text-[#4a8c61]">
                           {post.category}
                         </span>
-                        <h3 className="mt-1 font-serif text-xs font-bold leading-snug text-ink line-clamp-2 transition group-hover:text-[#4a8c61]">
+                        <h3 className="mt-1 font-serif text-xs font-light leading-snug text-ink line-clamp-2 transition group-hover:text-[#4a8c61]">
                           <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                         </h3>
                         <span className="mt-1.5 text-[10px] text-ink-muted">

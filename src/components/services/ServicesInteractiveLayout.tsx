@@ -163,7 +163,7 @@ export function ServicesInteractiveLayout() {
                   <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#c8dcee]/50 border border-[#a0b8d5]/40 text-[#4a6b8c]">
                     <Camera className="h-4.5 w-4.5" />
                   </span>
-                  <h4 className="font-serif text-lg font-bold text-ink">Terapi Odası Detayları</h4>
+                  <h4 className="font-serif text-lg font-light text-ink">Terapi Odası Detayları</h4>
                 </div>
                 <button 
                   onClick={() => setIsModalOpen(false)}
@@ -204,7 +204,7 @@ export function ServicesInteractiveLayout() {
               variants={mainCardVariants}
               className="scroll-mt-32 rounded-[2.5rem] border border-sage/12 bg-surface/50 p-8 sm:p-10 shadow-[0_20px_50px_rgba(95,122,108,0.04),0_1px_3px_rgba(0,0,0,0.01)] hover:shadow-[0_35px_70px_rgba(95,122,108,0.12)] hover:-translate-y-2.5 transition-all duration-500 glass cursor-default"
             >
-              <h2 className={`font-serif text-xl font-bold tracking-tight sm:text-2xl transition-colors ${s.titleColor}`}>
+              <h2 className={`font-serif text-xl font-light tracking-tight sm:text-2xl transition-colors ${s.titleColor}`}>
                 {s.title}
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-ink-muted sm:text-[15px]">
@@ -291,13 +291,13 @@ export function ServicesInteractiveLayout() {
                     </p>
                     <div className="mt-4 grid gap-3 sm:grid-cols-2">
                       <div className="rounded-xl border border-[#e8dcc8]/60 bg-[#FAF7F3]/70 p-3.5 transition-all hover:bg-[#FAF7F3]">
-                        <h5 className="font-serif text-xs font-bold text-[#8c7a4a]">Tutuk Afazi</h5>
+                        <h5 className="font-serif text-xs font-light text-[#8c7a4a]">Tutuk Afazi</h5>
                         <p className="mt-1 text-[11px] leading-relaxed text-ink-muted">
                           Dilin motor bileşenlerindeki bozukluk nedeniyle konuşmanın yavaş, çaba gerektiren ve sınırlı olması durumudur. Hasarın konumuna göre farklı alt klinik özellikler gösterir.
                         </p>
                       </div>
                       <div className="rounded-xl border border-[#d4edda]/60 bg-[#EEF5F0]/70 p-3.5 transition-all hover:bg-[#EEF5F0]">
-                        <h5 className="font-serif text-xs font-bold text-[#4a8c61]">Akıcı Afazi</h5>
+                        <h5 className="font-serif text-xs font-light text-[#4a8c61]">Akıcı Afazi</h5>
                         <p className="mt-1 text-[11px] leading-relaxed text-ink-muted">
                           Konuşmanın dilbilgisi kurallarına uygun ve akıcı olduğu ancak üretilen kelimelerin anlamsız ya da neolojizm (yeni anlamsız kelime uydurma) içerdiği, anlama becerilerinin de belirgin derecede bozulduğu durumudur.
                         </p>
@@ -326,7 +326,7 @@ export function ServicesInteractiveLayout() {
                   <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#c8dcee]/50 border border-[#a0b8d5]/40 text-[#4a6b8c]">
                     <Camera className="h-4.5 w-4.5" />
                   </span>
-                  <h3 className="font-serif text-base font-bold text-ink group-hover:text-sage transition-colors">
+                  <h3 className="font-serif text-base font-light text-ink group-hover:text-sage transition-colors">
                     Terapi Ortamı
                   </h3>
                 </div>
@@ -356,7 +356,7 @@ export function ServicesInteractiveLayout() {
           {/* Sık Sorulanlar FAQ */}
           <FadeIn delay={0.08}>
             <div className="rounded-[2.5rem] border border-sage/12 bg-surface/50 p-6 sm:p-8 shadow-[0_20px_50px_rgba(95,122,108,0.04),0_1px_3px_rgba(0,0,0,0.01)] glass">
-              <h3 className="font-serif text-base font-bold text-ink flex items-center gap-2">
+              <h3 className="font-serif text-base font-light text-ink flex items-center gap-2">
                 <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#d4edda]/60 border border-[#a8d5b5]/40 text-[#4a8c61]">
                   <ChevronRight className="h-4.5 w-4.5" />
                 </span>

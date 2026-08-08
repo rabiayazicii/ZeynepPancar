@@ -15,9 +15,9 @@ export default function ContactPage() {
       <PageHero
         kicker="İletişim"
         title="Randevu ve sorular"
-        description="Formu doldurabilir veya doğrudan arayabilirsiniz. Form demo amaçlıdır; canlıya almak için e-posta servisi veya API bağlanabilir."
         backdropImageSrc={aboutImageSrc(CONTACT_PAGE_IMAGE)}
         backdropClear
+        imagePosition="object-[50%_75%] sm:object-[50%_80%]"
       />
 
       <ContactForm />

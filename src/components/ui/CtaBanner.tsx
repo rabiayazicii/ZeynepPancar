@@ -42,7 +42,7 @@ export function CtaBanner({
           <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-white/70">
             {subtitle}
           </p>
-          <h2 className="mt-2 font-serif text-2xl font-bold tracking-tight text-white sm:text-3xl">
+          <h2 className="mt-2 font-serif text-2xl font-light tracking-tight text-white sm:text-3xl">
             {title}
           </h2>
           <div className="mt-2 h-[2px] w-10 rounded-full bg-white/30" />

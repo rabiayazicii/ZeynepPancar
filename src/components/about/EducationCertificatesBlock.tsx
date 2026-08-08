@@ -59,7 +59,7 @@ export function EducationCertificatesBlock({ compact = false }: BlockProps) {
             />
             <span
               id="edu-cert-title"
-              className="min-w-0 flex-1 font-serif text-2xl font-semibold tracking-tight text-ink sm:text-[1.75rem]"
+              className="min-w-0 flex-1 font-serif text-2xl font-light tracking-tight text-ink sm:text-[1.75rem]"
             >
               Eğitim ve sertifikalar
             </span>

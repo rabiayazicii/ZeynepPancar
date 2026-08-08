@@ -77,7 +77,7 @@ export function CertificateGrid({ className, expanded = true }: Props) {
                   </span>
                 </div>
                 
-                <h4 className="mt-4 font-serif text-[15.5px] font-bold leading-snug text-ink sm:text-base group-hover/card:text-sage-dark transition-colors duration-300">
+                <h4 className="mt-4 font-serif text-[15.5px] font-light leading-snug text-ink sm:text-base group-hover/card:text-sage-dark transition-colors duration-300">
                   {c.title}
                 </h4>
                 

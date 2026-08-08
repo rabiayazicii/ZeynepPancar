@@ -68,7 +68,7 @@ export function BlogInteractiveLayout({ posts }: { posts: BlogPost[] }) {
                     </span>
                   </div>
                   <h3 className={cn(
-                    "font-serif text-lg font-bold leading-snug mb-2 transition-colors",
+                    "font-serif text-lg font-light leading-snug mb-2 transition-colors",
                     isActive ? color.text : "text-ink group-hover:text-ink/80"
                   )}>
                     {post.title}
@@ -126,14 +126,10 @@ export function BlogInteractiveLayout({ posts }: { posts: BlogPost[] }) {
                     <Calendar className="h-4 w-4" />
                     {new Date(activePost.date).toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" })}
                   </span>
-                  <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F0F5FA]/80 border border-[#c8dcee] text-[#4a6b8c]">
-                    <Clock className="h-4 w-4" />
-                    {activePost.readMinutes} dakika okuma süresi
-                  </span>
                 </div>
 
                 {/* Title */}
-                <h2 className="font-serif text-3xl font-bold tracking-tight text-[#2a3630] sm:text-4xl">
+                <h2 className="font-serif text-3xl font-light tracking-tight text-[#2a3630] sm:text-4xl">
                   {activePost.title}
                 </h2>
 
@@ -142,7 +138,7 @@ export function BlogInteractiveLayout({ posts }: { posts: BlogPost[] }) {
                   {activePost.content.map((paragraph, i) => (
                     <FadeIn key={i} delay={i * 0.05}>
                       {i === 0 ? (
-                        <p className="text-[16px] leading-[1.8] text-ink font-medium first-letter:text-5xl first-letter:font-serif first-letter:font-bold first-letter:text-sage first-letter:float-left first-letter:mr-3 first-letter:mt-1">
+                        <p className="text-[16px] leading-[1.8] text-ink font-medium first-letter:text-5xl first-letter:font-serif first-letter:font-light first-letter:text-sage first-letter:float-left first-letter:mr-3 first-letter:mt-1">
                           {paragraph}
                         </p>
                       ) : (

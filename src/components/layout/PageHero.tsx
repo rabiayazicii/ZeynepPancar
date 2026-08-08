@@ -27,6 +27,8 @@ type Props = {
   visualOnly?: boolean;
   /** Arka plan fotoğrafının üzerinde gradient / nokta deseni yok. Metin buzlu panel (sabit blur, FadeIn yok). */
   backdropClear?: boolean;
+  /** Image object-position override */
+  imagePosition?: string;
 };
 
 /**
@@ -45,6 +47,7 @@ export function PageHero({
   backdropStrongTextScrim = false,
   visualOnly = false,
   backdropClear = false,
+  imagePosition,
 }: Props) {
   const clearBackdrop = Boolean(backdropImageSrc && backdropClear);
   const strongScrim = backdropStrongTextScrim && !visualOnly && !clearBackdrop;
@@ -67,13 +70,11 @@ export function PageHero({
       ) : null}
       <h1
         className={cn(
-          "max-w-3xl font-serif text-[1.5625rem] font-semibold leading-[1.14] tracking-tight text-ink sm:text-5xl sm:leading-tight lg:text-[3.15rem] lg:leading-[1.08]",
+          "max-w-3xl font-serif text-[1.5625rem] font-light leading-[1.25] tracking-tight sm:text-4xl lg:text-[3.15rem] lg:leading-[1.08]",
           kicker ? "mt-5" : "",
-          backdropImageSrc &&
-            strongScrim &&
-            "[text-shadow:0_0_1px_rgba(255,253,246,0.95),0_2px_24px_rgba(253,245,201,0.85)]",
-          onClearPhoto &&
-            "max-sm:text-cream-muted max-sm:[text-shadow:0_2px_26px_rgba(0,0,0,0.55)]",
+          onClearPhoto
+            ? "text-white [text-shadow:0_2px_10px_rgba(0,0,0,0.6)]"
+            : "text-ink"
         )}
       >
         {title}
@@ -82,11 +83,9 @@ export function PageHero({
         <p
           className={cn(
             "mt-5 max-w-2xl leading-relaxed",
-            backdropImageSrc && strongScrim
-              ? "text-ink/95 [text-shadow:0_1px_18px_rgba(253,245,201,0.9)]"
-              : "text-ink-muted",
-            onClearPhoto &&
-              "max-sm:text-cream-muted/92 max-sm:[text-shadow:0_1px_16px_rgba(0,0,0,0.5)]",
+            onClearPhoto 
+              ? "text-cream-muted/95 [text-shadow:0_2px_10px_rgba(0,0,0,0.6)]" 
+              : (backdropImageSrc && strongScrim ? "text-ink/95 [text-shadow:0_1px_18px_rgba(253,245,201,0.9)]" : "text-ink-muted"),
             descriptionPlain
               ? "text-[15px] sm:text-[17px]"
               : "text-[15px] sm:text-base md:text-lg",
@@ -106,20 +105,8 @@ export function PageHero({
           "lg:grid lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start lg:gap-x-10 xl:gap-x-14",
       )}
     >
-      <div className={cn("min-w-0", onClearPhoto && "max-w-2xl")}>
-        {onClearPhoto ? (
-          <div className="relative isolate overflow-hidden max-sm:rounded-none max-sm:border-0 sm:rounded-2xl sm:border sm:border-rule/28">
-            <div
-              className="pointer-events-none absolute inset-0 z-0 max-sm:hidden bg-[color-mix(in_srgb,var(--cream)_38%,transparent)] backdrop-blur-md [transition:none] [-webkit-backdrop-filter:blur(12px)]"
-              aria-hidden
-            />
-            <div className="relative z-[1] px-0 pb-0 pt-0 sm:px-7 sm:py-6">
-              {titleBlock}
-            </div>
-          </div>
-        ) : (
-          titleBlock
-        )}
+      <div className="min-w-0">
+        {titleBlock}
       </div>
       {aside ? (
         <div className="mt-10 flex shrink-0 justify-center lg:mt-0 lg:justify-end lg:pl-2">
@@ -139,7 +126,7 @@ export function PageHero({
         /* Arka plan: kısa metin sayfaları da yeterli band; max(vh,rem) — uzunluğu abartmamak için orta taban */
         backdropImageSrc &&
           (clearBackdrop
-            ? "flex min-h-[100vh] flex-col sm:block sm:min-h-[max(42vh,26rem)] lg:min-h-[max(40vh,28rem)]"
+            ? "flex min-h-[100svh] sm:min-h-[max(42vh,26rem)] lg:min-h-[max(40vh,28rem)] w-full flex-col justify-end items-start pb-8 sm:pb-12 pt-[calc(var(--header-h)+1.5rem)]"
             : "min-h-[max(44vh,24rem)] sm:min-h-[max(42vh,26rem)] lg:min-h-[max(40vh,28rem)]"),
         className,
       )}
@@ -168,11 +155,11 @@ export function PageHero({
               fill
               className={cn(
                 "object-cover",
-                strongScrim && "object-[42%_38%] saturate-[1.05]",
-                !strongScrim &&
+                imagePosition || (strongScrim && "object-[42%_38%] saturate-[1.05]"),
+                !imagePosition && !strongScrim &&
                   clearBackdrop &&
                   "max-sm:object-[48%_58%] sm:object-[50%_32%]",
-                !strongScrim &&
+                !imagePosition && !strongScrim &&
                   !clearBackdrop &&
                   backdropImageSrc &&
                   "object-[50%_32%]",
@@ -229,11 +216,9 @@ export function PageHero({
         width="full"
         className={cn(
           "relative z-10 w-full",
-          visualOnly
-            ? "pb-8 pt-[calc(var(--header-h)+2rem)] sm:pb-10 sm:pt-[calc(var(--header-h)+2.5rem)] lg:pb-12 lg:pt-[calc(var(--header-h)+3rem)]"
-            : clearBackdrop
-              ? "max-sm:mt-auto max-sm:pb-[max(1.25rem,env(safe-area-inset-bottom))] max-sm:pt-3 sm:mt-0 sm:pb-20 sm:pt-[calc(var(--header-h)+4rem)] lg:pb-24 lg:pt-[calc(var(--header-h)+5rem)]"
-              : "pb-14 pt-[calc(var(--header-h)+3.5rem)] sm:pb-20 sm:pt-[calc(var(--header-h)+4rem)] lg:pb-24 lg:pt-[calc(var(--header-h)+5rem)]",
+          clearBackdrop && "max-w-none px-4 sm:px-8 lg:px-12",
+          !clearBackdrop && "pb-14 pt-[calc(var(--header-h)+3.5rem)] sm:pb-20 sm:pt-[calc(var(--header-h)+4rem)] lg:pb-24 lg:pt-[calc(var(--header-h)+5rem)]",
+          visualOnly && "pb-8 pt-[calc(var(--header-h)+2rem)] sm:pb-10 sm:pt-[calc(var(--header-h)+2.5rem)] lg:pb-12 lg:pt-[calc(var(--header-h)+3rem)]",
           shellClassName,
         )}
       >

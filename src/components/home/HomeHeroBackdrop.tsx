@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/cn";
 
 const SLIDE_INTERVAL_MS = 6000;
@@ -53,6 +54,14 @@ export function HomeHeroBackdrop({ slides, children }: Props) {
     [slides.length],
   );
 
+  const prevSlide = useCallback(() => {
+    setIndex((n) => (n - 1 + slides.length) % slides.length);
+  }, [slides.length]);
+
+  const nextSlide = useCallback(() => {
+    setIndex((n) => (n + 1) % slides.length);
+  }, [slides.length]);
+
   useEffect(() => {
     const id = window.setInterval(() => {
       setIndex((n) => (n + 1) % slides.length);
@@ -84,15 +93,33 @@ export function HomeHeroBackdrop({ slides, children }: Props) {
               className="object-cover object-center"
               sizes="100vw"
               priority={i === 0}
-              quality={88}
+              quality={100}
             />
           </div>
         ))}
       </div>
 
       {/* İçerik — sol başlangıç hizalaması */}
-      <div className="relative z-[3] flex min-h-[100vh] w-full flex-col justify-end items-start pb-24 pt-[calc(var(--header-h)+1.5rem)] text-left px-4 sm:px-8">
+      <div className="relative z-[3] flex min-h-[100svh] w-full flex-col justify-end items-start pb-24 pt-[calc(var(--header-h)+1.5rem)] text-left px-4 sm:px-8">
         {children}
+      </div>
+
+      {/* Navigation Arrows */}
+      <div className="absolute inset-y-0 left-0 right-0 z-[4] flex items-center justify-between px-2 sm:px-6 pointer-events-none">
+        <button
+          onClick={prevSlide}
+          className="pointer-events-auto flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-black/20 text-white/90 backdrop-blur-md transition-all hover:bg-black/40 hover:text-white hover:scale-105 active:scale-95"
+          aria-label="Önceki Görsel"
+        >
+          <ChevronLeft className="h-6 w-6 sm:h-8 sm:w-8" strokeWidth={1.5} />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="pointer-events-auto flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-black/20 text-white/90 backdrop-blur-md transition-all hover:bg-black/40 hover:text-white hover:scale-105 active:scale-95"
+          aria-label="Sonraki Görsel"
+        >
+          <ChevronRight className="h-6 w-6 sm:h-8 sm:w-8" strokeWidth={1.5} />
+        </button>
       </div>
 
       {/* Slayt göstergesi — mobilde sol alta, masaüstünde ortada */}

@@ -12,28 +12,28 @@ export function aboutImageSrc(fileName: string) {
 export const homeHeroCarouselSlides = [
   {
     id: "slide-1",
-    file: "IMG_6892.jpeg",
-    title: "Profil",
-    caption: "Zeynep Pancar — klinik çalışması",
+    file: "speech.jpg",
+    title: "Klinik",
+    caption: "Klinik ortam",
   },
   {
     id: "slide-2",
-    file: "IMG_6877.jpeg",
-    title: "Seans ortamı",
-    caption: "Sakin ve düzenli bir çalışma alanı",
+    file: "paintbaby.jpg",
+    title: "Materyaller",
+    caption: "Zengin terapi materyalleri",
   },
   {
     id: "slide-3",
-    file: "IMG_6884.jpeg",
-    title: "Terapi süreci",
-    caption: "Bireysel ihtiyaçlara göre planlanan seanslar",
+    file: "woods.jpg",
+    title: "Terapi",
+    caption: "Birebir etkileşim",
   },
   {
     id: "slide-4",
-    file: "IMG_6889.jpeg",
-    title: "Materyaller",
-    caption: "Yaşa uygun araç ve etkinlikler",
-  },
+    file: "paper.jpg",
+    title: "Terapi",
+    caption: "Birebir etkileşim",
+  }
 ] satisfies ReadonlyArray<{
   id: string;
   file: string;
@@ -48,28 +48,28 @@ export const HOME_TRUST_SECTION_IMAGE = "IMG_6890.jpeg";
 export const SERVICES_SIDEBAR_IMAGE = "IMG_6887.jpeg";
 
 /** Hizmetler — hero başlık bandı arkası (saydam dekor) */
-export const SERVICES_HERO_BACKDROP_IMAGE = "3d-rendering-pen-ai-generated.jpg";
+export const SERVICES_HERO_BACKDROP_IMAGE = "cubeswith.jpg";
 
 /** Blog — hero başlık bandı arkası */
-export const BLOG_PAGE_HERO_IMAGE = "blog.jpg";
+export const BLOG_PAGE_HERO_IMAGE = "yazilar.jpg";
 
 /** İletişim — hero arkası */
-export const CONTACT_PAGE_IMAGE = "contact2.jpg";
+export const CONTACT_PAGE_IMAGE = "call.jpg";
 
 const blogCoverBySlug: Record<string, string> = {
-  "ekran-suresi-ve-dil-gelisimi": "PHOTO-2026-04-21-00-30-14 3.jpg",
-  "yaslara-gore-dil-gelisimi-rehberi": "PHOTO-2026-04-21-00-30-15 3.jpg",
-  "inme-sonrasi-konusma-terapisi": "therapy.jpg",
+  "ekran-suresi-ve-dil-gelisimi": "screen.jpg",
+  "yaslara-gore-dil-gelisimi-rehberi": "womandoingspeechtherapy.jpg",
+  "inme-sonrasi-konusma-terapisi": "words.jpg",
   "afazi-nedir-ve-tedavisi": "uzmanlik2.jpg",
-  "konusma-sesi-bozuklugu-nedir": "PHOTO-2026-04-21-00-30-18.jpg",
-  "ses-sagligimizi-korumak-icin-oneriler": "PHOTO-2026-04-21-00-30-19.jpg",
+  "konusma-sesi-bozuklugu-nedir": "children.jpg",
+  "ses-sagligimizi-korumak-icin-oneriler": "mic.jpg",
 };
 
 export function getBlogCoverImage(slug: string): string {
   return blogCoverBySlug[slug] ?? "IMG_6889.jpeg";
 }
 
-export const ABOUT_PORTRAIT_FILE = "IMG_6870.jpeg";
+export const ABOUT_PORTRAIT_FILE = "anasayfazeynosu.jpg";
 
 /** Polaroid şeridi (3 kare) */
 export const aboutPolaroidFiles = [
