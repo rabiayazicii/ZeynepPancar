@@ -7,8 +7,8 @@ import { PageShell } from "@/components/layout/PageShell";
 import { cn } from "@/lib/cn";
 import { ContactMapEmbed } from "./ContactMapEmbed";
 
-const PHONE_DISPLAY = "+90 532 100 20 24";
-const PHONE_HREF = "tel:+905321002024";
+const PHONE_DISPLAY = "0538 520 65 83";
+const PHONE_HREF = "tel:+905385206583";
 const EMAIL_DISPLAY = "iletisim@zeyneppancar.com";
 const EMAIL_HREF = `mailto:${EMAIL_DISPLAY}`;
 

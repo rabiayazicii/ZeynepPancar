@@ -58,7 +58,7 @@ export function CtaBanner({
               <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
             </Link>
             <Link
-              href="tel:+905321002024"
+              href="tel:+905385206583"
               className="text-xs font-semibold text-white/70 transition hover:text-white"
             >
               veya arayın

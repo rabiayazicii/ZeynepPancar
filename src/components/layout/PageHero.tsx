@@ -139,7 +139,7 @@ export function PageHero({
         /* Arka plan: kısa metin sayfaları da yeterli band; max(vh,rem) — uzunluğu abartmamak için orta taban */
         backdropImageSrc &&
           (clearBackdrop
-            ? "flex min-h-[100svh] flex-col sm:block sm:min-h-[max(42vh,26rem)] lg:min-h-[max(40vh,28rem)]"
+            ? "flex min-h-[100dvh] flex-col sm:block sm:min-h-[max(42vh,26rem)] lg:min-h-[max(40vh,28rem)]"
             : "min-h-[max(44vh,24rem)] sm:min-h-[max(42vh,26rem)] lg:min-h-[max(40vh,28rem)]"),
         className,
       )}

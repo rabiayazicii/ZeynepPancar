@@ -56,7 +56,7 @@ export function BlogInteractiveLayout({ posts }: { posts: BlogPost[] }) {
                   onClick={() => handleCardClick(post.slug)}
                   className={cn(
                     "group relative w-full text-left rounded-3xl p-5 transition-all duration-300",
-                    isActive ? "bg-white shadow-sm border border-line/45" : "bg-transparent border border-transparent hover:bg-black/[0.03]"
+                    isActive ? "bg-[#EEF5F0]/80 shadow-sm border border-[#a8d5b5]/50" : "bg-transparent border border-transparent hover:bg-black/[0.03]"
                   )}
                 >
                   <div className="flex items-center gap-3 mb-3">
@@ -93,7 +93,7 @@ export function BlogInteractiveLayout({ posts }: { posts: BlogPost[] }) {
             {/* Mobile Close Button */}
             <button
               onClick={handleClose}
-              className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-black/5 text-ink hover:bg-black/10 lg:hidden transition"
+              className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-[#FAF3F2] text-[#b85b50] border border-[#edcfca]/60 shadow-sm hover:bg-[#F5E6E3] hover:text-[#8c5a4a] lg:hidden transition-all duration-300"
               aria-label="Kapat"
             >
               <X className="h-5 w-5" />
@@ -121,19 +121,19 @@ export function BlogInteractiveLayout({ posts }: { posts: BlogPost[] }) {
                 </div>
 
                 {/* Header Info */}
-                <div className="flex flex-wrap items-center gap-4 text-xs font-medium text-ink-muted">
-                  <span className="flex items-center gap-1.5">
-                    <Calendar className="h-4 w-4 text-sage" />
+                <div className="flex flex-wrap items-center gap-4 text-xs font-semibold">
+                  <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#EEF5F0]/80 border border-[#d4edda] text-[#4a8c61]">
+                    <Calendar className="h-4 w-4" />
                     {new Date(activePost.date).toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" })}
                   </span>
-                  <span className="flex items-center gap-1.5">
-                    <Clock className="h-4 w-4 text-sage" />
+                  <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F0F5FA]/80 border border-[#c8dcee] text-[#4a6b8c]">
+                    <Clock className="h-4 w-4" />
                     {activePost.readMinutes} dakika okuma süresi
                   </span>
                 </div>
 
                 {/* Title */}
-                <h2 className="font-serif text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+                <h2 className="font-serif text-3xl font-bold tracking-tight text-[#2a3630] sm:text-4xl">
                   {activePost.title}
                 </h2>
 

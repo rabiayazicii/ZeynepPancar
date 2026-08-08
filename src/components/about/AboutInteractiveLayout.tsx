@@ -184,17 +184,19 @@ export function AboutInteractiveLayout() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center bg-background/80 backdrop-blur-md p-4 sm:p-6 lg:hidden"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-[#121614]/30 backdrop-blur-md p-4 sm:p-6 lg:hidden"
+            onClick={() => setIsMobileCertOpen(false)}
           >
             <motion.div 
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "100%" }}
-              transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-              className="w-full max-w-2xl max-h-[90svh] bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden"
+              initial={{ scale: 0.95, y: 20, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.95, y: 20, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-2xl max-h-[85vh] flex flex-col bg-white/95 rounded-[2.5rem] border border-sage/18 shadow-2xl glass overflow-hidden"
             >
               {/* Header */}
-              <div className="flex items-center justify-between p-4 sm:p-6 border-b border-line/30 bg-surface/30">
+              <div className="flex items-center justify-between border-b border-line/20 px-6 py-4 bg-surface/50">
                 <div>
                   <h3 className="font-serif text-lg font-bold text-ink">Eğitim & Seminerler</h3>
                   <p className="text-xs text-ink-muted mt-0.5">Katılım sağlanan sertifika programları</p>
@@ -209,16 +211,41 @@ export function AboutInteractiveLayout() {
               </div>
 
               {/* Body (Scrollable List) */}
-              <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4">
-                {certificates.map((cert, i) => (
-                  <div key={i} className="rounded-2xl border border-line/20 bg-background/30 p-4 transition-all hover:bg-background/60 shadow-sm">
-                    <h4 className="font-serif text-sm font-bold text-sage-dark">{cert.title}</h4>
-                    <div className="mt-2.5 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-ink-muted/80">
-                      <span className="flex items-center gap-1.5"><Building2 className="h-3.5 w-3.5" />{cert.issuer}</span>
-                      <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5" />{cert.category}</span>
+              <div className="flex-1 overflow-y-auto p-6 space-y-4 scrollbar-thin">
+                {certificates.map((c) => {
+                  const href = certificateUrl(c.fileName);
+                  return (
+                    <div
+                      key={c.id}
+                      className="rounded-2xl border border-[#d4edda]/60 bg-[#EEF5F0]/50 p-4 transition-all duration-300 hover:border-[#a8d5b5]/60 hover:bg-[#d4edda]/40"
+                    >
+                      <div className="flex items-start justify-between gap-2">
+                        <span className={`rounded-full px-2 py-0.5 text-[8px] font-semibold uppercase tracking-wider ${categoryColors[c.category] ?? "bg-[#d4edda]/60 text-[#4a8c61] border border-[#a8d5b5]/40"}`}>
+                          {c.category}
+                        </span>
+                      </div>
+                      <h4 className="mt-2.5 font-serif text-xs font-bold leading-snug text-ink">
+                        {c.title}
+                      </h4>
+                      <div className="mt-1 flex items-center gap-1 text-[10px] font-semibold text-[#4a8c61]">
+                        <span>{c.issuer}</span>
+                      </div>
+                      <p className="mt-2 text-[10px] leading-relaxed text-ink-muted">
+                        {c.description}
+                      </p>
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-3.5 inline-flex w-full items-center justify-center gap-1.5 rounded-xl border border-[#a8d5b5]/40 bg-[#d4edda]/50 py-1.5 text-[10px] font-bold text-[#4a8c61] transition duration-300 hover:bg-[#4a8c61] hover:text-white"
+                      >
+                        <FileText className="h-3 w-3" />
+                        Görüntüle
+                        <ExternalLink className="h-2.5 w-2.5 opacity-60" />
+                      </a>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </motion.div>
           </motion.div>
