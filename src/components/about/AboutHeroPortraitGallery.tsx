@@ -74,14 +74,14 @@ export function AboutHeroPortraitGallery() {
           {/* Sol / Sağ Ok Tuşları — Hover'da belirir */}
           <button
             onClick={handlePrev}
-            className="absolute left-3 top-1/2 -translate-y-1/2 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-black/40 text-cream-muted backdrop-blur-sm opacity-0 group-hover:opacity-100 transition duration-300 hover:bg-black/60 focus:opacity-100"
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-black/40 text-cream-muted backdrop-blur-sm opacity-100 md:opacity-0 md:group-hover:opacity-100 transition duration-300 hover:bg-black/60 focus:opacity-100"
             aria-label="Önceki fotoğraf"
           >
             <ChevronLeft className="h-5 w-5" />
           </button>
           <button
             onClick={handleNext}
-            className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-black/40 text-cream-muted backdrop-blur-sm opacity-0 group-hover:opacity-100 transition duration-300 hover:bg-black/60 focus:opacity-100"
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-black/40 text-cream-muted backdrop-blur-sm opacity-100 md:opacity-0 md:group-hover:opacity-100 transition duration-300 hover:bg-black/60 focus:opacity-100"
             aria-label="Sonraki fotoğraf"
           >
             <ChevronRight className="h-5 w-5" />

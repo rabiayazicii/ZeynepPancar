@@ -100,7 +100,7 @@ export function HomeHeroBackdrop({ slides, children }: Props) {
       </div>
 
       {/* İçerik — sol başlangıç hizalaması */}
-      <div className="relative z-[3] flex min-h-[100dvh] w-full flex-col justify-end items-start pb-24 pt-[calc(var(--header-h)+1.5rem)] text-left px-4 sm:px-8">
+      <div className="relative z-[3] flex min-h-[100dvh] w-full flex-col justify-end items-start pb-16 sm:pb-24 pt-[calc(var(--header-h)+1.5rem)] text-left px-12 sm:px-20 lg:px-24">
         {children}
       </div>
 

@@ -252,7 +252,7 @@ export function AboutInteractiveLayout() {
       </AnimatePresence>
 
       {/* Sol Kolon: Biyografi, Eğitim, Değerler (Zarif, soft pastel renkli kartlar) */}
-      <div className="space-y-10 lg:col-span-7 xl:col-span-8">
+      <div className="order-2 lg:order-1 space-y-10 lg:col-span-7 xl:col-span-8">
         
         {/* 1. Biyografi Giriş Kartı (Soft Pastel Krem/Keten) */}
         <FadeIn>
@@ -436,9 +436,60 @@ export function AboutInteractiveLayout() {
           </div>
         </FadeIn>
 
+      {/* Mobile only: Terapi Ortamı and İletişime Geçin (these appear at the bottom on mobile) */}
+      <div className="lg:hidden space-y-10">
+        <div 
+          onClick={() => setIsModalOpen(true)}
+          className="rounded-[2.5rem] border border-sage/12 bg-surface/50 p-6 shadow-[0_20px_50px_rgba(95,122,108,0.04),0_1px_3px_rgba(0,0,0,0.01)] hover:shadow-[0_35px_70px_rgba(95,122,108,0.12)] hover:-translate-y-2 transition-all duration-500 cursor-pointer relative group glass"
+        >
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2">
+              <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#c8dcee]/50 border border-[#a0b8d5]/40 text-[#4a6b8c]">
+                <Camera className="h-4.5 w-4.5" />
+              </span>
+              <h3 className="font-serif text-base font-light text-ink group-hover:text-sage transition-colors">
+                Terapi Ortamı
+              </h3>
+            </div>
+            <span className="text-[10px] text-sage font-semibold uppercase tracking-wider flex items-center gap-0.5">
+              İncele →
+            </span>
+          </div>
+          <p className="text-xs leading-relaxed text-ink-muted mb-4">
+            Klinikten bekleme ve oyun/terapi odası görsellerini modern bir pencerede tam boy incelemek için tıklayın.
+          </p>
+          <div className="rounded-2xl overflow-hidden border border-line/30 p-1 bg-background shadow-inner pointer-events-none relative aspect-[16/10]">
+            <Image
+              src={aboutImageSrc(aboutGalleryFiles[0])}
+              alt="Terapi Odası kapak görseli"
+              fill
+              className="object-cover rounded-xl"
+            />
+            <div className="absolute inset-0 bg-black/10 flex items-center justify-center">
+              <span className="px-3 py-1.5 bg-white/90 text-sage-dark text-[10px] font-bold rounded-full shadow-md backdrop-blur-sm">
+                Görselleri Aç
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div className="rounded-[2.5rem] border border-accent-soft/30 bg-accent-soft/8 p-6 shadow-sm glass text-center">
+          <h4 className="font-serif text-base font-light text-ink">İletişime Geçin</h4>
+          <p className="text-xs text-ink-muted mt-1.5 leading-relaxed">
+            Randevu planlamak veya terapi süreci hakkında bilgi almak için randevu sayfamızı ziyaret edebilirsiniz.
+          </p>
+          <Link
+            href="/iletisim"
+            className="btn-primary mt-5 w-full py-2.5 text-xs font-semibold rounded-full text-center"
+          >
+            Randevu Alın
+          </Link>
+        </div>
       </div>
 
-      <aside id="right-column-aside" className="lg:col-span-5 xl:col-span-4 scroll-mt-24">
+      </div>
+
+      <aside id="right-column-aside" className="order-1 lg:order-2 lg:col-span-5 xl:col-span-4 scroll-mt-24">
         <div className="lg:sticky lg:top-24">
           
           <AnimatePresence mode="wait">
@@ -457,7 +508,7 @@ export function AboutInteractiveLayout() {
 
                 <div 
                   onClick={() => setIsModalOpen(true)}
-                  className="rounded-[2.5rem] border border-sage/12 bg-surface/50 p-6 shadow-[0_20px_50px_rgba(95,122,108,0.04),0_1px_3px_rgba(0,0,0,0.01)] hover:shadow-[0_35px_70px_rgba(95,122,108,0.12)] hover:-translate-y-2 transition-all duration-500 cursor-pointer relative group glass"
+                  className="hidden lg:block rounded-[2.5rem] border border-sage/12 bg-surface/50 p-6 shadow-[0_20px_50px_rgba(95,122,108,0.04),0_1px_3px_rgba(0,0,0,0.01)] hover:shadow-[0_35px_70px_rgba(95,122,108,0.12)] hover:-translate-y-2 transition-all duration-500 cursor-pointer relative group glass"
                 >
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
@@ -490,7 +541,7 @@ export function AboutInteractiveLayout() {
                   </div>
                 </div>
 
-                <div className="rounded-[2.5rem] border border-accent-soft/30 bg-accent-soft/8 p-6 shadow-sm glass text-center">
+                <div className="hidden lg:block rounded-[2.5rem] border border-accent-soft/30 bg-accent-soft/8 p-6 shadow-sm glass text-center">
                   <h4 className="font-serif text-base font-light text-ink">İletişime Geçin</h4>
                   <p className="text-xs text-ink-muted mt-1.5 leading-relaxed">
                     Randevu planlamak veya terapi süreci hakkında bilgi almak için randevu sayfamızı ziyaret edebilirsiniz.
