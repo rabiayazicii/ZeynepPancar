@@ -12,7 +12,7 @@ export function aboutImageSrc(fileName: string) {
 export const homeHeroCarouselSlides = [
   {
     id: "slide-1",
-    file: "speech.jpg",
+    file: "kid-doing-occupational-therapy-session.jpg",
     title: "Klinik",
     caption: "Klinik ortam",
   },
@@ -48,7 +48,7 @@ export const HOME_TRUST_SECTION_IMAGE = "IMG_6890.jpeg";
 export const SERVICES_SIDEBAR_IMAGE = "IMG_6887.jpeg";
 
 /** Hizmetler — hero başlık bandı arkası (saydam dekor) */
-export const SERVICES_HERO_BACKDROP_IMAGE = "yazilar.jpg";
+export const SERVICES_HERO_BACKDROP_IMAGE = "close-up-smiley-daughter-mother.jpg";
 
 /** Blog — hero başlık bandı arkası */
 export const BLOG_PAGE_HERO_IMAGE = "read2.jpg";

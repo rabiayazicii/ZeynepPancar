@@ -1,6 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SITE_LOGO_SRC } from "@/lib/about-images";
+import {
+  ADDRESS_LINES,
+  EMAIL_DISPLAY,
+  EMAIL_HREF,
+  PHONE_DISPLAY,
+  PHONE_HREF,
+  WORKING_HOURS,
+} from "@/lib/contact-info";
 
 export function Footer() {
   return (
@@ -70,9 +78,33 @@ export function Footer() {
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sage">
               İletişim
             </p>
-            <p className="mt-5 text-sm leading-relaxed text-ink-muted">
-              E-posta ve telefon bilgileri iletişim sayfasında yer almaktadır.
-            </p>
+            <address className="mt-5 space-y-3 text-sm not-italic leading-relaxed text-ink-muted">
+              <p>
+                {ADDRESS_LINES.map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
+              </p>
+              <p>
+                <a href={EMAIL_HREF} className="break-all transition-colors hover:text-sage">
+                  {EMAIL_DISPLAY}
+                </a>
+              </p>
+              <p>
+                <a href={PHONE_HREF} className="tabular-nums transition-colors hover:text-sage">
+                  {PHONE_DISPLAY}
+                </a>
+              </p>
+              <ul className="space-y-1">
+                {WORKING_HOURS.map((w) => (
+                  <li key={w.days}>
+                    <span className="text-ink">{w.days}:</span>{" "}
+                    <span className="tabular-nums">{w.hours}</span>
+                  </li>
+                ))}
+              </ul>
+            </address>
           </div>
         </div>
         <div className="border-t border-rule/22 py-6 text-center text-xs text-ink-muted/75">

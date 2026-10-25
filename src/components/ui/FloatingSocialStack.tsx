@@ -42,7 +42,8 @@ export function FloatingSocialStack() {
   ];
 
   return (
-    <div className="fixed bottom-6 right-3 sm:bottom-8 sm:right-8 z-50 flex flex-col gap-3 sm:gap-4">
+    <div className="fixed bottom-6 right-3 sm:bottom-8 sm:right-8 z-50 flex flex-col items-end gap-3 sm:gap-4">
+      <div className="flex flex-col items-center gap-3 sm:gap-4">
       {socialLinks.map((link, index) => {
         return (
           <motion.a
@@ -62,6 +63,7 @@ export function FloatingSocialStack() {
           </motion.a>
         );
       })}
+      </div>
     </div>
   );
 }

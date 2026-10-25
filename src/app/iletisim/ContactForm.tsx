@@ -6,11 +6,16 @@ import { FadeIn } from "@/components/FadeIn";
 import { PageShell } from "@/components/layout/PageShell";
 import { cn } from "@/lib/cn";
 import { ContactMapEmbed } from "./ContactMapEmbed";
+import { ContactBubble } from "@/components/ui/ContactBubble";
 
-const PHONE_DISPLAY = "0538 520 65 83";
-const PHONE_HREF = "tel:+905385206583";
-const EMAIL_DISPLAY = "iletisim@zeyneppancar.com";
-const EMAIL_HREF = `mailto:${EMAIL_DISPLAY}`;
+import {
+  ADDRESS_LINES,
+  EMAIL_DISPLAY,
+  EMAIL_HREF,
+  PHONE_DISPLAY,
+  PHONE_HREF,
+  WORKING_HOURS,
+} from "@/lib/contact-info";
 
 function Kicker({ children }: { children: React.ReactNode }) {
   return (
@@ -90,9 +95,9 @@ export function ContactForm() {
                 Hızlı iletişim
               </h2>
               <p className="mt-3 max-w-sm text-sm leading-relaxed text-ink-muted sm:text-[15px]">
-                Aşağıdaki bilgiler örnektir; yayına alırken kendi telefon ve adresinizle
-                güncelleyebilirsiniz.
+                Randevu ve bilgi almak için aşağıdaki kanallardan bana ulaşabilirsiniz.
               </p>
+              <ContactBubble variant="inline" className="mt-6" />
 
               <ul className="mt-8 divide-y divide-sage/15">
                 <li className="flex gap-4 pb-6">
@@ -153,9 +158,11 @@ export function ContactForm() {
                       Adres
                     </p>
                     <p className="mt-2 text-pretty text-[15px] leading-relaxed text-ink-muted">
-                      Adapazarı / Sakarya
-                      <br />
-                      Türkiye
+                      {ADDRESS_LINES.map((line) => (
+                        <span key={line} className="block">
+                          {line}
+                        </span>
+                      ))}
                     </p>
                   </div>
                 </li>
@@ -172,12 +179,14 @@ export function ContactForm() {
                     <p className="text-xs font-semibold uppercase tracking-[0.14em] text-sage/90">
                       Çalışma saatleri
                     </p>
-                    <p className="mt-2 text-pretty text-[15px] leading-relaxed text-ink-muted">
-                      Hafta içi 09:00–18:00 · Cumartesi 10:00–14:00
-                    </p>
-                    <p className="mt-2 text-sm text-ink-muted/80">
-                      Pazar ve resmi tatillerde kapalı (örnek metin).
-                    </p>
+                    <ul className="mt-2 space-y-1.5 text-pretty text-[15px] leading-relaxed text-ink-muted">
+                      {WORKING_HOURS.map((w) => (
+                        <li key={w.days}>
+                          <span className="font-medium text-ink">{w.days}:</span>{" "}
+                          <span className="tabular-nums">{w.hours}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </li>
               </ul>

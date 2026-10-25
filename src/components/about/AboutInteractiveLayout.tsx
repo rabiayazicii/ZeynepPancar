@@ -212,7 +212,7 @@ export function AboutInteractiveLayout() {
               {/* Body (Scrollable List) */}
               <div className="flex-1 overflow-y-auto p-6 space-y-4 scrollbar-thin">
                 {certificates.map((c) => {
-                  const href = certificateUrl(c.fileName);
+                  const href = c.fileName ? certificateUrl(c.fileName) : null;
                   return (
                     <div
                       key={c.id}
@@ -232,6 +232,7 @@ export function AboutInteractiveLayout() {
                       <p className="mt-2 text-[10px] leading-relaxed text-ink-muted">
                         {c.description}
                       </p>
+                      {href && (
                       <a
                         href={href}
                         target="_blank"
@@ -242,6 +243,7 @@ export function AboutInteractiveLayout() {
                         Görüntüle
                         <ExternalLink className="h-2.5 w-2.5 opacity-60" />
                       </a>
+                      )}
                     </div>
                   );
                 })}
@@ -580,7 +582,7 @@ export function AboutInteractiveLayout() {
 
                 <div className="max-h-[78vh] overflow-y-auto space-y-4 pr-1 scrollbar-thin">
                   {certificates.map((c) => {
-                    const href = certificateUrl(c.fileName);
+                    const href = c.fileName ? certificateUrl(c.fileName) : null;
                     return (
                       <div
                         key={c.id}
@@ -600,6 +602,7 @@ export function AboutInteractiveLayout() {
                         <p className="mt-2 text-[10px] leading-relaxed text-ink-muted">
                           {c.description}
                         </p>
+                        {href && (
                         <a
                           href={href}
                           target="_blank"
@@ -610,6 +613,7 @@ export function AboutInteractiveLayout() {
                           Görüntüle
                           <ExternalLink className="h-2.5 w-2.5 opacity-60" />
                         </a>
+                        )}
                       </div>
                     );
                   })}

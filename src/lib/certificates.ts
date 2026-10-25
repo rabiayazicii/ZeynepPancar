@@ -3,7 +3,8 @@ export const CERTIFICATE_BASE = "/zp-sertifikalar";
 
 export type CertificateItem = {
   id: string;
-  fileName: string;
+  /** Belge dosyası yoksa boş bırakın; "Görüntüle" butonu gizlenir. */
+  fileName?: string;
   title: string;
   kind: "image" | "pdf";
   issuer: string;
@@ -88,6 +89,14 @@ export const certificates: CertificateItem[] = [
     issuer: "Kızılboğa Kekemelik Terapisi Enstitüsü",
     category: "Akıcılık Terapisi",
     description: "Çocuklarda kekemelik ve akıcılık bozukluklarına yönelik bütüncül terapi yaklaşımı.",
+  },
+  {
+    id: "zihin-kurami",
+    title: "Zihin Kuramı ve Sosyal Beceri Eğitimi",
+    kind: "pdf",
+    issuer: "Mesleki Gelişim Eğitimi",
+    category: "Sosyal İletişim",
+    description: "Çocuklarda zihin kuramı becerilerini ve sosyal becerileri destekleme eğitimi.",
   },
 ];
 

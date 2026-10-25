@@ -54,7 +54,7 @@ export function CertificateGrid({ className, expanded = true }: Props) {
       )}
     >
       {certificates.map((c) => {
-        const href = certificateUrl(c.fileName);
+        const href = c.fileName ? certificateUrl(c.fileName) : null;
 
         return (
           <motion.li
@@ -91,6 +91,7 @@ export function CertificateGrid({ className, expanded = true }: Props) {
                 </p>
               </div>
 
+              {href && (
               <div className="mt-6 border-t border-sage/10 pt-4">
                 <a
                   href={href}
@@ -103,6 +104,7 @@ export function CertificateGrid({ className, expanded = true }: Props) {
                   <ExternalLink className="h-3 w-3 opacity-60 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                 </a>
               </div>
+              )}
             </div>
           </motion.li>
         );
